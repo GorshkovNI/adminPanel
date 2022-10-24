@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Open+Sans:wght@300&family=Raleway:wght@300;400;500;600&family=Ubuntu&display=swap");
+
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0rem;
+    border: 0;
+    border-radius: 0.25rem;
+    cursor: pointer;
+  }
+  
+  .big {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0.5rem 1rem;
+    margin: 0;
+    height: 2rem;
+    border: 0;
+    border-radius: 0.25rem;
+  }
+
+  .buttonIcon {
+    box-sizing: border-box;
+    width: 1rem;
+    height: 1rem;
+  }
+  
+  .buttonIcon + .area {
+    margin-left: 0.5rem;
+  }
+  
+  .medium {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 0.5rem 1rem;
+    margin: 0;
+    height: 2rem;
+    border: 0;
+    border-radius: 0.25rem;
+  }
+  
+  .small {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 0.5rem;
+    margin: 0;
+    height: 2rem;
+    border: 0;
+    border-radius: 0.25rem;
+  }
+  
+  .area {
+    margin-right: 1rem;
+    margin: 0;
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.8125rem;
+    line-height: 1rem;
+    color: var(--white);
+  }
+  
+  .small .buttonIcon {
+    margin: 0;
+  }
+  
+  .primary {
+    background-color: var(--color-blue);
+  }
+  
+  .primary .buttonIcon {
+    stroke: var(--white);
+    fill: var(--white);
+  }
+
+  .secondary {
+    background-color: transparent;
+  }
+  
+  .secondary .buttonIcon {
+    stroke: var(--color-blue);
+    fill: var(--color-blue);
+  }
+ 
+  .secondary .load{
+    fill: none;
+    stroke: none;
+  }
+
+  .secondary .area {
+    color: var(--color-blue);
+  }
+  
+  .secondaryBlack {
+    background-color: transparent;
+  }
+  
+  .secondaryBlack .area {
+    color: var(--color-bla);
+  }
+  
+  .secondaryBlack .buttonIcon {
+    stroke: var(--black);
+    fill: var(--black)
+  }
+  
+
+
+  

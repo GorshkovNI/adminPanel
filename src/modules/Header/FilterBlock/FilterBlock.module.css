@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Open+Sans:wght@300&family=Raleway:wght@300;400;500;600&family=Ubuntu&display=swap");
+
+.wrapper{
+    display: flex;
+    background-color: #EBF0F5;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-size: 0.8125rem;
+    font-weight: 400;
+}
+
+.filters{
+    display: flex;
+    position: relative;
+    gap: 1rem;
+}
+
+.text{
+    display: inline-block;
+    height: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.dateInput{
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.button{
+    position: absolute;
+    top: 1.5rem;
+    right: -9rem;
+}
