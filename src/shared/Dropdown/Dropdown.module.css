@@ -35,5 +35,13 @@
     cursor: pointer;
   }
   
+  .dropdownCell{
+    display: flex;
+  }
+
+  .text:hover{
+    color: var(--color-blue);
+  }
+  
 
   

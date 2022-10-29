@@ -11,17 +11,15 @@ export const filterName = [
   { id: 6, label: 'Отменен' },
 ];
 
-const printFilter = filterName.map((current) => (
-  <li className={styles.item} key={current.id}>
-    <CheckBox label={current.label} key={current.id} />
-  </li>
-));
-
-export const Dropdown = (props) => {
+export const Dropdown = () => {
   return (
     <div className={styles.dropdown}>
-      <ul className={styles.list} onChange={props.showText}>
-        {printFilter}
+      <ul className={styles.list} >
+        {filterName.map((current) => (
+          <li className={styles.item} key={current.id}>
+            <CheckBox label={current.label} key={current.id} />
+          </li>
+        ))}
       </ul>
     </div>
   );

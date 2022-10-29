@@ -120,13 +120,13 @@
     position: absolute;
     top: 2rem;
     left: calc(100% - 10rem);
-    opacity: 1;
-    transition: opacity .2s ease-in;
+    display: block;
+    transition: display .2s ease-in;
   }
 
   .active{
-    opacity: 0;
-    transition: opacity 0.2s ease-in;
+    display: none;
+    transition: display 0.2s ease-in;
   }
 
 

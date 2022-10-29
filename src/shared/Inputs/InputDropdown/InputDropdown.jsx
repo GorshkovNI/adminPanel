@@ -12,6 +12,7 @@ const areaTypes = {
 };
 
 export const InputDropdown = (props) => {
+
   const areaSize = cn(styles.area, {
     [styles.default]: areaTypes.default === props.size,
     [styles.medium]: areaTypes.medium === props.size,

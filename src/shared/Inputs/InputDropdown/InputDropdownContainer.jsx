@@ -15,7 +15,6 @@ export const InputDropdownContainer = (props) => {
   const fillInput = (e) => {
     let value = e.target.value;
     let index = arrFilterValue.indexOf(value);
-    console.log(typeof value, index);
     index <= -1
       ? setFilterValue([...arrFilterValue, value])
       : setFilterValue([
@@ -26,14 +25,13 @@ export const InputDropdownContainer = (props) => {
   };
 
   return (
-    <StateContext.Provider value={{ returnText: fillInput }}>
       <InputDropdown
         size={props.size}
         placeheolder={props.placeheolder}
         isVisible={handleIsVisible}
         visible={visible}
         value={arrFilterValue}
+        fillInput={fillInput}
       />
-    </StateContext.Provider>
   );
 };
