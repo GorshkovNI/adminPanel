@@ -1,0 +1,84 @@
+
+.container {
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-size: 0.8125rem;
+  font-weight: 400;
+}
+
+.inputLabel {
+  display: inline-block;
+  height: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.area{
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+  /* width: 16rem; */
+  height: 2rem;
+  border: 1px solid var(--color-blue);
+  border-radius: 0.25rem;
+  background-color: var(--white);
+}
+
+.input {
+  box-sizing: border-box;
+  width: calc(100% - 1.75rem);
+  height: 1rem;
+  border: 0;
+  margin: 0;
+  margin-left: 0.5rem;
+  padding: 0.5rem 0.25rem 0.5rem 0.25rem;
+  color: var(--black);
+  caret-color: transparent;
+}
+
+.input::placeholder {
+  color: var(--color-light-blue);
+}
+
+.input:focus {
+  outline: none;
+}
+
+.incorrect .area {
+  border: 1px solid var(--color-red);
+}
+
+.incorrect .input {
+  width: calc(100% - 1.9rem);
+}
+
+.buttonAction {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.actionIcon {
+  height: 1rem;
+  width: 1rem;
+  cursor: pointer;
+  margin-right: 0.25rem;
+  stroke: var(--color-light-blue);
+  fill: var(--color-light-blue);
+}
+
+.dropdown{
+  position: absolute;
+  top: 2.25rem;
+  left: calc(100% - 10rem);
+}
+
+
+
+
+

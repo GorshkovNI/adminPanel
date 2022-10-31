@@ -1,0 +1,23 @@
+.text{
+    display: inline-block;
+    height: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.dateInput{
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.small{
+    width: 9rem;
+  }
+
+  .lsmall{
+    width: 8rem;
+  }
+
+  .medium{
+    width: 12rem;
+  }

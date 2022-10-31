@@ -1,71 +1,48 @@
-@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Open+Sans:wght@300&family=Raleway:wght@300;400;500;600&family=Ubuntu&display=swap");
 
-:root {
-  --color-blue: #459df5;
-  --color-red: #f53152;
-  --color-light-blue: #bad8f5;
-  --black: #000000;
-  --white: #ffff;
-  --border: #7758d3;
-}
-
-.input {
+.container {
     font-family: "Ubuntu";
     font-style: normal;
     font-size: 0.8125rem;
     font-weight: 400;
-    cursor: pointer;
   }
   
   .inputLabel {
     display: inline-block;
     height: 1rem;
     margin-bottom: 0.5rem;
-    cursor: pointer;
   }
   
-  .area {
-    position: relative;
+  .area{
     display: flex;
     align-items: center;
     box-sizing: border-box;
-    width: 16rem;
+    position: relative;
+    /* width: 16rem; */
     height: 2rem;
     border: 1px solid var(--color-blue);
     border-radius: 0.25rem;
     background-color: var(--white);
-    cursor: pointer;
-  }
-
-  .small{
-    width: 9rem;
-  }
-
-  .lsmall{
-    width: 8rem;
-  }
-
-  .medium{
-    width: 12rem;
   }
   
-  .area .text {
+  .label{
+    margin-left: 0.5rem;
+  }
+  
+  .input {
     box-sizing: border-box;
     width: calc(100% - 1.75rem);
     height: 1rem;
     border: 0;
     margin: 0;
-    padding: 0.5rem 0.25rem 0.5rem 0.5rem;
+    padding: 0.5rem 0.25rem 0.5rem 0.25rem;
     color: var(--black);
-    caret-color: transparent;
-    cursor: pointer;
   }
   
-  .text::placeholder {
+  .input::placeholder {
     color: var(--color-light-blue);
   }
   
-  .text:focus {
+  .input:focus {
     outline: none;
   }
   
@@ -73,7 +50,7 @@
     border: 1px solid var(--color-red);
   }
   
-  .incorrect .text {
+  .incorrect .input {
     width: calc(100% - 1.9rem);
   }
 
@@ -92,6 +69,8 @@
     height: 1rem;
     width: 1rem;
     cursor: pointer;
+    margin-right: 0.25rem;
+    stroke: var(--color-light-blue);
     fill: var(--color-light-blue);
   }
   
@@ -103,31 +82,25 @@
     background-color: var(--color-light-blue);
   }
   
-  .disabled .text {
+  .disabled .input {
     width: calc(100% - 1.9rem);
     background-color: var(--color-light-blue);
   }
   
-  .disabled .text::placeholder {
+  .disabled .input::placeholder {
     color: var(--black);
   }
   
   .IconDisabled {
+    height: 1rem;
+    width: 1rem;
+    cursor: pointer;
+    margin-right: 0.25rem;
     fill: var(--black);
   }
 
-  .dropdown{
-    position: absolute;
-    top: 2rem;
-    left: calc(100% - 10rem);
-    display: block;
-    transition: display .2s ease-in;
+  .IconNormal{
+    stroke: var(--color-light-blue);
+    fill: var(--color-light-blue);
   }
-
-  .active{
-    display: none;
-    transition: display 0.2s ease-in;
-  }
-
-
   

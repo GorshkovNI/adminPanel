@@ -6,7 +6,9 @@ export const InfoBlock = () => {
   return (
     <div className={styles.wrapper}>
       <span className={styles.label}>Список заказов</span>
-      <Button size='big' type='secondary' text='Светлая тема' icon='sun' />
+      <Button type='transparent' text='Светлая тема' icon='sun'>
+        Светлая тема
+      </Button>
     </div>
   );
 };

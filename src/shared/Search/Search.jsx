@@ -1,37 +1,35 @@
-import React from 'react';
-import { SvgSelector } from '../../SvgSelector';
+import React, { useState } from 'react';
+import { Icon } from '../Icons/Icon';
 import styles from './Search.module.css';
 
-const noop = () => {};
+export const Search = ({ placeholder }) => {
+  const [isActive, setIsActive] = useState(false);
+  const [value, setValue] = useState('');
 
-export const Search = ({
-  onCheckedEmpty = noop,
-  deleteText = noop,
-  ...props
-}) => {
+  let onCheckedEmpty = (e) => {
+    e.target.value === '' ? setIsActive(false) : setIsActive(true);
+    setValue(e.target.value);
+  };
+
+  let onDelete = () => {
+    setIsActive(false);
+    setValue('');
+  };
+
   return (
     <div className={styles.searchbar}>
       <div className={styles.area}>
-        <SvgSelector className={styles.icon} id='search' />
+        <Icon name='search' className={styles.icon} />
         <input
           className={styles.text}
           type='text'
-          placeholder={props.placeholder}
-          value={props.value}
+          placeholder={placeholder}
+          value={value}
           onChange={onCheckedEmpty}
         />
-        {props.isActive && (
-          <button className={styles.searchButtonClose}>
-            <svg
-              className={`${styles.buttonIcon} ${styles.iconClose}`}
-              viewBox='0 0 16 16'
-              fill='none'
-              stroke='#8055FF'
-              xmlns='http://www.w3.org/2000/svg'
-              onClick={deleteText}
-            >
-              <path d='M12.5 3.5L3.5 12.5M3.5 3.5L12.5 12.5' fill='none' />
-            </svg>
+        {isActive && (
+          <button className={styles.searchButtonClose} onClick={onDelete}>
+            <Icon name='xMedium' className={styles.buttonIcon} />
           </button>
         )}
       </div>

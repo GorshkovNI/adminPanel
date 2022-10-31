@@ -26,13 +26,8 @@
   
   .item {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    height: 2rem;
-    padding: 0.5rem 3rem 0.5rem 1rem;
-    background-color: inherit;
-    box-sizing: border-box;
-    cursor: pointer;
+    flex-direction: column;
+    width: 100%;
   }
   
   .dropdownCell{
