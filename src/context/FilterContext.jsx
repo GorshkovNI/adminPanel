@@ -82,11 +82,13 @@ export const FilterContextProvider = ({ children }) => {
   const [valueFromInputDropdown, setValueFromInputDropdown] = useState([]);
 
   const handlerCheckedStatus = (e) => {
+    {console.log('Начало ',valueFromInputDropdown)}
     setValueFromInputDropdown(
       !valueFromInputDropdown.includes(e.target.value)
       ? [...valueFromInputDropdown, e.target.value]
       : valueFromInputDropdown.filter((item) => item !== e.target.value)
     )
+    {console.log('Конец ', valueFromInputDropdown)}
   };
 
 
