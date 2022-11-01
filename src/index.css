@@ -1,12 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Open+Sans:wght@300&family=Raleway:wght@300;400;500;600&family=Ubuntu&display=swap");
 
-:root {
+:root[data-theme="light"]{
   --color-blue: #459df5;
   --color-red: #f53152;
   --color-light-blue: #bad8f5;
   --black: #000000;
   --white: #ffff;
   --border: #7758d3;
+  --filter-color:#EBF0F5;
+  --check-white: #ffff;
+}
+
+:root[data-theme="dark"]{
+  --color-blue: #459df5;
+  --color-red: #f53152;
+  --color-light-blue: #bad8f5;
+  --black: #BCC4CC;
+  --white: #2B2D33;
+  --border: #7758d3;
+  --filter-color:#171B1F;
+  --check-white: #ffff;
 }
 
 body {
@@ -16,6 +29,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 }
 
 code {

@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useContext } from 'react';
+import { FilterContext } from '../../../context/FilterContext';
 import { Button } from '../../../shared/Button/Button';
 import { Icon } from '../../../shared/Icons/Icon';
 import { Search } from '../../../shared/Search/Search';
@@ -6,7 +8,9 @@ import { FilterBlock } from '../FilterBlock/FilterBlock';
 import styles from './SearchBlock.module.css';
 
 export const SearchBlock = () => {
+  
   const [isActive, setIsActive] = useState(false);
+  const { filterStore } = useContext(FilterContext)
 
   const handleActive = () => {
     setIsActive(!isActive);
@@ -16,11 +20,16 @@ export const SearchBlock = () => {
     <div>
       <div className={styles.wrapper}>
         <div className={styles.filter}>
-          <Search placeholder='Номер заказа или ФИО' />
+          <Search 
+            value={filterStore.search.value}
+            onChange={filterStore.search.onChange}
+            onReset={filterStore.search.onReset}
+            placeholder='Номер заказа или ФИО' 
+          />
           <Button icon='filter' onClick={handleActive}>
             Фильтры
           </Button>
-          <Button type='transparent'>Сбросить фильтры</Button>
+          <Button mode='transparent' onClick={filterStore.search.onResetAll}>Сбросить фильтры</Button>
         </div>
         <div className={styles.loadArea}>
           <Icon name='refresh' className={styles.icon} />

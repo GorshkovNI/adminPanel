@@ -1,0 +1,26 @@
+.container{
+  position: relative;
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  caret-color: transparent;
+  width: 12rem;
+}
+
+.dropdown{
+  position: absolute;
+  width: 10rem;
+  top: 2.25rem;
+  left: calc(100% - 10rem);
+}
+
+.checkboxText{
+    height: 2rem;
+    padding: 0.5rem 3rem 0.5rem 1rem;
+    background-color: inherit;
+    box-sizing: border-box;
+    cursor: pointer; 
+  }
+
+

@@ -3,14 +3,12 @@ import styles from './Checkbox.module.css';
 import { Icon } from '../Icons/Icon';
 import cn from 'classnames';
 
-//const noop = () => {}
-
 export const CheckBox = ({ id, label, className, checked, onChange }) => {
-  const labelSetting = cn(styles.checkbox, className);
+  const labelClassName = cn(styles.checkbox, className);
 
   return (
     <label>
-      <div className={labelSetting}>
+      <div className={labelClassName}>
         <div className={styles.label}>
           <input
             className={styles.input}

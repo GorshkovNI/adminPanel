@@ -3,7 +3,7 @@
   box-sizing: border-box;
   width: 1rem;
   height: 1rem;
-  background: #FFFFFF;
+  background: var(--white);
   border: 1px solid #BAD8F5;
   border-radius: 2px;
 }
@@ -36,7 +36,7 @@
   height: 1rem;
   left: 0;
   right: 0;
-  fill: var(--white);
+  fill: var(--check-white);
   opacity: 0;
   transition: 0.1s ease-in;
 }
@@ -53,6 +53,7 @@
 .input:checked + .area .icon{
   opacity: 1;
   transition: 0.1s ease-in;
+  background-color: var(--color-blue);
 } 
 
 .input:checked ~ .text{
@@ -61,6 +62,7 @@
 
 .text{
   cursor: pointer;
+  color: var(--black);
 }
 
 

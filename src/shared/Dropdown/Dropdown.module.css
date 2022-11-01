@@ -1,8 +1,6 @@
 .dropdown {
     display: flex;
     flex-direction: column;
-    width: 10rem;
-    height: 13rem;
     padding: 0.5rem 0;
     border-radius: 0.5rem;
     background-color: var(--white);
@@ -36,6 +34,11 @@
 
   .text:hover{
     color: var(--color-blue);
+  }
+
+  .label{
+    margin-bottom: 0.5rem;
+    color: var(--black);
   }
   
 

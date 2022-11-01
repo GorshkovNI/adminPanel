@@ -1,7 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Open+Sans:wght@300&family=Raleway:wght@300;400;500;600&family=Ubuntu&display=swap");
-
 
 .wrapper{
+    position: relative;
     display: flex;
     justify-content: space-between;
     margin-bottom: 2rem;
@@ -14,4 +13,29 @@
     font-size: 26px;
     line-height: 32px;
     color: var(--black);
-  }
+}
+
+.button{
+   padding: 0.25rem 0.5rem;
+}
+
+.dropdownBox{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.listItem{
+    padding: 0.5rem 1rem;
+}
+
+.dropdownArea{
+    position: absolute;
+    top: 2rem;
+    right: 0;
+    z-index: 1;
+}
+
+.active{
+    color: tomato;
+}

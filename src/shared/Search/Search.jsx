@@ -1,20 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Icon } from '../Icons/Icon';
 import styles from './Search.module.css';
 
-export const Search = ({ placeholder }) => {
-  const [isActive, setIsActive] = useState(false);
-  const [value, setValue] = useState('');
-
-  let onCheckedEmpty = (e) => {
-    e.target.value === '' ? setIsActive(false) : setIsActive(true);
-    setValue(e.target.value);
-  };
-
-  let onDelete = () => {
-    setIsActive(false);
-    setValue('');
-  };
+export const Search = ({ 
+  value,
+  onChange,
+  onReset,
+  placeholder 
+}) => {
 
   return (
     <div className={styles.searchbar}>
@@ -25,10 +18,10 @@ export const Search = ({ placeholder }) => {
           type='text'
           placeholder={placeholder}
           value={value}
-          onChange={onCheckedEmpty}
+          onChange={onChange}
         />
-        {isActive && (
-          <button className={styles.searchButtonClose} onClick={onDelete}>
+        {!!value && (
+          <button className={styles.searchButtonClose} onClick={onReset}>
             <Icon name='xMedium' className={styles.buttonIcon} />
           </button>
         )}

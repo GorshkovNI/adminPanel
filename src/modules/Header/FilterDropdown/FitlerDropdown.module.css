@@ -1,7 +1,13 @@
+.infoBlock{
+  background-color: var(--filter-color);
+}
+
 .text{
     display: inline-block;
     height: 1rem;
     margin-bottom: 0.5rem;
+    color: var(--black);
+    background-color: var(--filter-color);
 }
 
 .standart{

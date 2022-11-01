@@ -9,13 +9,38 @@ const inputSize = {
   lsmall: styles.lsmall,
 };
 
-export const FilterMoney = () => {
+export const FilterMoney = ({
+  filterData:{
+    valueTo,
+    valueFrom,
+    onChangeTo,
+    onChangeFrom,
+    onResetTo,
+    onResetFrom
+  }
+}) => {
   return (
     <div className={styles.infoBlock}>
-      <span className={styles.text}>Дата заказа</span>
+      <span className={styles.text}>Сумма заказа</span>
       <div className={styles.dateInput}>
-        <Input className={inputSize.small} prefix='от' placeholder='₽' />
-        <Input className={inputSize.small} prefix='до' placeholder='₽' />
+        <Input 
+          className={inputSize.small} 
+          value={valueTo}
+          onChange={onChangeTo}
+          onClick={onResetTo}
+          prefix='от' 
+          placeholder='₽' 
+          nameIcon='xMedium'
+        />
+        <Input 
+          className={inputSize.small} 
+          value={valueFrom}
+          onChange={onChangeFrom}
+          onClick={onResetFrom}
+          prefix='до' 
+          placeholder='₽' 
+          nameIcon='xMedium'
+        />
       </div>
     </div>
   );

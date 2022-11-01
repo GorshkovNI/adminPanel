@@ -1,3 +1,4 @@
+
 import React from 'react';
 import styles from './Button.module.css';
 import cn from 'classnames';
@@ -11,15 +12,15 @@ const buttonTypes = {
 };
 
 export const Button = ({
-  className,
-  type = 'primary',
+ 
+  mode = 'primary',
   icon,
   children,
-  onClick = noop,
+  onClick = noop
 }) => {
-  const buttonClassName = cn(styles.button, className, {
-    [styles.primary]: type === buttonTypes.primary,
-    [styles.transparent]: type === buttonTypes.transparent,
+  const buttonClassName = cn(styles.button, {
+    [styles.primary]: mode === buttonTypes.primary,
+    [styles.transparent]: mode === buttonTypes.transparent,
     [styles.onlyIcon]: !children && icon,
   });
 
