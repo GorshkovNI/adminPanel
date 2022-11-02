@@ -16,22 +16,21 @@ export const InfoBlock = () => {
     setVisible(!visible)
   }
 
-  
   return (
     <div className={styles.wrapper}>
       <span className={styles.label}>Список заказов</span>
       <Button mode='transparent' icon='sun' onClick={handlerVisible}>
         <span>Светлая тема</span>
       </Button>
-      {visible && 
-        (<div className={styles.dropdownArea}>
+      {visible &&  
+        <div className={styles.dropdownArea}>
             <Dropdown label='Выберите тему' className={styles.listItem}>
               <div className={styles.dropdownBox}>
                 <Button mode='transparent' icon='sun' onClick={themeStore.themeStore.theme.turnLightTheme}>Светлая тема</Button> 
                 <Button mode='primary' icon='moon' onClick={themeStore.themeStore.theme.turnDarkTheme}>Темная тема</Button> 
               </div>
             </Dropdown>
-        </div>)
+        </div>
       }
     </div>
   );

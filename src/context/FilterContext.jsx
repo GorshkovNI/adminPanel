@@ -6,12 +6,12 @@ import { useState } from 'react';
 export const FilterContext = createContext();
 
 export const DROPDOWN_ELEMENT = [
-  { id: 1, label: 'Новый'},
-  { id: 2, label: 'Расчет'},
-  { id: 3, label: 'Подтвержден'},
-  { id: 4, label: 'Отложен'},
-  { id: 5, label: 'Выполнен'},
-  { id: 6, label: 'Отменен'},
+  { id: 1, label: 'Новый', value: 'new'},
+  { id: 2, label: 'Расчет', value: 'calc'},
+  { id: 3, label: 'Подтвержден', value: 'confirmed'},
+  { id: 4, label: 'Отложен',  value: 'delayed'},
+  { id: 5, label: 'Выполнен', value: 'completed'},
+  { id: 6, label: 'Отменен', value: 'cancelled'},
 ];
 
 export const FilterContextProvider = ({ children }) => {
@@ -79,20 +79,19 @@ export const FilterContextProvider = ({ children }) => {
 
   //Select
 
-  const [valueFromInputDropdown, setValueFromInputDropdown] = useState([]);
+  const [valueFromInputDropdown, setValueFromInputDropdown] = useState(['Любой']);
 
   const handlerCheckedStatus = (e) => {
-    {console.log('Начало ',valueFromInputDropdown)}
+
     setValueFromInputDropdown(
       !valueFromInputDropdown.includes(e.target.value)
       ? [...valueFromInputDropdown, e.target.value]
       : valueFromInputDropdown.filter((item) => item !== e.target.value)
-    )
-    {console.log('Конец ', valueFromInputDropdown)}
+    )  
+  
   };
 
 
-  // eslint-disable-next-line no-unused-vars
   const filterStore = {
     data:{
       valueTo: valueInputDateTo,
@@ -121,7 +120,6 @@ export const FilterContextProvider = ({ children }) => {
       onChange: handlerCheckedStatus,
       dropdownItem: DROPDOWN_ELEMENT
     }
-
   }
   
   return (

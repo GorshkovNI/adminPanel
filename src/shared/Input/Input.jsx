@@ -17,10 +17,10 @@ export const Input = ({
   status = 'primary',
   disabled,
   value,
-  onChange = noop,
-  onClick,
   nameIcon,
-  isSelect
+  isSelect,
+  onChange = noop,
+  ...props
 }) => {
 
   const containerClassname = cn(styles.container, className, {
@@ -40,12 +40,12 @@ export const Input = ({
           onChange={onChange}
         />
         {!disabled && !!value && (
-          <button className={styles.buttonAction} onClick={onClick}>
+          <button className={styles.buttonAction} onClick={props.onClick}>
             <Icon name={nameIcon} className={styles.actionIcon} />
           </button>
         )}
         {isSelect&& (
-          <button className={styles.buttonAction} onClick={onClick}>
+          <button className={styles.buttonAction} onClick={props.onClick}>
             <Icon name={nameIcon} className={styles.actionIcon} />
           </button>
         )}
