@@ -4,11 +4,6 @@ import { useState } from 'react';
 
 export const FilterContext = createContext();
 
-// eslint-disable-next-line no-unused-vars
-let count = 0;
-// eslint-disable-next-line no-unused-vars
-let dropDowntItem = [];
-
 export const DROPDOWN_ELEMENT = [
   { id: 1, label: 'Новый', value: 'new' },
   { id: 2, label: 'Расчет', value: 'calc' },
