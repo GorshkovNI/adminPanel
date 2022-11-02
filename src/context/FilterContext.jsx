@@ -5,6 +5,11 @@ import { useState } from 'react';
 
 export const FilterContext = createContext();
 
+// eslint-disable-next-line no-unused-vars
+let count = 0;
+// eslint-disable-next-line no-unused-vars
+let dropDowntItem = [];
+
 export const DROPDOWN_ELEMENT = [
   { id: 1, label: 'Новый', value: 'new'},
   { id: 2, label: 'Расчет', value: 'calc'},
@@ -83,12 +88,42 @@ export const FilterContextProvider = ({ children }) => {
 
   const handlerCheckedStatus = (e) => {
 
-    setValueFromInputDropdown(
-      !valueFromInputDropdown.includes(e.target.value)
-      ? [...valueFromInputDropdown, e.target.value]
-      : valueFromInputDropdown.filter((item) => item !== e.target.value)
-    )  
-  
+    // setValueFromInputDropdown(
+    //   !valueFromInputDropdown.includes(e.target.value)
+    //   ? [...valueFromInputDropdown, e.target.value]
+    //   : valueFromInputDropdown.filter((item) => item !== e.target.value)
+    // )  
+    
+    if(dropDowntItem.length === DROPDOWN_ELEMENT.length){
+      console.log('tyt')
+      setValueFromInputDropdown(dropDowntItem)
+      dropDowntItem.length = 0
+    }
+    // Если не выбран и кликнули - добавим или удалим
+    if(!valueFromInputDropdown.includes(e.target.value)){
+      if(valueFromInputDropdown.includes('Любой')){
+        setValueFromInputDropdown(valueFromInputDropdown.length = 0)
+      }
+      setValueFromInputDropdown([...valueFromInputDropdown, e.target.value])
+      count++
+    }
+
+    else{
+      setValueFromInputDropdown(valueFromInputDropdown.filter((item) => item !== e.target.value))
+      count--;
+    }
+
+    //Если нет выбраных
+    if(count === 0){
+      setValueFromInputDropdown(['Любой'])
+    }
+    
+    if(count === DROPDOWN_ELEMENT.length){
+      DROPDOWN_ELEMENT.forEach((item) => {
+        dropDowntItem.push(item.label)
+      })
+      setValueFromInputDropdown(['Любой'])
+    } 
   };
 
 
