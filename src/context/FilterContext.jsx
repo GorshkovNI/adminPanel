@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-labels */
 import React, { createContext } from 'react';
-import { useCallback } from 'react';
 import { useState } from 'react';
 
 export const FilterContext = createContext();
@@ -25,42 +24,42 @@ export const FilterContextProvider = ({ children }) => {
   const [valueInputDateTo, setValueInputDateTo] = useState('');
   const [valueInputDateFrom, setValueInputDateFrom] = useState('');
 
-  const handleChangeValueInputTo = useCallback((e) => {
+  const handleChangeValueInputTo = (e) => {
     setValueInputDateTo(e.target.value);
-  }, []);
+  };
 
-  const handleChangeValueInputFrom = useCallback((e) => {
+  const handleChangeValueInputFrom = (e) => {
     setValueInputDateFrom(e.target.value);
-  });
+  };
 
-  const handleResetValueDateTo = useCallback(() => {
+  const handleResetValueDateTo = () => {
     setValueInputDateTo('');
-  }, []);
+  };
 
-  const handleResetValueDateFrom = useCallback(() => {
+  const handleResetValueDateFrom = () => {
     setValueInputDateFrom('');
-  }, []);
+  };
 
   //Money Input
 
   const [valueInputMoneyTo, setValueInputMoneyTo] = useState('');
   const [valueInputMoneyFrom, setValueInputMoneyFrom] = useState('');
 
-  const handleChangeMoneyInputTo = useCallback((e) => {
+  const handleChangeMoneyInputTo = (e) => {
     setValueInputMoneyTo(e.target.value);
-  }, []);
+  };
 
-  const handleChangeMoneyInputFrom = useCallback((e) => {
+  const handleChangeMoneyInputFrom = (e) => {
     setValueInputMoneyFrom(e.target.value);
-  });
+  };
 
-  const handleResetMoneyInputTo = useCallback(() => {
+  const handleResetMoneyInputTo = () => {
     setValueInputMoneyTo('');
-  }, []);
+  };
 
-  const handleResetMoneyInputFrom = useCallback(() => {
+  const handleResetMoneyInputFrom = () => {
     setValueInputMoneyFrom('');
-  }, []);
+  };
 
   //Search Input
   const [valueSearchInput, setValueSearchInput] = useState('');
@@ -73,58 +72,28 @@ export const FilterContextProvider = ({ children }) => {
   };
 
   //All Filter
-  const handleClearAllFilter = useCallback(() => {
+  const handleClearAllFilter = () => {
     setValueInputDateTo(''),
       setValueInputDateFrom(''),
       setValueInputMoneyTo(''),
       setValueInputMoneyFrom(''),
       setValueSearchInput('');
-  }, []);
+  };
 
   //Select
-
-  const [valueFromInputDropdown, setValueFromInputDropdown] = useState([
-    'Любой',
-  ]);
+  const [valueFromInputDropdown, setValueFromInputDropdown] = useState([]);
 
   const handlerCheckedStatus = (e) => {
-    // setValueFromInputDropdown(
-    //   !valueFromInputDropdown.includes(e.target.value)
-    //   ? [...valueFromInputDropdown, e.target.value]
-    //   : valueFromInputDropdown.filter((item) => item !== e.target.value)
-    // )
-
-    if (dropDowntItem.length === DROPDOWN_ELEMENT.length) {
-      console.log('tyt');
-      setValueFromInputDropdown(dropDowntItem);
-      dropDowntItem.length = 0;
-    }
-    // Если не выбран и кликнули - добавим или удалим
-    if (!valueFromInputDropdown.includes(e.target.value)) {
-      if (valueFromInputDropdown.includes('Любой')) {
-        setValueFromInputDropdown((valueFromInputDropdown.length = 0));
-      }
-      setValueFromInputDropdown([...valueFromInputDropdown, e.target.value]);
-      count++;
-    } else {
-      setValueFromInputDropdown(
-        valueFromInputDropdown.filter((item) => item !== e.target.value)
-      );
-      count--;
-    }
-
-    //Если нет выбраных
-    if (count === 0) {
-      setValueFromInputDropdown(['Любой']);
-    }
-
-    if (count === DROPDOWN_ELEMENT.length) {
-      DROPDOWN_ELEMENT.forEach((item) => {
-        dropDowntItem.push(item.label);
-      });
-      setValueFromInputDropdown(['Любой']);
-    }
+    setValueFromInputDropdown(
+      !valueFromInputDropdown.includes(e.target.value)
+        ? [...valueFromInputDropdown, e.target.value]
+        : valueFromInputDropdown.filter((item) => item !== e.target.value)
+    );
   };
+
+  // const status = (!valueFromInputDropdown.length || valueFromInputDropdown.length === DROPDOWN_ELEMENT.length)
+  // ?  setValueFromInputDropdown(['Любой'])
+  // :  setValueFromInputDropdown([...valueFromInputDropdown, e.target.value])
 
   const filterStore = {
     data: {
