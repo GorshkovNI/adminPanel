@@ -1,4 +1,3 @@
-
 import React from 'react';
 import styles from './Button.module.css';
 import cn from 'classnames';
@@ -9,18 +8,20 @@ const noop = () => {};
 const buttonTypes = {
   primary: 'primary',
   transparent: 'transparent',
+  delete: 'delete',
 };
 
 export const Button = ({
- 
   mode = 'primary',
   icon,
   children,
-  onClick = noop
+  className,
+  onClick = noop,
 }) => {
-  const buttonClassName = cn(styles.button, {
+  const buttonClassName = cn(styles.button, className, {
     [styles.primary]: mode === buttonTypes.primary,
     [styles.transparent]: mode === buttonTypes.transparent,
+    [styles.delete]: mode === buttonTypes.delete,
     [styles.onlyIcon]: !children && icon,
   });
 

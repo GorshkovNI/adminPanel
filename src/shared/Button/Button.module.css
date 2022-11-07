@@ -10,6 +10,11 @@
     cursor: pointer;
     padding: 0.5rem 1rem 0.5rem 1rem;
     gap: 0.5rem;
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
   }
   
   /* .big {
@@ -72,6 +77,16 @@
     stroke: var(--color-blue);
     fill: var(--color-blue);
   } 
+
+  .delete{
+    background-color: #F53152;
+    color: white;
+  }
+
+  .delete .buttonIcon{
+    background-color: #F53152;
+    stroke: white;
+  }
 
 
 

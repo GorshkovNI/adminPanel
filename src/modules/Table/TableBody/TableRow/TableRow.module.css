@@ -1,0 +1,5 @@
+.cells{
+    display: flex;
+    height: 2.5rem;
+    gap: 0.25rem;
+}

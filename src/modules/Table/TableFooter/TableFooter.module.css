@@ -1,0 +1,30 @@
+.wrapper{
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+}
+
+.area{
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    height: 2.5rem;
+    background-color: var(--filter-color);
+    padding: 0.5rem 1rem;
+}
+
+.records{
+    color: var(--color-blue);
+    background-color: inherit;
+}
+
+.buttonStatus{
+    padding: 0.25rem 0.5rem;
+}
+
+.buttonDelete{
+    padding: 0.25rem 0.5rem;
+}

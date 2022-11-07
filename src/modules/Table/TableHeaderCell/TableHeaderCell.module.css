@@ -1,0 +1,32 @@
+.containerCell{
+    height: 2.5rem;
+    box-sizing: border-box;
+    padding: 0.75rem 0.5rem;
+    background-color: var(--color-blue);
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+}
+
+.text{
+    margin-left: 1rem;
+    color: var(--filter-color);
+    background-color: var(--color-blue);
+}
+
+.area{
+    display: flex;
+    align-items: center;
+    background-color: var(--color-blue);
+}
+
+.icon{
+    box-sizing: border-box;
+    width: 1rem;
+    height: 1rem;   
+    background-color: inherit;
+    fill: var(--filter-color);
+    cursor: pointer;
+}
