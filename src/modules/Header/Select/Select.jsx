@@ -43,8 +43,8 @@ export const Select = ({ filter: { value, onChange, dropdownItem } }) => {
             <Dropdown>
               {dropdownItem.map((current) => (
                 <CheckBox
-                  label={current.value}
-                  key={current.id}
+                  label={current.label}
+                  key={current.value}
                   id={current.id}
                   className={styles.checkboxText}
                   checked={current.checked}

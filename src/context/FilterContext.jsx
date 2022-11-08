@@ -76,7 +76,6 @@ export const FilterContextProvider = ({ children }) => {
   };
 
   //Select
-
   const [valueFromInputDropdown, setValueFromInputDropdown] = useState([]);
   const handlerCheckedStatus = (e) => {
     setValueFromInputDropdown(
