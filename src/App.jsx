@@ -7,7 +7,7 @@ function App() {
   return (
     <ThemeContextProvider>
       <div className='App'>
-        <MainPage />      
+        <MainPage />
       </div>
     </ThemeContextProvider>
   );

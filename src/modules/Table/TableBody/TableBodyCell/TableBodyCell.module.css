@@ -13,6 +13,7 @@
 .area{
     display: flex;
     align-items: center;
+    background: inherit;
 }
 
 .text{

@@ -1,9 +1,9 @@
-import React from 'react';
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import { TableContext } from '../../context/TableContext';
 import styles from './Table.module.css';
 import { TableBody } from './TableBody/TableBody';
 import { TableBodyCell } from './TableBody/TableBodyCell/TableBodyCell';
+import { TableBodyStatusCell } from './TableBody/TableBodyStatusCell/TableBodyStatusCell';
 import { TableRow } from './TableBody/TableRow/TableRow';
 import { TableFooter } from './TableFooter/TableFooter';
 import { TableHeader } from './TableHeader/TableHeader';
@@ -11,6 +11,7 @@ import { TableHeaderCell } from './TableHeaderCell/TableHeaderCell';
 
 export const Table = () => {
   const { tableStore } = useContext(TableContext);
+
   return (
     <div className={styles.wrapper}>
       <TableHeader>
@@ -39,9 +40,10 @@ export const Table = () => {
               <TableBodyCell className={styles.headerCell}>
                 {item.date}
               </TableBodyCell>
-              <TableBodyCell className={styles.headerCell}>
-                {item.status}
-              </TableBodyCell>
+              <TableBodyStatusCell
+                classNames={styles.headerCell}
+                status={item.status}
+              />
               <TableBodyCell className={styles.headerCell}>
                 {item.amount}
               </TableBodyCell>

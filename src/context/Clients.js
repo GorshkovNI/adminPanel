@@ -42,7 +42,7 @@ export const CLIENTS = [
   {
     customer: 'Мур Лукий Зиновьевич',
     date: '27.10.2021 10:51',
-    status: 'declined',
+    status: 'canceled',
     sum: '581 144 ₽',
     amount: '5',
     orderNumber: '588253',
@@ -58,7 +58,7 @@ export const CLIENTS = [
   {
     customer: 'Джексон Мелентий Фадеевич',
     date: '14.10.2022 17:59',
-    status: 'declined',
+    status: 'canceled',
     sum: '241 640 ₽',
     amount: '2',
     orderNumber: '698211',
@@ -194,7 +194,7 @@ export const CLIENTS = [
   {
     customer: 'Зубков Тит Харлампович',
     date: '22.11.2021 14:37',
-    status: 'declined',
+    status: 'canceled',
     sum: '462 274 ₽',
     amount: '9',
     orderNumber: '185160',
@@ -282,7 +282,7 @@ export const CLIENTS = [
   {
     customer: 'Жадан Герман Натанович',
     date: '14.09.2021 14:51',
-    status: 'declined',
+    status: 'canceled',
     sum: '143 333 ₽',
     amount: '2',
     orderNumber: '352396',
@@ -330,7 +330,7 @@ export const CLIENTS = [
   {
     customer: 'Козлов Дмитрий Максимович',
     date: '07.02.2021 17:29',
-    status: 'declined',
+    status: 'canceled',
     sum: '805 429 ₽',
     amount: '7',
     orderNumber: '112948',
@@ -386,7 +386,7 @@ export const CLIENTS = [
   {
     customer: 'Булгаков Георгий Наумович',
     date: '31.03.2021 15:23',
-    status: 'declined',
+    status: 'canceled',
     sum: '709 546 ₽',
     amount: '5',
     orderNumber: '645993',
@@ -394,7 +394,7 @@ export const CLIENTS = [
   {
     customer: 'Бах Назар Геннадиевич',
     date: '11.04.2022 17:33',
-    status: 'declined',
+    status: 'canceled',
     sum: '949 161 ₽',
     amount: '4',
     orderNumber: '344083',
@@ -458,7 +458,7 @@ export const CLIENTS = [
   {
     customer: 'Белов Родион Гертрудович',
     date: '24.07.2021 14:50',
-    status: 'declined',
+    status: 'canceled',
     sum: '678 213 ₽',
     amount: '6',
     orderNumber: '847969',
@@ -482,7 +482,7 @@ export const CLIENTS = [
   {
     customer: 'Майков Святополк Адамович',
     date: '01.07.2021 12:43',
-    status: 'declined',
+    status: 'canceled',
     sum: '031 733 ₽',
     amount: '8',
     orderNumber: '753308',
@@ -546,7 +546,7 @@ export const CLIENTS = [
   {
     customer: 'Фудель Трофим Матвеевич',
     date: '13.12.2021 08:06',
-    status: 'declined',
+    status: 'canceled',
     sum: '082 945 ₽',
     amount: '4',
     orderNumber: '219461',
@@ -554,7 +554,7 @@ export const CLIENTS = [
   {
     customer: 'Алиев Евгений Демидович',
     date: '28.10.2022 17:14',
-    status: 'declined',
+    status: 'canceled',
     sum: '410 814 ₽',
     amount: '4',
     orderNumber: '283617',
@@ -570,7 +570,7 @@ export const CLIENTS = [
   {
     customer: 'Баталов Иннокентий Елизарович',
     date: '29.04.2021 09:38',
-    status: 'declined',
+    status: 'canceled',
     sum: '723 613 ₽',
     amount: '9',
     orderNumber: '070284',
@@ -594,7 +594,7 @@ export const CLIENTS = [
   {
     customer: 'Фармер Артур Тарасович',
     date: '02.09.2022 10:55',
-    status: 'declined',
+    status: 'canceled',
     sum: '931 631 ₽',
     amount: '2',
     orderNumber: '035372',
@@ -602,7 +602,7 @@ export const CLIENTS = [
   {
     customer: 'Радд Герман Ибрагимович',
     date: '28.08.2021 13:54',
-    status: 'declined',
+    status: 'canceled',
     sum: '150 270 ₽',
     amount: '7',
     orderNumber: '638668',
@@ -754,7 +754,7 @@ export const CLIENTS = [
   {
     customer: 'Фрич Кир Харлампович',
     date: '30.09.2022 16:21',
-    status: 'declined',
+    status: 'canceled',
     sum: '559 825 ₽',
     amount: '5',
     orderNumber: '674827',

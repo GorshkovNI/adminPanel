@@ -9,13 +9,17 @@ export const TableFooter = ({
   return (
     <div className={styles.wrapper}>
       <div className={styles.area}>
-        <span className={styles.records}>Выбрано записей: {activeRecords}</span>
-        <Button className={styles.buttonStatus} icon='pencil'>
-          Изменить статус
-        </Button>
-        <Button className={styles.buttonDelete} mode='delete' icon='bin'>
-          Удалить
-        </Button>
+        <div className={styles.edit}>
+          <span className={styles.records}>
+            Выбрано записей: {activeRecords}
+          </span>
+          <Button className={styles.buttonStatus} icon='pencil'>
+            Изменить статус
+          </Button>
+          <Button className={styles.buttonDelete} mode='delete' icon='bin'>
+            Удалить
+          </Button>
+        </div>
         <Pagination onClick={onClickPage} currentPage={currentPage} />
       </div>
     </div>

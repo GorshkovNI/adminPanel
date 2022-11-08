@@ -3,7 +3,14 @@ import styles from './Checkbox.module.css';
 import { Icon } from '../Icons/Icon';
 import cn from 'classnames';
 
-export const CheckBox = ({ id, label, className, checked, onChange }) => {
+export const CheckBox = ({
+  id,
+  label,
+  className,
+  checked,
+  onChange,
+  ...props
+}) => {
   const labelClassName = cn(styles.checkbox, className);
 
   return (
@@ -17,6 +24,7 @@ export const CheckBox = ({ id, label, className, checked, onChange }) => {
             id={id}
             checked={checked}
             onChange={onChange}
+            onClick={props.onClick}
           />
           <div className={styles.area}>
             <span className={styles.marker}></span>

@@ -2,7 +2,7 @@
     height: 2.5rem;
     box-sizing: border-box;
     padding: 0.75rem 0.5rem;
-    background-color: var(--color-blue);
+    background-color: inherit;
     font-family: 'Ubuntu';
     font-style: normal;
     font-weight: 400;
@@ -13,13 +13,13 @@
 .text{
     margin-left: 1rem;
     color: var(--filter-color);
-    background-color: var(--color-blue);
+    background-color: inherit;
 }
 
 .area{
     display: flex;
     align-items: center;
-    background-color: var(--color-blue);
+    background-color: inherit;
 }
 
 .icon{

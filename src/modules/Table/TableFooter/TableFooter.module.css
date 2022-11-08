@@ -10,10 +10,17 @@
     box-sizing: border-box;
     display: flex;
     align-items: center;
-    gap: 1rem;
+    justify-content: space-between;
     height: 2.5rem;
     background-color: var(--filter-color);
     padding: 0.5rem 1rem;
+}
+
+.edit{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--filter-color);
 }
 
 .records{
