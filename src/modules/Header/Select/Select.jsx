@@ -6,6 +6,16 @@ import { useState } from 'react';
 import { Dropdown } from '../../../shared/Dropdown/Dropdown';
 import { CheckBox } from '../../../shared/Checkbox/Checkbox';
 
+const FILTER_TYPE = {
+  any: 'Любой',
+  new: 'Новый',
+  calc: 'Рассчет',
+  confirmed: 'Подтвержден',
+  delayed: 'Отложен',
+  completed: 'Выполнен',
+  cancelled: 'Отменен',
+};
+
 export const Select = ({ filter: { value, onChange, dropdownItem } }) => {
   const [isVisible, setIsVisible] = useState(false);
   const hangleChangeVisible = () => {
@@ -14,7 +24,7 @@ export const Select = ({ filter: { value, onChange, dropdownItem } }) => {
 
   const status = function getTextStatuses(firstArray, secondArray) {
     return !firstArray.length || firstArray.length === secondArray.length
-      ? 'Любой'
+      ? FILTER_TYPE.any
       : firstArray.join(', ');
   };
 
@@ -33,7 +43,7 @@ export const Select = ({ filter: { value, onChange, dropdownItem } }) => {
             <Dropdown>
               {dropdownItem.map((current) => (
                 <CheckBox
-                  label={current.label}
+                  label={current.value}
                   key={current.id}
                   id={current.id}
                   className={styles.checkboxText}

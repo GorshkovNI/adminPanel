@@ -76,18 +76,8 @@ export const FilterContextProvider = ({ children }) => {
   };
 
   //Select
-  const [valueFromInputDropdown, setValueFromInputDropdown] = useState(
-    //{
-    //   new: false,
-    //   calc: false,
-    //   confirmed: false,
-    //   delayed: false,
-    //   completed: false,
-    //   cancelled: false
-    // }
-    []
-  );
 
+  const [valueFromInputDropdown, setValueFromInputDropdown] = useState([]);
   const handlerCheckedStatus = (e) => {
     setValueFromInputDropdown(
       !valueFromInputDropdown.includes(e.target.value)
