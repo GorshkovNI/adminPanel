@@ -1,4 +1,4 @@
 .container{
-  height: 100%;
+  height: calc(2.5rem * 10);
   overflow: auto;
 }

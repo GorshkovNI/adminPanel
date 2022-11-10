@@ -1,4 +1,8 @@
 ._{
+    height: 2.5rem;
+    box-sizing: border-box;
+    padding: 0.75rem 0.5rem;
+    background-color: inherit;
     font-family: 'Ubuntu';
     font-style: normal;
     font-weight: 400;
@@ -29,22 +33,21 @@
 }
 
 .iconCompleted{
-    fill: #0FB864;
-    opacity: 0.6;
+    fill: rgba(15, 184, 100, 0.6);
+    
 }
 
 .iconCompleted + .text{
-    color: #0FB864;
-    opacity: 0.6;
+    color: rgba(15, 184, 100, 0.6);;
 }
 
 .iconCalc{
-    fill: #459df5;;
+    fill: #459df5;
 }
 
 .iconCanceled{
-    opacity: 0.6;
+   stroke: rgba(128, 85, 255, 0.6);
 }
 .iconCanceled + .text{
-    opacity: 0.6;
+   color: var(--cell-color);
 }

@@ -31,7 +31,7 @@ export const Table = () => {
         </TableHeaderCell>
       </TableHeader>
       <TableBody className={styles.tableBody}>
-        {tableStore.clients.slice(0, tableStore.totalRecordPage).map((item) => {
+        {tableStore.clients.slice(0, 100).map((item) => {
           return (
             <TableRow key={item.orderNumber}>
               <TableBodyCell className={styles.headerCell} checkbox={true}>

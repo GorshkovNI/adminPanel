@@ -77,7 +77,6 @@ export const FilterContextProvider = ({ children }) => {
 
   //Select
   const [valueFromInputDropdown, setValueFromInputDropdown] = useState([]);
-
   const handlerCheckedStatus = (e) => {
     setValueFromInputDropdown(
       !valueFromInputDropdown.includes(e.target.value)
@@ -85,10 +84,6 @@ export const FilterContextProvider = ({ children }) => {
         : valueFromInputDropdown.filter((item) => item !== e.target.value)
     );
   };
-
-  // const status = (!valueFromInputDropdown.length || valueFromInputDropdown.length === DROPDOWN_ELEMENT.length)
-  // ?  setValueFromInputDropdown(['Любой'])
-  // :  setValueFromInputDropdown([...valueFromInputDropdown, e.target.value])
 
   const filterStore = {
     data: {
