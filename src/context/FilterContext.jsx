@@ -72,6 +72,7 @@ export const FilterContextProvider = ({ children }) => {
       setValueInputMoneyTo(''),
       setValueInputMoneyFrom(''),
       setValueSearchInput('');
+    setValueFromInputDropdown([]);
   };
 
   //Select
