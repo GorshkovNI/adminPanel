@@ -28,7 +28,7 @@
     gap: 0.25rem;
 }
 
-.button{
+.areaButton{
     position: absolute;
     top: 1.5rem;
     right: -7rem;
@@ -37,4 +37,8 @@
 
 .vies{
     border: 2px solid tomato;
+  }
+
+  .button{
+    padding: 0.5rem  1rem;
   }
