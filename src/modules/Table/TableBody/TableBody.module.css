@@ -1,4 +1,13 @@
-.container{
-  height: calc(2.5rem * 10);
+.container{ 
   overflow: auto;
+}
+
+.container::-webkit-scrollbar{
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 0.25rem;
+}
+
+.container::-webkit-scrollbar-thumb{
+  height: 4rem;
+  background-color: rgba(0, 0, 0, 0.34);
 }

@@ -4,7 +4,7 @@ import { createContext } from 'react';
 import { CLIENTS } from './Clients';
 
 export const TableContext = createContext();
-const TOTAL_RECORDS_PAGE = 10; // Сколько записей отображаем на странице отображаем
+const TOTAL_RECORDS_PAGE = 100; // Сколько записей отображаем на странице отображаем
 // const TOTAL_COUNT = CLIENTS.length; // Всего записей
 // const TOTAL_PAGE_COUNT = Math.ceil(TOTAL_COUNT / TOTAL_RECORDS_PAGE); // Количество страниц
 

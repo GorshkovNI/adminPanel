@@ -30,32 +30,39 @@ export const Table = () => {
           ФИО покупателя
         </TableHeaderCell>
       </TableHeader>
-      <TableBody className={styles.tableBody}>
-        {tableStore.clients.slice(0, 100).map((item) => {
-          return (
-            <TableRow key={item.orderNumber}>
-              <TableBodyCell className={styles.headerCell} checkbox={true}>
-                {item.orderNumber}
-              </TableBodyCell>
-              <TableBodyCell className={styles.headerCell}>
-                {item.date}
-              </TableBodyCell>
-              <TableBodyStatusCell
-                classNames={styles.headerCell}
-                status={item.status}
-              />
-              <TableBodyCell className={styles.headerCell}>
-                {item.amount}
-              </TableBodyCell>
-              <TableBodyCell className={styles.headerCell}>
-                {item.sum}
-              </TableBodyCell>
-              <TableBodyCell className={styles.headerCell}>
-                {item.customer}
-              </TableBodyCell>
-            </TableRow>
-          );
-        })}
+      <TableBody
+        className={styles.tableBody}
+        count={
+          tableStore.totalRecordPage > 10 ? 10 : tableStore.totalRecordPage
+        }
+      >
+        {tableStore.clients
+          ?.slice(0, tableStore.totalRecordPage)
+          .map((item) => {
+            return (
+              <TableRow key={item.orderNumber}>
+                <TableBodyCell className={styles.headerCell} checkbox={true}>
+                  {item.orderNumber}
+                </TableBodyCell>
+                <TableBodyCell className={styles.headerCell}>
+                  {item.date}
+                </TableBodyCell>
+                <TableBodyStatusCell
+                  classNames={styles.headerCell}
+                  status={item.status}
+                />
+                <TableBodyCell className={styles.headerCell}>
+                  {item.amount}
+                </TableBodyCell>
+                <TableBodyCell className={styles.headerCell}>
+                  {item.sum}
+                </TableBodyCell>
+                <TableBodyCell className={styles.headerCell}>
+                  {item.customer}
+                </TableBodyCell>
+              </TableRow>
+            );
+          })}
       </TableBody>
       <TableFooter footerDate={tableStore} />
     </div>
