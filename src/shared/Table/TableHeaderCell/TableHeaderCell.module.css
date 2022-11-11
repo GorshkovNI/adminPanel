@@ -1,4 +1,7 @@
-.containerCell{
+
+.area{
+    display: flex;
+    align-items: center;
     height: 2.5rem;
     box-sizing: border-box;
     padding: 0.75rem 0.5rem;
@@ -10,15 +13,8 @@
     line-height: 16px;
 }
 
-.text{
-    margin-left: 1rem;
-    color: var(--filter-color);
-    background-color: inherit;
-}
-
-.area{
-    display: flex;
-    align-items: center;
+.iconArea{
+    height: 1rem;
     background-color: inherit;
 }
 
@@ -26,7 +22,7 @@
     box-sizing: border-box;
     width: 1rem;
     height: 1rem;   
-    background-color: inherit;
+    background-color: var(--color-blue);
     fill: var(--filter-color);
     cursor: pointer;
 }

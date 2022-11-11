@@ -1,13 +1,17 @@
 import React from 'react';
-import { Button } from '../../../shared/Button/Button';
-import { Pagination } from './Pagination/Pagination';
-import styles from './TableFooter.module.css';
+import { Button } from '../../../../shared/Button/Button';
+import { TableFooter } from '../../../../shared/Table/TableFooter/TableFooter';
+import { Pagination } from '../../../../shared/Table/TableFooter/Pagination/Pagination';
+import styles from './OrderFooter.module.css';
 
-export const TableFooter = ({
-  footerDate: { activeRecords, onClickPage, currentPage },
+export const OrderFooter = ({
+  className,
+  activeRecords,
+  onClickPage,
+  currentPage,
 }) => {
   return (
-    <div className={styles.wrapper}>
+    <TableFooter className={className}>
       <div className={styles.area}>
         <div className={styles.edit}>
           <span className={styles.records}>
@@ -22,6 +26,6 @@ export const TableFooter = ({
         </div>
         <Pagination onClick={onClickPage} currentPage={currentPage} />
       </div>
-    </div>
+    </TableFooter>
   );
 };

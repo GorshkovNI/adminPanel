@@ -20,7 +20,6 @@
   --border: #7758d3;
   --filter-color:#171B1F;
   --check-white: #ffff;
-  --cell-color: rgba(188, 196, 204, 0.6);  
 }
 
 body {
@@ -30,7 +29,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
 }
 
 code {

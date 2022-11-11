@@ -11,11 +11,9 @@ export const CheckBox = ({
   onChange,
   ...props
 }) => {
-  const labelClassName = cn(styles.checkbox, className);
-
   return (
     <label>
-      <div className={labelClassName}>
+      <div className={cn(styles.checkbox, className)}>
         <div className={styles.label}>
           <input
             className={styles.input}

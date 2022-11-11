@@ -1,4 +1,8 @@
-._{
+
+.area{
+    display: flex;
+    align-items: center;
+    background-color: inherit;
     height: 2.5rem;
     box-sizing: border-box;
     padding: 0.75rem 0.5rem;
@@ -8,12 +12,6 @@
     font-weight: 400;
     font-size: 13px;
     line-height: 16px;
-}
-
-.area{
-    display: flex;
-    align-items: center;
-    background-color: inherit;
 }
 
 .icon{
@@ -49,5 +47,5 @@
    stroke: rgba(128, 85, 255, 0.6);
 }
 .iconCanceled + .text{
-   color: var(--cell-color);
+   color: rgba(188, 196, 204, 0.7);
 }

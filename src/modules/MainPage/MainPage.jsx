@@ -2,8 +2,8 @@ import React from 'react';
 import { Header } from '../Header/Header';
 import { SearchBlock } from '../Header/SearchBlock/SearchBlock';
 import { FilterContextProvider } from '../../context/FilterContext';
-import { Table } from '../Table/Table';
 import { TableContextProvider } from '../../context/TableContext';
+import { TableView } from '../Header/TableView/TableView';
 
 export const MainPage = () => {
   return (
@@ -13,7 +13,7 @@ export const MainPage = () => {
         <SearchBlock />
       </FilterContextProvider>
       <TableContextProvider>
-        <Table />
+        <TableView />
       </TableContextProvider>
     </div>
   );

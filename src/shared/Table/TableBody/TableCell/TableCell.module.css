@@ -1,4 +1,6 @@
 .wrapper{
+    display: flex;
+    align-items: center;
     height: 2.5rem;
     box-sizing: border-box;
     padding: 0.75rem 0.5rem;
@@ -14,10 +16,4 @@
     display: flex;
     align-items: center;
     background: inherit;
-}
-
-.text{
-    margin-left: 1rem;
-    color: var(--black);
-    background-color: inherit;
 }

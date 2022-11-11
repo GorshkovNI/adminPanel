@@ -1,6 +1,3 @@
-.container{ 
-  overflow: auto;
-}
 
 .container::-webkit-scrollbar{
   background-color: rgba(0, 0, 0, 0.1);
