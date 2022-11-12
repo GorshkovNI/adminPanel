@@ -1,3 +1,7 @@
+.wrapper{
+    border-bottom: 1px solid var(--filter-color);
+}
+
 .cells{
     display: flex;
     height: 2.5rem;
