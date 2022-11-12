@@ -1,0 +1,16 @@
+._{
+    position: relative;
+    display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.footer{
+    position: sticky;
+    height: 100%;
+}
+
+.body{
+    overflow-y: scroll;
+    
+}

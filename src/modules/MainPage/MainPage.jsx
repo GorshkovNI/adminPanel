@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './MainPage.module.css';
 import { Header } from '../Header/Header';
 import { SearchBlock } from '../Header/SearchBlock/SearchBlock';
 import { FilterContextProvider } from '../../context/FilterContext';
@@ -7,7 +8,7 @@ import { TableView } from '../Header/TableView/TableView';
 
 export const MainPage = () => {
   return (
-    <div>
+    <div className={styles._}>
       <Header />
       <FilterContextProvider>
         <SearchBlock />

@@ -13,7 +13,7 @@ export const TableView = () => {
   return (
     <Table className={styles._}>
       <OrderHeader />
-      <OrderBody classname={styles.body} date={tableStore.clients} />
+      <OrderBody className={styles.body} date={tableStore.clients} />
       <OrderFooter
         className={styles.footer}
         activeRecords={tableStore.activeRecords}
