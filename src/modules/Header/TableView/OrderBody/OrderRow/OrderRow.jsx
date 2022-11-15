@@ -7,7 +7,7 @@ import { TableRow } from '../../../../../shared/Table/TableBody/TableRow/TableRo
 
 export const OrderRow = ({ item }) => {
   return (
-    <TableRow key={item.sum + ' ' + item.orderNumber}>
+    <TableRow key={item.id}>
       <TableCell className={styles.cell}>
         <CheckBox />
       </TableCell>

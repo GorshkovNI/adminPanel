@@ -15,9 +15,29 @@ const intervalSum = (min, max) => {
   };
 };
 
+// const intervalDate = (min, max) => {
+//   return (value) => {
+//     if(!min && !max){
+//       return value
+//     }
+//     if(!min) return value <= max
+//     if(!max) return value >= min
+//     return value >= min && value <= max
+//   }
+// }
+
 const filterSum = (clients, filter) => {
-  console.log(clients, filter, intervalSum);
-  //const sumFilter = intervalSum(filter.sumTo, filter.sumFrom);
+  //console.log(clients, filter, intervalSum);
+  const sumFilter = intervalSum(filter.sumTo, filter.sumFrom);
+  const sum = clients.filter((item) => {
+    return sumFilter(item.sum);
+  });
+  return sum;
+  // const dateFilter = intervalDate()
+  // const date = sum.filter((item) => {
+  //   return intervalDate(item.date)
+  // });
+  // return date
 };
 
 // export const getClients = (state) => {
