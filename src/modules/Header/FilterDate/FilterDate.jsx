@@ -10,14 +10,13 @@ const inputSize = {
 };
 
 export const FilterDate = ({
-  filterData:{
-    valueTo,
-    valueFrom,
-    onChangeTo,
-    onChangeFrom,
-    onResetTo,
-    onResetFrom
-  },
+  onChangeTo,
+  onChangeFrom,
+  dateTo,
+  dateFrom,
+  maxlength,
+  onResetTo,
+  onResetFrom,
 }) => {
   return (
     <div className={styles.infoBlock}>
@@ -25,21 +24,23 @@ export const FilterDate = ({
       <div className={styles.dateInput}>
         <Input
           className={inputSize.small}
-          value={valueTo}
+          value={dateTo}
           onChange={onChangeTo}
           onClick={onResetTo}
           disabled={false}
           prefix='c'
+          maxlength={maxlength}
           placeholder='dd.mm.yyyy'
           nameIcon='xMedium'
         />
         <Input
           className={inputSize.small}
-          value={valueFrom}
+          value={dateFrom}
           onChange={onChangeFrom}
           onClick={onResetFrom}
           disabled={false}
           prefix='до'
+          maxlength={maxlength}
           placeholder='dd.mm.yyyy'
           nameIcon='xMedium'
         />

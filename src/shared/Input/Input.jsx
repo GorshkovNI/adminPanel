@@ -8,7 +8,7 @@ const statusTypes = {
   disabled: 'disabled',
 };
 
-const noop = () => {}
+const noop = () => {};
 
 export const Input = ({
   placeholder,
@@ -22,7 +22,6 @@ export const Input = ({
   onChange = noop,
   ...props
 }) => {
-
   const containerClassname = cn(styles.container, className, {
     [styles.incorrect]: statusTypes.incorrect === status,
   });
@@ -37,6 +36,7 @@ export const Input = ({
           placeholder={placeholder}
           disabled={disabled}
           value={value}
+          maxLength={props.maxlength}
           onChange={onChange}
         />
         {!disabled && !!value && (
@@ -44,7 +44,7 @@ export const Input = ({
             <Icon name={nameIcon} className={styles.actionIcon} />
           </button>
         )}
-        {isSelect&& (
+        {isSelect && (
           <button className={styles.buttonAction} onClick={props.onClick}>
             <Icon name={nameIcon} className={styles.actionIcon} />
           </button>
