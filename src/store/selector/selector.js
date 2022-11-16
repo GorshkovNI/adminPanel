@@ -1,23 +1,40 @@
 import { createSelector } from '@reduxjs/toolkit';
 import { CLIENTS } from '../../context/Clients';
-export const getFilter = (state) => state.filter;
 
-export const getClients1 = createSelector([getFilter], (filters) => {
+export const getFilter = (state) => state.filter;
+export const getSelect = (state) => state.filter.select;
+
+export const getClients = createSelector([getFilter], (filters) => {
   const filteredClients = filterSum(CLIENTS, filters);
   return [filteredClients];
 });
 
 const intervalSum = (min, max) => {
   return (value) => {
-    const sumTo = min ? min : '0';
+    const sumTo = min ? min : 0;
     const sumFrom = max ? max : Infinity;
     return value >= sumTo && value <= sumFrom;
   };
 };
 
+const intervalDate = (min, max) => {
+  return (date) => {
+    if (!date) return null;
+    date = Date.parse(date);
+    if (!min && !max) return true;
+    if (!min) return date <= max;
+    if (!max) return date >= min;
+    return date >= min && date <= max;
+  };
+};
+
 const filterSum = (clients, filter) => {
-  console.log(clients, filter, intervalSum);
-  //const sumFilter = intervalSum(filter.sumTo, filter.sumFrom);
+  const sumFilter = intervalSum(filter.sumTo, filter.sumFrom);
+  const dateFilter = intervalDate(filter.dateTo, filter.dateFrom);
+
+  return clients.filter(({ sum, date }) => {
+    return [sumFilter(parseFloat(sum)), dateFilter(date)].every(Boolean);
+  });
 };
 
 // export const getClients = (state) => {

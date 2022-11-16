@@ -5,18 +5,18 @@ import { Input } from '../../../shared/Input/Input';
 import { useState } from 'react';
 import { Dropdown } from '../../../shared/Dropdown/Dropdown';
 import { CheckBox } from '../../../shared/Checkbox/Checkbox';
+import FILTER_TYPE from '../TableView/OrderConstant/OrderConstant';
+// const FILTER_TYPE = {
+//   any: 'Любой',
+//   new: 'Новый',
+//   calc: 'Рассчет',
+//   confirmed: 'Подтвержден',
+//   delayed: 'Отложен',
+//   completed: 'Выполнен',
+//   cancelled: 'Отменен',
+// };
 
-const FILTER_TYPE = {
-  any: 'Любой',
-  new: 'Новый',
-  calc: 'Рассчет',
-  confirmed: 'Подтвержден',
-  delayed: 'Отложен',
-  completed: 'Выполнен',
-  cancelled: 'Отменен',
-};
-
-export const Select = ({ filter: { value, onChange, dropdownItem } }) => {
+export const Select = ({ value, allDropdownItem, onSelecItem }) => {
   const [isVisible, setIsVisible] = useState(false);
   const hangleChangeVisible = () => {
     setIsVisible(!isVisible);
@@ -33,7 +33,7 @@ export const Select = ({ filter: { value, onChange, dropdownItem } }) => {
     <div className={styles.container}>
       <div className={styles.area}>
         <Input
-          value={status(value, dropdownItem)}
+          value={status(value, allDropdownItem)}
           className={containerClassName}
           nameIcon='vArrow'
           onClick={hangleChangeVisible}
@@ -41,14 +41,13 @@ export const Select = ({ filter: { value, onChange, dropdownItem } }) => {
         <div className={styles.dropdown}>
           {isVisible && (
             <Dropdown>
-              {dropdownItem.map((current) => (
+              {Object.entries(FILTER_TYPE).map(([key, value]) => (
                 <CheckBox
-                  label={current.label}
-                  key={current.value}
-                  id={current.id}
+                  label={value}
+                  key={key}
+                  id={key}
                   className={styles.checkboxText}
-                  checked={current.checked}
-                  onChange={onChange}
+                  onChange={onSelecItem}
                 />
               ))}
             </Dropdown>

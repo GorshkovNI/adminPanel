@@ -7,7 +7,7 @@ export const CheckBox = ({
   id,
   label,
   className,
-  checked,
+
   onChange,
   ...props
 }) => {
@@ -20,7 +20,6 @@ export const CheckBox = ({
             value={label}
             type='checkbox'
             id={id}
-            checked={checked}
             onChange={onChange}
             onClick={props.onClick}
           />
