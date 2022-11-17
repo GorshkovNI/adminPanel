@@ -5,6 +5,8 @@ const initialState = {
   sumFrom: '',
   dateTo: '',
   dateFrom: '',
+  select: [],
+  search: '',
 };
 
 const filterSlice = createSlice({
@@ -12,11 +14,19 @@ const filterSlice = createSlice({
   initialState,
   reducers: {
     setAction(state, { payload: { key, value } }) {
-      //Общий для сумм и дат
+      console.log('Ебанул энтер');
       state[key] = value;
+    },
+    setSelected(state, action) {
+      const label = action.payload;
+      state.select.length = 0;
+      state.select = label.filter((item) => item);
+    },
+    resetState() {
+      return initialState;
     },
   },
 });
 
-export const { setAction } = filterSlice.actions;
+export const { setAction, setSelected, resetState } = filterSlice.actions;
 export default filterSlice.reducer;

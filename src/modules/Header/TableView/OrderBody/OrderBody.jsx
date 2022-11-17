@@ -7,8 +7,8 @@ import { OrderRow } from './OrderRow/OrderRow';
 export const OrderBody = ({ className, date }) => {
   return (
     <TableBody className={cn(styles._, className)}>
-      {date.map((item) => {
-        return <OrderRow key={item.id} item={item} />;
+      {date?.slice(0, 100).map((item, index) => {
+        return <OrderRow key={index} item={item} />;
       })}
     </TableBody>
   );

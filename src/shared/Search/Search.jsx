@@ -2,13 +2,13 @@ import React from 'react';
 import { Icon } from '../Icons/Icon';
 import styles from './Search.module.css';
 
-export const Search = ({ 
+export const Search = ({
   value,
   onChange,
   onReset,
-  placeholder 
+  placeholder,
+  onKeyPress,
 }) => {
-
   return (
     <div className={styles.searchbar}>
       <div className={styles.area}>
@@ -19,6 +19,7 @@ export const Search = ({
           placeholder={placeholder}
           value={value}
           onChange={onChange}
+          onKeyPress={onKeyPress}
         />
         {!!value && (
           <button className={styles.searchButtonClose} onClick={onReset}>

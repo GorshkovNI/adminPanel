@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Button } from '../../../shared/Button/Button';
-import { setAction } from '../../../store/slice/filterSlice';
+//import { getSelect } from '../../../store/selector/selector';
+import { setAction, setSelected } from '../../../store/slice/filterSlice';
 import { FilterDate } from '../FilterDate/FilterDate';
 import { FilterDropdown } from '../FilterDropdown/FilterDropdown';
 import { FilterMoney } from '../FilterMoney/FilterMoney';
 import styles from './FilterBlock.module.css';
 
-export const FilterBlock = () => {
+export const FilterBlock = ({ isFilterReset }) => {
+  //const filter = useSelector(getSelect)
   const dispatch = useDispatch();
+
   const [sumTo, setSumTo] = useState('');
   const [sumFrom, setSumFrom] = useState('');
   const [dateTo, setDateTo] = useState('');
@@ -20,11 +23,13 @@ export const FilterBlock = () => {
     if (!day && !month && !year) {
       return '';
     }
-    return new Date(
+    const newDate = new Date(
       parseInt(year),
       parseInt(month) - 1,
       parseInt(day)
     ).toString();
+
+    return Date.parse(newDate);
   };
 
   // From Money
@@ -68,6 +73,29 @@ export const FilterBlock = () => {
     dispatch(setAction({ key: 'dateFrom', value: checkDate(dateFrom) }));
   };
 
+  //from select
+  const [dropdownItem, setDropdownItem] = useState([]);
+
+  const handleSelect = (value) => {
+    const newItem = !dropdownItem.includes(value.target.id)
+      ? [...dropdownItem, value.target.id]
+      : dropdownItem.filter((item) => item !== value.target.id);
+    setDropdownItem(
+      !dropdownItem.includes(value.target.id)
+        ? [...dropdownItem, value.target.id]
+        : dropdownItem.filter((item) => item !== value.target.id)
+    );
+    dispatch(setSelected(newItem));
+  };
+
+  useEffect(() => {
+    setSumTo('');
+    setSumFrom('');
+    setDateTo('');
+    setDateFrom('');
+    setDropdownItem([]);
+  }, [isFilterReset]);
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.filters}>
@@ -80,7 +108,7 @@ export const FilterBlock = () => {
           onResetTo={handleResetDateTo}
           onResetFrom={handleResetDateFrom}
         />
-        <FilterDropdown />
+        <FilterDropdown value={dropdownItem} onSelecItem={handleSelect} />
         <FilterMoney
           sumTo={sumTo}
           sumFrom={sumFrom}

@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { useSelector } from 'react-redux';
 import { TableContext } from '../../../context/TableContext';
 import { Table } from '../../../shared/Table/Table';
-import { getClients1 } from '../../../store/selector/selector';
+import { getClients } from '../../../store/selector/selector';
 import { OrderBody } from './OrderBody/OrderBody';
 import { OrderFooter } from './OrderFooter/OrderFooter';
 import { OrderHeader } from './OrderHeader/OrderHeader';
@@ -11,7 +11,7 @@ import styles from './TableView.module.css';
 
 export const TableView = () => {
   const { tableStore } = useContext(TableContext);
-  const [filter] = useSelector(getClients1);
+  const [filter] = useSelector(getClients);
 
   return (
     <Table className={styles._}>

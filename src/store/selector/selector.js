@@ -1,43 +1,55 @@
 import { createSelector } from '@reduxjs/toolkit';
 import { CLIENTS } from '../../context/Clients';
-export const getFilter = (state) => state.filter;
+import FILTER_TYPE from '../../modules/Header/TableView/OrderConstant/OrderConstant';
 
-export const getClients1 = createSelector([getFilter], (filters) => {
+export const getFilter = (state) => state.filter;
+export const getSelect = (state) => state.filter.select;
+
+export const getClients = createSelector([getFilter, getSelect], (filters) => {
   const filteredClients = filterSum(CLIENTS, filters);
   return [filteredClients];
 });
 
 const intervalSum = (min, max) => {
   return (value) => {
-    const sumTo = min ? min : '0';
+    const sumTo = min ? min : 0;
     const sumFrom = max ? max : Infinity;
     return value >= sumTo && value <= sumFrom;
   };
 };
 
-// const intervalDate = (min, max) => {
-//   return (value) => {
-//     if(!min && !max){
-//       return value
-//     }
-//     if(!min) return value <= max
-//     if(!max) return value >= min
-//     return value >= min && value <= max
-//   }
-// }
+const intervalDate = (min, max) => {
+  return (date) => {
+    if (!date) return null;
+    date = Date.parse(date);
+    if (!min && !max) return true;
+    if (!min) return date <= max;
+    if (!max) return date >= min;
+    return date >= min && date <= max;
+  };
+};
+
+const selectedStatus = (arrayStatus) => {
+  return (status) => {
+    if (!arrayStatus.length || FILTER_TYPE.length === arrayStatus.length) {
+      return true;
+    }
+    return arrayStatus.includes(status);
+  };
+};
 
 const filterSum = (clients, filter) => {
-  //console.log(clients, filter, intervalSum);
   const sumFilter = intervalSum(filter.sumTo, filter.sumFrom);
-  const sum = clients.filter((item) => {
-    return sumFilter(item.sum);
+  const dateFilter = intervalDate(filter.dateTo, filter.dateFrom);
+  const selectedFilter = selectedStatus(filter.select);
+
+  return clients.filter(({ sum, date, status }) => {
+    return [
+      sumFilter(parseFloat(sum)),
+      dateFilter(date),
+      selectedFilter(status),
+    ].every(Boolean);
   });
-  return sum;
-  // const dateFilter = intervalDate()
-  // const date = sum.filter((item) => {
-  //   return intervalDate(item.date)
-  // });
-  // return date
 };
 
 // export const getClients = (state) => {
