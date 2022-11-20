@@ -39,7 +39,6 @@
     padding: 0.5rem 0.25rem 0.5rem 0.25rem;
     color: var(--black);
     background-color: var(--white);
- 
   }
   
   .input::placeholder {
