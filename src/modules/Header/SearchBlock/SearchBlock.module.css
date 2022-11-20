@@ -1,0 +1,43 @@
+.wrapper{
+    display: flex;   
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.filter{
+    display: flex;
+    gap: 1rem;
+}
+
+.loadArea{
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-size: 0.8125rem;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    color: var(--white );
+}
+
+.icon{
+    box-sizing: border-box;
+    width: 1rem;
+    height: 1rem;
+    stroke: var(--color-blue);
+    animation: spin 2s linear 0s infinite;
+}
+
+.text{
+    color: var(--color-blue);
+}
+
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+
+/* .button{
+    padding: 0.5rem 1rem;
+} */

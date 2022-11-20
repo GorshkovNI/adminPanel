@@ -1,0 +1,68 @@
+.searchbar {
+    font-family: "Ubuntu";
+    font-size: 0.8125rem;
+    font-weight: 400;
+  }
+  
+  .area {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    width: 16rem;
+    height: 2rem;
+    border: 1px solid var(--color-blue);
+    border-radius: 0.25rem;
+    background-color: var(--white);
+  }
+
+  
+  .icon {
+    stroke: var(--color-blue);
+    height: 1rem;
+    width: 1rem;
+    margin: 0.5rem;
+  }
+
+  .text{
+    background-color: var(--white);
+  }
+  
+  .area .text {
+    box-sizing: border-box;
+    width: calc(100% - 3.25rem);
+    height: 1rem;
+    padding: 0;
+    border: 0;
+    color: var(--black);
+  }
+  
+  .text::placeholder {
+    color: var(--color-light-blue);
+  }
+  
+  .text:focus {
+    outline: none;
+  }
+  
+  .searchButtonClose {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    stroke: var(--color-light-blue);
+    width: 1.5rem;
+    height: 1.5rem;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+  }
+  
+  .buttonIcon {
+    stroke: var(--color-blue);
+    width: 1rem;
+    height: 1rem;
+    cursor: pointer;
+    stroke: var(--color-light-blue);
+  }
+  
+

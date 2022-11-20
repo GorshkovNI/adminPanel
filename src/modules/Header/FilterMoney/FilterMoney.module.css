@@ -1,0 +1,30 @@
+.infoBlock{
+  background-color: var(--filter-color);
+}
+
+.text{
+    display: inline-block;
+    height: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--black);
+    background-color: var(--filter-color);
+}
+
+.dateInput{
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    background-color: var(--filter-color);
+}
+
+.small{
+    width: 9rem;
+  }
+
+  .lsmall{
+    width: 8rem;
+  }
+
+  .medium{
+    width: 12rem;
+  }

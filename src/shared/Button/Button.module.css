@@ -1,0 +1,55 @@
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    margin: 0rem;
+    border: 0;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    gap: 0.5rem;
+  }
+  
+  .buttonIcon {
+    box-sizing: border-box;
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .primary {
+    background-color: var(--color-blue);
+    color: var(--white);
+  }
+  
+  .primary .buttonIcon {
+    stroke: var(--white);
+    fill: var(--white);
+    background-color: var(--color-blue);
+  }
+
+  .transparent {
+    background-color: inherit;
+    color: var(--color-blue);
+  }
+  
+  .transparent .buttonIcon {
+    stroke: var(--color-blue);
+    fill: var(--color-blue);
+  } 
+
+  .medium{
+    padding: 0.25rem 0.5rem;
+  }
+
+  .big{
+    padding: 0.5rem 1rem;
+  }
+
+
+
+
+  
+  
+
+
+  

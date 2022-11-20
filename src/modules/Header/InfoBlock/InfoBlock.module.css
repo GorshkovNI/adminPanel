@@ -1,0 +1,50 @@
+
+.wrapper{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+.label{
+    height: 2rem;
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 32px;
+    color: var(--black);
+}
+
+.button{
+   padding: 0.25rem 0.5rem;
+}
+
+.dropdownBox{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.listItem{
+    width: 10rem;
+    box-sizing: border-box;
+    padding: 0.5rem 1rem;
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+}
+
+.dropdownArea{
+    position: absolute;
+    top: 2rem;
+    right: 0;
+    z-index: 999;
+}
+
+.buttonTheme{
+    padding: 0.25rem 0.5rem;
+}
+

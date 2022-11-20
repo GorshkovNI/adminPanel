@@ -1,0 +1,24 @@
+.infoBlock{
+  background-color: var(--filter-color);
+}
+
+.text{
+    display: inline-block;
+    height: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--black);
+    background-color: var(--filter-color);
+}
+
+.standart{
+    width: 12rem;
+}
+
+.checkboxText{
+    height: 2rem;
+    padding: 0.5rem 3rem 0.5rem 1rem;
+    background-color: inherit;
+    box-sizing: border-box;
+    cursor: pointer; 
+  }
+  
