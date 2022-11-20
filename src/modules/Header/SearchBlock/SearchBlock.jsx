@@ -26,7 +26,7 @@ export const SearchBlock = () => {
             placeholder='Номер заказа или ФИО'
           />
           <Button
-            className={styles.button}
+            size='big'
             mode={isActive ? 'primary' : 'transparent'}
             icon='filter'
             onClick={handleActive}
@@ -34,7 +34,7 @@ export const SearchBlock = () => {
             Фильтры
           </Button>
           <Button
-            className={styles.button}
+            size='big'
             mode='transparent'
             onClick={filterStore.search.onResetAll}
           >

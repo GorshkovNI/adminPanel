@@ -12,6 +12,7 @@ const buttonTypes = {
 
 export const Button = ({
   mode = 'primary',
+  size,
   className,
   icon,
   children,
@@ -21,6 +22,9 @@ export const Button = ({
     [styles.primary]: mode === buttonTypes.primary,
     [styles.transparent]: mode === buttonTypes.transparent,
     [styles.onlyIcon]: !children && icon,
+
+    [styles.medium]: size === 'medium',
+    [styles.big]: size === 'big',
   });
 
   return (

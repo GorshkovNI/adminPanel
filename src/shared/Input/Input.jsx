@@ -38,7 +38,7 @@ export const Input = ({
           onChange={onChange}
         />
         {!disabled && !!value && (
-          <button className={styles.buttonAction} onClick={props.onClick}>
+          <button className={styles.buttonAction} onClick={props.onReset}>
             <Icon name={nameIcon} className={styles.actionIcon} />
           </button>
         )}

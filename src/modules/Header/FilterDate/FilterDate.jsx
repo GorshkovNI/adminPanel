@@ -10,13 +10,13 @@ const inputSize = {
 };
 
 export const FilterDate = ({
-  filterData:{
+  filterData: {
     valueTo,
     valueFrom,
     onChangeTo,
     onChangeFrom,
     onResetTo,
-    onResetFrom
+    onResetFrom,
   },
 }) => {
   return (
@@ -27,7 +27,7 @@ export const FilterDate = ({
           className={inputSize.small}
           value={valueTo}
           onChange={onChangeTo}
-          onClick={onResetTo}
+          onReset={onResetTo}
           disabled={false}
           prefix='c'
           placeholder='dd.mm.yyyy'
@@ -37,7 +37,7 @@ export const FilterDate = ({
           className={inputSize.small}
           value={valueFrom}
           onChange={onChangeFrom}
-          onClick={onResetFrom}
+          onReset={onResetFrom}
           disabled={false}
           prefix='до'
           placeholder='dd.mm.yyyy'
