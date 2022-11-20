@@ -30,12 +30,13 @@ export const Select = ({ filter: { value, onChange, dropdownItem } }) => {
 
   const containerClassName = cn(styles.container);
   return (
-    <div className={styles.container} onClick={hangleChangeVisible}>
+    <div className={styles.container}>
       <div className={styles.area}>
         <Input
           value={status(value, dropdownItem)}
           className={containerClassName}
           nameIcon='vArrow'
+          onReset={hangleChangeVisible}
         />
         <div className={styles.dropdown}>
           {isVisible && (

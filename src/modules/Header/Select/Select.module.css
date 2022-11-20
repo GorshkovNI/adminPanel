@@ -24,4 +24,27 @@
     cursor: pointer; 
   }
 
+  .area{
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    position: relative;
+    /* width: 16rem; */
+    height: 2rem;
+    border: 1px solid var(--color-blue);
+    border-radius: 0.25rem;
+    background-color: var(--white);
+  }
+
+  .input {
+    box-sizing: border-box;
+    width: calc(100% - 1.75rem);
+    height: 1rem;
+    border: 0;
+    padding: 0.5rem 0.25rem 0.5rem 0.25rem;
+    color: var(--black);
+    background-color: var(--white);
+    margin-left: 0.5rem;
+  }
+  
 
