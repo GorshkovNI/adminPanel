@@ -14,7 +14,6 @@ const filterSlice = createSlice({
   initialState,
   reducers: {
     setAction(state, { payload: { key, value } }) {
-      console.log('Ебанул энтер');
       state[key] = value;
     },
     setSelected(state, action) {

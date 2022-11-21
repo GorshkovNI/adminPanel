@@ -2,16 +2,13 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Button } from '../../../shared/Button/Button';
-//import { getSelect } from '../../../store/selector/selector';
 import { setAction, setSelected } from '../../../store/slice/filterSlice';
 import { FilterDate } from '../FilterDate/FilterDate';
 import { FilterDropdown } from '../FilterDropdown/FilterDropdown';
 import { FilterMoney } from '../FilterMoney/FilterMoney';
 import styles from './FilterBlock.module.css';
 
-
 export const FilterBlock = ({ isFilterReset }) => {
-  //const filter = useSelector(getSelect)
   const dispatch = useDispatch();
 
   const [sumTo, setSumTo] = useState('');
@@ -117,8 +114,12 @@ export const FilterBlock = ({ isFilterReset }) => {
           onResetTo={handleResetSumTo}
           onResetFrom={handleResetSumFrom}
         />
-        <div className={styles.button}>
-          <Button mode='transparent' onClick={handleApply}>
+        <div className={styles.areaButton}>
+          <Button
+            className={styles.button}
+            mode='transparent'
+            onClick={handleApply}
+          >
             Применить
           </Button>
         </div>

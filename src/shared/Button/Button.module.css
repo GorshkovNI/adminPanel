@@ -49,6 +49,16 @@
     padding: 0.5rem 1rem;
   }
 
+  .delete{
+    color: #FFFFFF;
+    background-color: #F53152;
+  }
+
+  .delete .buttonIcon{
+    stroke: #FFFFFF;
+    background-color: inherit;
+  }
+
 
 
 

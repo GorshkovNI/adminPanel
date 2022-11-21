@@ -17,7 +17,6 @@ export const Button = ({
   className,
   icon,
   children,
-  className,
   onClick = noop,
 }) => {
   const buttonClassName = cn(styles.button, className, {
