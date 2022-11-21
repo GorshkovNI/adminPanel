@@ -48,7 +48,12 @@ export const SearchBlock = () => {
             onKeyPress={handleKeyPress}
             placeholder='Номер заказа или ФИО'
           />
-          <Button icon='filter' onClick={handleActive}>
+          <Button
+            size='big'
+            mode={isActive ? 'primary' : 'transparent'}
+            icon='filter'
+            onClick={handleActive}
+          >
             Фильтры
           </Button>
           <Button mode='transparent' onClick={handleFilterReset}>

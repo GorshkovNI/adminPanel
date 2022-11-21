@@ -9,6 +9,7 @@ import { FilterDropdown } from '../FilterDropdown/FilterDropdown';
 import { FilterMoney } from '../FilterMoney/FilterMoney';
 import styles from './FilterBlock.module.css';
 
+
 export const FilterBlock = ({ isFilterReset }) => {
   //const filter = useSelector(getSelect)
   const dispatch = useDispatch();
@@ -95,7 +96,6 @@ export const FilterBlock = ({ isFilterReset }) => {
     setDateFrom('');
     setDropdownItem([]);
   }, [isFilterReset]);
-
   return (
     <div className={styles.wrapper}>
       <div className={styles.filters}>

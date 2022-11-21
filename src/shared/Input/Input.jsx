@@ -5,7 +5,6 @@ import { Icon } from '../Icons/Icon';
 
 const statusTypes = {
   incorrect: 'incorrect',
-  disabled: 'disabled',
 };
 
 const noop = () => {};
@@ -18,12 +17,12 @@ export const Input = ({
   disabled,
   value,
   nameIcon,
-  isSelect,
   onChange = noop,
   ...props
 }) => {
   const containerClassname = cn(styles.container, className, {
     [styles.incorrect]: statusTypes.incorrect === status,
+    [styles.disabled]: disabled,
   });
 
   return (
@@ -40,16 +39,11 @@ export const Input = ({
           onChange={onChange}
         />
         {!disabled && !!value && (
-          <button className={styles.buttonAction} onClick={props.onClick}>
+          <button className={styles.buttonAction} onClick={props.onReset}>
             <Icon name={nameIcon} className={styles.actionIcon} />
           </button>
         )}
-        {isSelect && (
-          <button className={styles.buttonAction} onClick={props.onClick}>
-            <Icon name={nameIcon} className={styles.actionIcon} />
-          </button>
-        )}
-        {disabled && <Icon name={nameIcon} className={styles.IconDisabled} />}
+        {disabled && <Icon name='locked' className={styles.IconDisabled} />}
       </div>
     </div>
   );

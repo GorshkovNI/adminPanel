@@ -3,11 +3,9 @@ import styles from './Checkbox.module.css';
 import { Icon } from '../Icons/Icon';
 import cn from 'classnames';
 
-export const CheckBox = ({
-  id,
-  label,
-  className,
 
+export const CheckBox = ({ id, label, className, onChange }) => {
+  const labelClassName = cn(styles.checkbox, className);
   onChange,
   ...props
 }) => {
