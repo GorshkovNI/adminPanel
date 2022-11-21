@@ -4,7 +4,7 @@
     justify-content: space-between;
     margin-bottom: 2rem;
 }
-.label {
+.label{
     height: 2rem;
     font-family: "Ubuntu";
     font-style: normal;
@@ -26,7 +26,14 @@
 }
 
 .listItem{
+    width: 10rem;
+    box-sizing: border-box;
     padding: 0.5rem 1rem;
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
 }
 
 .dropdownArea{
@@ -36,13 +43,6 @@
     z-index: 999;
 }
 
-.active{
-    color: tomato;
-}
-
-.backGround{
-    height: 2rem;
-    width: 8rem;
-    border-radius: 0.25rem;
-    background-color: var(--color-blue);
+.buttonTheme{
+    padding: 0.25rem 0.5rem;
 }

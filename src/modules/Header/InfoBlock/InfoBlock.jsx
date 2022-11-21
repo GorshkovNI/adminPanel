@@ -37,10 +37,11 @@ export const InfoBlock = () => {
                     ? 'primary'
                     : 'transparent'
                 }
+                className={styles.buttonTheme}
                 icon='sun'
                 onClick={themeStore.theme.turnLightTheme}
               >
-                Светлая тема
+                Светлая
               </Button>
               <Button
                 mode={
@@ -48,10 +49,11 @@ export const InfoBlock = () => {
                     ? 'primary'
                     : 'transparent'
                 }
+                className={styles.buttonTheme}
                 icon='moon'
                 onClick={themeStore.theme.turnDarkTheme}
               >
-                Темная тема
+                Темная
               </Button>
             </div>
           </Dropdown>

@@ -8,9 +8,8 @@ import { FilterBlock } from '../FilterBlock/FilterBlock';
 import styles from './SearchBlock.module.css';
 
 export const SearchBlock = () => {
-  
   const [isActive, setIsActive] = useState(false);
-  const { filterStore } = useContext(FilterContext)
+  const { filterStore } = useContext(FilterContext);
 
   const handleActive = () => {
     setIsActive(!isActive);
@@ -20,16 +19,27 @@ export const SearchBlock = () => {
     <div>
       <div className={styles.wrapper}>
         <div className={styles.filter}>
-          <Search 
+          <Search
             value={filterStore.search.value}
             onChange={filterStore.search.onChange}
             onReset={filterStore.search.onReset}
-            placeholder='Номер заказа или ФИО' 
+            placeholder='Номер заказа или ФИО'
           />
-          <Button icon='filter' onClick={handleActive}>
+          <Button
+            size='big'
+            mode={isActive ? 'primary' : 'transparent'}
+            icon='filter'
+            onClick={handleActive}
+          >
             Фильтры
           </Button>
-          <Button mode='transparent' onClick={filterStore.search.onResetAll}>Сбросить фильтры</Button>
+          <Button
+            size='big'
+            mode='transparent'
+            onClick={filterStore.search.onResetAll}
+          >
+            Сбросить фильтры
+          </Button>
         </div>
         <div className={styles.loadArea}>
           <Icon name='refresh' className={styles.icon} />

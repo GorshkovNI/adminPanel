@@ -36,7 +36,7 @@ export const Select = ({ filter: { value, onChange, dropdownItem } }) => {
           value={status(value, dropdownItem)}
           className={containerClassName}
           nameIcon='vArrow'
-          onClick={hangleChangeVisible}
+          onReset={hangleChangeVisible}
         />
         <div className={styles.dropdown}>
           {isVisible && (

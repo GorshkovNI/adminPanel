@@ -10,35 +10,35 @@ const inputSize = {
 };
 
 export const FilterMoney = ({
-  filterData:{
+  filterData: {
     valueTo,
     valueFrom,
     onChangeTo,
     onChangeFrom,
     onResetTo,
-    onResetFrom
-  }
+    onResetFrom,
+  },
 }) => {
   return (
     <div className={styles.infoBlock}>
       <span className={styles.text}>Сумма заказа</span>
       <div className={styles.dateInput}>
-        <Input 
-          className={inputSize.small} 
+        <Input
+          className={inputSize.small}
           value={valueTo}
           onChange={onChangeTo}
-          onClick={onResetTo}
-          prefix='от' 
-          placeholder='₽' 
+          onReset={onResetTo}
+          prefix='от'
+          placeholder='₽'
           nameIcon='xMedium'
         />
-        <Input 
-          className={inputSize.small} 
+        <Input
+          className={inputSize.small}
           value={valueFrom}
           onChange={onChangeFrom}
-          onClick={onResetFrom}
-          prefix='до' 
-          placeholder='₽' 
+          onReset={onResetFrom}
+          prefix='до'
+          placeholder='₽'
           nameIcon='xMedium'
         />
       </div>

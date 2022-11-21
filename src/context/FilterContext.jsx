@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-labels */
 import React, { createContext } from 'react';
 import { useState } from 'react';
 
@@ -73,6 +72,7 @@ export const FilterContextProvider = ({ children }) => {
       setValueInputMoneyTo(''),
       setValueInputMoneyFrom(''),
       setValueSearchInput('');
+    setValueFromInputDropdown([]);
   };
 
   //Select
