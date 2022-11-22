@@ -7,6 +7,8 @@ const initialState = {
   dateFrom: '',
   select: [],
   search: '',
+  sort: 'date',
+  direction: false,
 };
 
 const filterSlice = createSlice({
@@ -14,6 +16,7 @@ const filterSlice = createSlice({
   initialState,
   reducers: {
     setAction(state, { payload: { key, value } }) {
+      console.log(key, value);
       state[key] = value;
     },
     setSelected(state, action) {
@@ -21,6 +24,7 @@ const filterSlice = createSlice({
       state.select.length = 0;
       state.select = label.filter((item) => item);
     },
+
     resetState() {
       return initialState;
     },

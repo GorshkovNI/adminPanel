@@ -1,4 +1,3 @@
-
 .area{
     display: flex;
     align-items: center;
@@ -11,11 +10,13 @@
     font-weight: 400;
     font-size: 13px;
     line-height: 16px;
+    color: var(--white);
+    cursor: pointer;
 }
 
 .iconArea{
     height: 1rem;
-    background-color: inherit;
+    background-color: var(--color-blue);
 }
 
 .icon{
@@ -25,4 +26,12 @@
     background-color: var(--color-blue);
     fill: var(--filter-color);
     cursor: pointer;
+}
+
+.active{
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.active .icon{
+    background: rgba(0, 0, 0, 0.15)
 }

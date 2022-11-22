@@ -5,16 +5,7 @@ import { Input } from '../../../shared/Input/Input';
 import { useState } from 'react';
 import { Dropdown } from '../../../shared/Dropdown/Dropdown';
 import { CheckBox } from '../../../shared/Checkbox/Checkbox';
-import FILTER_TYPE from '../TableView/OrderConstant/OrderConstant';
-// const FILTER_TYPE = {
-//   any: 'Любой',
-//   new: 'Новый',
-//   calc: 'Рассчет',
-//   confirmed: 'Подтвержден',
-//   delayed: 'Отложен',
-//   completed: 'Выполнен',
-//   cancelled: 'Отменен',
-// };
+import { FILTER_TYPE } from '../TableView/OrderConstant/OrderConstant';
 
 export const Select = ({ value, onSelecItem }) => {
   const [isVisible, setIsVisible] = useState(false);

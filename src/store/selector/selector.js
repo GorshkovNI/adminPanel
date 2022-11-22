@@ -1,14 +1,24 @@
 import { createSelector } from '@reduxjs/toolkit';
 import { CLIENTS } from '../../context/Clients';
-import FILTER_TYPE from '../../modules/Header/TableView/OrderConstant/OrderConstant';
+import { FILTER_TYPE } from '../../modules/Header/TableView/OrderConstant/OrderConstant';
 
 export const getFilter = (state) => state.filter;
 export const getSelect = (state) => state.filter.select;
+export const getSort = (state) => state.filter.sort;
+export const getDirection = (state) => state.filter.direction;
 
-export const getClients = createSelector([getFilter], (filters) => {
-  const filteredClients = filterSum(CLIENTS, filters);
-  return [filteredClients];
-});
+export const getClients = createSelector(
+  [getFilter, getSelect, getSort, getDirection],
+  (filters) => {
+    const filteredClients = filterOrders(CLIENTS, filters);
+    const sortedClients = sortedOrders(
+      filteredClients,
+      filters.sort,
+      filters.direction
+    );
+    return [sortedClients];
+  }
+);
 
 const intervalSum = (min, max) => {
   return (value) => {
@@ -47,7 +57,7 @@ const filteredNameOrOrder = (nameOrOrder) => {
   };
 };
 
-const filterSum = (clients, filter) => {
+const filterOrders = (clients, filter) => {
   const sumFilter = intervalSum(filter.sumTo, filter.sumFrom);
   const dateFilter = intervalDate(filter.dateTo, filter.dateFrom);
   const selectedFilter = selectedStatus(filter.select);
@@ -60,5 +70,40 @@ const filterSum = (clients, filter) => {
       selectedFilter(status),
       fno(customer, orderNumber),
     ].every(Boolean);
+  });
+};
+
+const sortedOrders = (orders, sort, direction) => {
+  console.log(direction);
+  return orders.sort((a, b) => {
+    if (!direction) {
+      if (isFinite(a[sort])) {
+        return a[sort] - b[sort];
+      }
+
+      if (a[sort] < b[sort]) {
+        return -1;
+      }
+
+      if (a[sort] > b[sort]) {
+        return 1;
+      }
+
+      return 0;
+    } else {
+      if (isFinite(a[sort])) {
+        return b[sort] - a[sort];
+      }
+
+      if (a[sort] > b[sort]) {
+        return -1;
+      }
+
+      if (a[sort] < b[sort]) {
+        return 1;
+      }
+
+      return 0;
+    }
   });
 };

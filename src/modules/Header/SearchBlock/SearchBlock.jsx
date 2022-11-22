@@ -34,12 +34,12 @@ export const SearchBlock = () => {
     dispatch(resetState());
   };
 
-  const handleKeyPress = (e) => {
-    if (e.key === 'Enter') {
-      console.log('Нажат Enter');
-      dispatch(setAction({ key: 'search', value: value }));
-    }
-  };
+  // const handleKeyPress = (e) => {
+  //   if (e.key === 'Enter') {
+  //     console.log('Нажат Enter');
+  //     dispatch(setAction({ key: 'search', value: value }));
+  //   }
+  // };
 
   const handleReset = () => {
     setValue('');
@@ -54,7 +54,7 @@ export const SearchBlock = () => {
             value={value}
             onChange={handleValue}
             onReset={handleReset}
-            onKeyPress={handleKeyPress}
+            onKeyPress={() => {}}
             placeholder='Номер заказа или ФИО'
           />
           <Button

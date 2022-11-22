@@ -2,21 +2,24 @@ import React from 'react';
 import styles from './TableHeaderCell.module.css';
 import cn from 'classnames';
 import { Icon } from '../../Icons/Icon';
-import { useState } from 'react';
 
-export const TableHeaderCell = ({ className, onSort, children }) => {
-  const [active, setActive] = useState(false);
-
-  const handleActive = () => {
-    setActive(!active);
-  };
+export const TableHeaderCell = ({
+  className,
+  id,
+  isIcon,
+  isActive,
+  children,
+  onClick,
+}) => {
+  const cellClassName = cn(styles.area, className, {
+    [styles.active]: isActive,
+  });
 
   return (
-    <div className={cn(styles.area, className)} onClick={handleActive}>
-      {console.log(children)}
+    <div className={cellClassName} onClick={onClick} id={id}>
       {children}
-      {onSort && (
-        <div className={styles.iconArea} onClick={onSort}>
+      {isIcon && (
+        <div className={styles.iconArea}>
           <Icon name='vArrow' className={styles.icon} />
         </div>
       )}
