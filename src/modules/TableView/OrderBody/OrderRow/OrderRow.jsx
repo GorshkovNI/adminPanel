@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './OrderRow.module.css';
-import { CheckBox } from '../../../../../shared/Checkbox/Checkbox';
-import { StatusCell } from '../../../../../shared/Table/TableBody/StatusCell/StatusCell';
-import { TableCell } from '../../../../../shared/Table/TableBody/TableCell/TableCell';
-import { TableRow } from '../../../../../shared/Table/TableBody/TableRow/TableRow';
+import { CheckBox } from '../../../../shared/Checkbox/Checkbox';
+import { StatusCell } from '../../../../shared/Table/TableBody/StatusCell/StatusCell';
+import { TableCell } from '../../../../shared/Table/TableBody/TableCell/TableCell';
+import { TableRow } from '../../../../shared/Table/TableBody/TableRow/TableRow';
 
 export const OrderRow = ({ item }) => {
   return (

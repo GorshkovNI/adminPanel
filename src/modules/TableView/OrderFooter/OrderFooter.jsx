@@ -1,7 +1,7 @@
 import React from 'react';
-import { Button } from '../../../../shared/Button/Button';
-import { TableFooter } from '../../../../shared/Table/TableFooter/TableFooter';
-import { Pagination } from '../../../../shared/Table/TableFooter/Pagination/Pagination';
+import { Button } from '../../../shared/Button/Button';
+import { TableFooter } from '../../../shared/Table/TableFooter/TableFooter';
+import { Pagination } from '../../../shared/Table/TableFooter/Pagination/Pagination';
 import styles from './OrderFooter.module.css';
 
 export const OrderFooter = ({

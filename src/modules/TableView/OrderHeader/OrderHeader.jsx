@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './OrderHeader.module.css';
-import { TableHeader } from '../../../../shared/Table/TableHeader/TableHeader';
-import { TableHeaderCell } from '../../../../shared/Table/TableHeaderCell/TableHeaderCell';
-import { CheckBox } from '../../../../shared/Checkbox/Checkbox';
+import { TableHeader } from '../../../shared/Table/TableHeader/TableHeader';
+import { TableHeaderCell } from '../../../shared/Table/TableHeaderCell/TableHeaderCell';
+import { CheckBox } from '../../../shared/Checkbox/Checkbox';
 
 export const OrderHeader = () => {
   return (

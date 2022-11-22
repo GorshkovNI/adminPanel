@@ -4,7 +4,7 @@ import { Header } from '../Header/Header';
 import { SearchBlock } from '../Header/SearchBlock/SearchBlock';
 import { FilterContextProvider } from '../../context/FilterContext';
 import { TableContextProvider } from '../../context/TableContext';
-import { TableView } from '../Header/TableView/TableView';
+import { TableView } from '../TableView/TableView';
 
 export const MainPage = () => {
   return (
