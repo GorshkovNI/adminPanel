@@ -44,7 +44,7 @@
 }
 
 .iconCanceled{
-   stroke: rgba(128, 85, 255, 0.6);
+   stroke: rgb(107, 106, 109);
 }
 .iconCanceled + .text{
    color: rgba(188, 196, 204, 0.7);
