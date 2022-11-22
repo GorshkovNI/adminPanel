@@ -9,6 +9,12 @@ const inputSize = {
   lsmall: styles.lsmall,
 };
 
+const onlyDigit = (number) => {
+  let value = number.replace(/[^0-9]/g, '');
+  value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+  return value;
+};
+
 export const FilterMoney = ({
   onChangeTo,
   onChangeFrom,
@@ -29,6 +35,7 @@ export const FilterMoney = ({
           prefix='от'
           placeholder='₽'
           nameIcon='xMedium'
+          mode={onlyDigit}
         />
         <Input
           className={inputSize.small}
@@ -38,6 +45,7 @@ export const FilterMoney = ({
           prefix='до'
           placeholder='₽'
           nameIcon='xMedium'
+          mode={onlyDigit}
         />
       </div>
     </div>

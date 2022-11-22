@@ -18,6 +18,7 @@ export const Input = ({
   value,
   nameIcon,
   onChange = noop,
+  mode,
   ...props
 }) => {
   const containerClassname = cn(styles.container, className, {
@@ -34,7 +35,7 @@ export const Input = ({
           type='text'
           placeholder={placeholder}
           disabled={disabled}
-          value={value}
+          value={mode ? mode(value) : value}
           maxLength={props.maxlength}
           onChange={onChange}
         />

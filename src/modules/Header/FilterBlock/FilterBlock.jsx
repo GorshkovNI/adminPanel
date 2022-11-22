@@ -32,11 +32,11 @@ export const FilterBlock = ({ isFilterReset }) => {
 
   // From Money
   const handleFilterSumTo = ({ target: { value } }) => {
-    setSumTo(value);
+    setSumTo(value.split(' ').join(''));
   };
 
   const handleFilterSumtFrom = ({ target: { value } }) => {
-    setSumFrom(value);
+    setSumFrom(value.split(' ').join(''));
   };
 
   const handleResetSumTo = () => {

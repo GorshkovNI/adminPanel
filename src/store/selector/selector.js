@@ -74,7 +74,6 @@ const filterOrders = (clients, filter) => {
 };
 
 const sortedOrders = (orders, sort, direction) => {
-  console.log(direction);
   return orders.sort((a, b) => {
     if (!direction) {
       if (isFinite(a[sort])) {
