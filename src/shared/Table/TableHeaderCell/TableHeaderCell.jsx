@@ -10,9 +10,14 @@ export const TableHeaderCell = ({
   isActive,
   children,
   onClick,
+  direction,
 }) => {
   const cellClassName = cn(styles.area, className, {
     [styles.active]: isActive,
+  });
+
+  const iconRotate = cn(styles.icon, {
+    [styles.up]: direction,
   });
 
   return (
@@ -20,7 +25,7 @@ export const TableHeaderCell = ({
       {children}
       {isIcon && (
         <div className={styles.iconArea}>
-          <Icon name='vArrow' className={styles.icon} />
+          <Icon name='vArrow' className={iconRotate} />
         </div>
       )}
     </div>

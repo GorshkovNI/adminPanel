@@ -17,11 +17,12 @@ export const OrderHeader = () => {
   const [filterField, setFilterField] = useState(sortCell);
 
   const handleFiledSort = (e) => {
-    if (e.target.id === filterField) {
+    if (e.currentTarget.id === filterField) {
       dispatch(setAction({ key: 'direction', value: !direction }));
     } else {
-      setFilterField(e.target.id);
-      dispatch(setAction({ key: 'sort', value: e.target.id }));
+      setFilterField(e.currentTarget.id);
+      dispatch(setAction({ key: 'sort', value: e.currentTarget.id }));
+      dispatch(setAction({ key: 'direction', value: !direction }));
     }
   };
 

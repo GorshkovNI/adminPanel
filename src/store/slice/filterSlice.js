@@ -16,7 +16,6 @@ const filterSlice = createSlice({
   initialState,
   reducers: {
     setAction(state, { payload: { key, value } }) {
-      console.log(key, value);
       state[key] = value;
     },
     setSelected(state, action) {

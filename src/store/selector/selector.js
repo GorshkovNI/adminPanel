@@ -31,11 +31,11 @@ const intervalSum = (min, max) => {
 const intervalDate = (min, max) => {
   return (date) => {
     if (!date) return null;
-    date = Date.parse(date);
+    const parseDate = Date.parse(date);
     if (!min && !max) return true;
-    if (!min) return date <= max;
-    if (!max) return date >= min;
-    return date >= min && date <= max;
+    if (!min) return parseDate <= max;
+    if (!max) return parseDate >= min;
+    return parseDate >= min && parseDate <= max;
   };
 };
 
@@ -79,30 +79,12 @@ const sortedOrders = (orders, sort, direction) => {
       if (isFinite(a[sort])) {
         return a[sort] - b[sort];
       }
-
-      if (a[sort] < b[sort]) {
-        return -1;
-      }
-
-      if (a[sort] > b[sort]) {
-        return 1;
-      }
-
-      return 0;
+      return a[sort].localeCompare(b[sort]);
     } else {
       if (isFinite(a[sort])) {
         return b[sort] - a[sort];
       }
-
-      if (a[sort] > b[sort]) {
-        return -1;
-      }
-
-      if (a[sort] < b[sort]) {
-        return 1;
-      }
-
-      return 0;
+      return b[sort].localeCompare(a[sort]);
     }
   });
 };

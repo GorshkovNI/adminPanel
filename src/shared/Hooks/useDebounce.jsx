@@ -4,7 +4,6 @@ const useDebounce = (value, delay) => {
   const [debouncedValue, setDebouncedValue] = useState(value);
 
   useMemo(() => {
-    console.log('useDebounce: ', value);
     const handler = setTimeout(() => {
       setDebouncedValue(value);
     }, delay);
