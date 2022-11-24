@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Table } from '../../shared/Table/Table';
 import {
-  getAllOrders,
+  //getAllOrders,
   getClients,
   getFilter,
 } from '../../store/selector/selector';
@@ -14,8 +14,8 @@ import { OrderHeader } from './OrderHeader/OrderHeader';
 import styles from './TableView.module.css';
 
 export const TableView = () => {
-  const [filter] = useSelector(getClients);
-  const orders = useSelector(getAllOrders);
+  const [filter, sortedLength] = useSelector(getClients);
+  //const orders = useSelector(getAllOrders);
   const currentPage = useSelector(getFilter).currentPage;
 
   const dispatch = useDispatch();
@@ -30,7 +30,7 @@ export const TableView = () => {
       <OrderBody className={styles.body} date={filter} />
       <OrderFooter
         className={styles.footer}
-        totalCount={orders.length}
+        totalCount={sortedLength}
         pageSize={PageSize}
         currentPage={currentPage}
         onPageChange={selectPage}

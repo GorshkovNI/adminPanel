@@ -22,7 +22,7 @@ export const getClients = createSelector(
       filters.direction
     );
     const pagination = currentTableData(sortedClients, filters.currentPage);
-    return [pagination];
+    return [pagination, sortedClients.length];
   }
 );
 
