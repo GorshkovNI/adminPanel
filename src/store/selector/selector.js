@@ -2,7 +2,7 @@ import { createSelector } from '@reduxjs/toolkit';
 import {
   FILTER_TYPE,
   PageSize,
-} from '../../modules/Header/TableView/OrderConstant/OrderConstant';
+} from '../../modules/TableView/OrderConstant/OrderConstant';
 
 export const getAllOrders = (state) => state.orders.orders;
 export const getFilter = (state) => state.filter;

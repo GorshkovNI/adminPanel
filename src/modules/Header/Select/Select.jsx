@@ -4,8 +4,8 @@ import cn from 'classnames';
 import { useState } from 'react';
 import { Dropdown } from '../../../shared/Dropdown/Dropdown';
 import { CheckBox } from '../../../shared/Checkbox/Checkbox';
-import { FILTER_TYPE } from '../TableView/OrderConstant/OrderConstant';
 import { InputDropdown } from './InputDropdown/InputDropdown';
+import { FILTER_TYPE } from '../../TableView/OrderConstant/OrderConstant';
 
 export const Select = ({ value, onSelecItem }) => {
   const [isVisible, setIsVisible] = useState(false);

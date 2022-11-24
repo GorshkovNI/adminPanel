@@ -1,12 +1,12 @@
 import React from 'react';
 import styles from './OrderHeader.module.css';
-import { TableHeader } from '../../../../shared/Table/TableHeader/TableHeader';
-import { TableHeaderCell } from '../../../../shared/Table/TableHeaderCell/TableHeaderCell';
+import { TableHeader } from '../../../shared/Table/TableHeader/TableHeader';
+import { TableHeaderCell } from '../../../shared/Table/TableHeaderCell/TableHeaderCell';
 import { HEADER_CELL } from '../OrderConstant/OrderConstant';
-import { CheckBox } from '../../../../shared/Checkbox/Checkbox';
+import { CheckBox } from '../../../shared/Checkbox/Checkbox';
 import { useDispatch, useSelector } from 'react-redux';
-import { getDirection, getSort } from '../../../../store/selector/selector';
-import { setAction } from '../../../../store/slice/filterSlice';
+import { getDirection, getSort } from '../../../store/selector/selector';
+import { setAction } from '../../../store/slice/filterSlice';
 import { useState } from 'react';
 
 export const OrderHeader = () => {

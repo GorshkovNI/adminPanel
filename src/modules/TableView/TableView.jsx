@@ -1,12 +1,12 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Table } from '../../../shared/Table/Table';
+import { Table } from '../../shared/Table/Table';
 import {
   getAllOrders,
   getClients,
   getFilter,
-} from '../../../store/selector/selector';
-import { setAction } from '../../../store/slice/filterSlice';
+} from '../../store/selector/selector';
+import { setAction } from '../../store/slice/filterSlice';
 import { OrderBody } from './OrderBody/OrderBody';
 import { PageSize } from './OrderConstant/OrderConstant';
 import { OrderFooter } from './OrderFooter/OrderFooter';
