@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './Select.module.css';
 import cn from 'classnames';
-import { Input } from '../../../shared/Input/Input';
 import { useState } from 'react';
 import { Dropdown } from '../../../shared/Dropdown/Dropdown';
 import { CheckBox } from '../../../shared/Checkbox/Checkbox';
 import { FILTER_TYPE } from '../TableView/OrderConstant/OrderConstant';
+import { InputDropdown } from './InputDropdown/InputDropdown';
 
 export const Select = ({ value, onSelecItem }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -36,11 +36,13 @@ export const Select = ({ value, onSelecItem }) => {
   return (
     <div className={styles.container}>
       <div className={styles.area}>
-        <Input
+        <InputDropdown
           value={status(value, getDropDownElement(FILTER_TYPE))}
           className={containerClassName}
           nameIcon='vArrow'
           onReset={hangleChangeVisible}
+          onVisible={hangleChangeVisible}
+          isVisible={isVisible}
         />
         <div className={styles.dropdown}>
           {isVisible && (

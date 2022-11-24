@@ -1,22 +1,28 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { CLIENTS } from '../../context/Clients';
-import { FILTER_TYPE } from '../../modules/Header/TableView/OrderConstant/OrderConstant';
+import {
+  FILTER_TYPE,
+  PageSize,
+} from '../../modules/Header/TableView/OrderConstant/OrderConstant';
 
+export const getAllOrders = (state) => state.orders.orders;
 export const getFilter = (state) => state.filter;
 export const getSelect = (state) => state.filter.select;
 export const getSort = (state) => state.filter.sort;
 export const getDirection = (state) => state.filter.direction;
+export const getCurrent = (state) => state.filter.currentPage;
 
 export const getClients = createSelector(
-  [getFilter, getSelect, getSort, getDirection],
-  (filters) => {
-    const filteredClients = filterOrders(CLIENTS, filters);
+  [getAllOrders, getFilter, getSelect, getSort, getDirection],
+
+  (orders, filters) => {
+    const filteredClients = filterOrders(orders, filters);
     const sortedClients = sortedOrders(
       filteredClients,
       filters.sort,
       filters.direction
     );
-    return [sortedClients];
+    const pagination = currentTableData(sortedClients, filters.currentPage);
+    return [pagination];
   }
 );
 
@@ -63,7 +69,7 @@ const filterOrders = (clients, filter) => {
   const selectedFilter = selectedStatus(filter.select);
   const fno = filteredNameOrOrder(filter.search);
 
-  return clients.filter(({ sum, date, status, customer, orderNumber }) => {
+  return clients?.filter(({ sum, date, status, customer, orderNumber }) => {
     return [
       sumFilter(parseFloat(sum)),
       dateFilter(date),
@@ -80,11 +86,17 @@ const sortedOrders = (orders, sort, direction) => {
         return a[sort] - b[sort];
       }
       return a[sort].localeCompare(b[sort]);
-    } else {
-      if (isFinite(a[sort])) {
-        return b[sort] - a[sort];
-      }
-      return b[sort].localeCompare(a[sort]);
     }
+
+    if (isFinite(a[sort])) {
+      return b[sort] - a[sort];
+    }
+    return b[sort].localeCompare(a[sort]);
   });
+};
+
+const currentTableData = (date, currentPage) => {
+  const firstPageIndex = (currentPage - 1) * PageSize;
+  const lastPageIndex = firstPageIndex + PageSize;
+  return date.slice(firstPageIndex, lastPageIndex);
 };

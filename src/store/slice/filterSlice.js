@@ -9,6 +9,7 @@ const initialState = {
   search: '',
   sort: 'date',
   direction: false,
+  currentPage: 1,
 };
 
 const filterSlice = createSlice({

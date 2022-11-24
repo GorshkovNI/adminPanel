@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Button } from '../../../shared/Button/Button';
-import useDebounce from '../../../shared/Hooks/useDebounce';
+import useDebounce from '../../../Hooks/useDebounce';
 import { Icon } from '../../../shared/Icons/Icon';
 import { Search } from '../../../shared/Search/Search';
 import { resetState, setAction } from '../../../store/slice/filterSlice';

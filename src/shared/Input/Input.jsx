@@ -27,7 +27,7 @@ export const Input = ({
   });
 
   return (
-    <div className={containerClassname}>
+    <div className={containerClassname} onClick={props.onVisible}>
       <div className={styles.area}>
         <span className={styles.label}>{prefix}</span>
         <input
@@ -40,7 +40,7 @@ export const Input = ({
           onChange={onChange}
         />
         {!disabled && !!value && (
-          <button className={styles.buttonAction} onClick={props.onReset}>
+          <button className={styles.buttonAction}>
             <Icon name={nameIcon} className={styles.actionIcon} />
           </button>
         )}

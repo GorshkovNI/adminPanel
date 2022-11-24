@@ -69,6 +69,7 @@ export const FilterBlock = ({ isFilterReset }) => {
     dispatch(setAction({ key: 'sumFrom', value: sumFrom }));
     dispatch(setAction({ key: 'dateTo', value: checkDate(dateTo) }));
     dispatch(setAction({ key: 'dateFrom', value: checkDate(dateFrom) }));
+    dispatch(setSelected(dropdownItem));
   };
 
   //from select
@@ -78,12 +79,12 @@ export const FilterBlock = ({ isFilterReset }) => {
     const newItem = !dropdownItem.includes(value.target.id)
       ? [...dropdownItem, value.target.id]
       : dropdownItem.filter((item) => item !== value.target.id);
-    setDropdownItem(
-      !dropdownItem.includes(value.target.id)
-        ? [...dropdownItem, value.target.id]
-        : dropdownItem.filter((item) => item !== value.target.id)
-    );
-    dispatch(setSelected(newItem));
+    // setDropdownItem(
+    //   !dropdownItem.includes(value.target.id)
+    //     ? [...dropdownItem, value.target.id]
+    //     : dropdownItem.filter((item) => item !== value.target.id)
+    setDropdownItem(newItem);
+    //dispatch(setSelected(newItem));
   };
 
   useEffect(() => {

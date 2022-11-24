@@ -1,0 +1,83 @@
+.container {
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-size: 0.8125rem;
+    font-weight: 400;
+  }
+  
+  .inputLabel {
+    display: inline-block;
+    height: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .area{
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    position: relative;
+    /* width: 16rem; */
+    height: 2rem;
+    border: 1px solid var(--color-blue);
+    border-radius: 0.25rem;
+    background-color: var(--white);
+    cursor: pointer;
+  }
+  
+  .label{
+    margin-left: 0.5rem;
+    color: var(--black);
+    background-color: inherit;
+  }
+  
+  .input {
+    box-sizing: border-box;
+    width: calc(100% - 1.75rem);
+    height: 1rem;
+    border: 0;
+    margin: 0;
+    padding: 0.5rem 0.25rem 0.5rem 0.25rem;
+    color: var(--black);
+    background-color: var(--white);
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .input::placeholder {
+    color: var(--color-light-blue);
+  }
+  
+  .input:focus {
+    outline: none;
+  }
+
+  .buttonAction {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    margin-right: 0.25rem;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+  
+  .actionIcon {
+    height: 1rem;
+    width: 1rem;
+    cursor: pointer;
+    stroke: var(--color-light-blue);
+    fill: var(--color-light-blue);
+  }
+  
+  .IconNormal{
+    stroke: var(--color-light-blue);
+    fill: var(--color-light-blue);
+  }
+
+  .up{
+    transform: rotate(180deg);
+    transition: transform ease-in-out .3s;
+  }
+  

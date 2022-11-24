@@ -6,6 +6,7 @@
   font-weight: 400;
   caret-color: transparent;
   width: 12rem;
+  cursor: pointer;
 }
 
 .dropdown{

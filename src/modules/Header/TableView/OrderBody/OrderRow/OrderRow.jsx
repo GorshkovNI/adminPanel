@@ -17,6 +17,12 @@ const getDate = (date) => {
   return `${day}.${month}.${year}`;
 };
 
+const setSum = (number) => {
+  let value = number.replace(/[^0-9]/g, '');
+  value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+  return value + ' ₽';
+};
+
 export const OrderRow = ({ item }) => {
   return (
     <TableRow key={item.id}>
@@ -27,7 +33,7 @@ export const OrderRow = ({ item }) => {
       <TableCell className={styles.cell}>{getDate(item.date)}</TableCell>
       <StatusCell classNames={styles.cell} status={item.status} />
       <TableCell className={styles.cell}>{item.amount}</TableCell>
-      <TableCell className={styles.cell}>{item.sum}</TableCell>
+      <TableCell className={styles.cell}>{setSum(item.sum)}</TableCell>
       <TableCell className={styles.cell}>{item.customer}</TableCell>
     </TableRow>
   );

@@ -1,3 +1,5 @@
+export const PageSize = 20;
+
 export const FILTER_TYPE = {
   any: 'Любой',
   new: 'Новый',
