@@ -27,7 +27,7 @@ export const OrderRow = ({ item }) => {
   return (
     <TableRow key={item.id}>
       <TableCell className={styles.cell}>
-        <CheckBox />
+        <CheckBox id={item.id} />
       </TableCell>
       <TableCell className={styles.cell}>{item.orderNumber}</TableCell>
       <TableCell className={styles.cell}>{getDate(item.date)}</TableCell>
