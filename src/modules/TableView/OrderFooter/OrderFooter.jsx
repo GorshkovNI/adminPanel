@@ -10,6 +10,7 @@ export const OrderFooter = ({
   pageSize,
   currentPage,
   onPageChange,
+  onClick,
 }) => {
   return (
     <TableFooter className={className}>
@@ -24,11 +25,12 @@ export const OrderFooter = ({
           </Button>
         </div>
         <Pagination
-          className='pagination-bar'
+          className={styles.pagination}
           currentPage={currentPage}
           totalCount={totalCount}
           pageSize={pageSize}
           onPageChange={onPageChange}
+          onClick={onClick}
         />
       </div>
     </TableFooter>

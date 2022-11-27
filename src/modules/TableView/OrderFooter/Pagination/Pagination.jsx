@@ -1,9 +1,31 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import cn from 'classnames';
 import styles from './Pagination.module.css';
-import { usePagination, DOTS } from '../../../../Hooks/usePagination';
+import { usePagination } from '../../../../Hooks/usePagination';
+import { Button } from '../../../../shared/Button/Button';
+import { PageModal } from '../PageModal/PageModal';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { setAction } from '../../../../store/slice/filterSlice';
+
+const DOTS = '...';
+const SUFFIX = '#';
 
 export const Pagination = (props) => {
+  const dispatch = useDispatch();
+
+  const [isOpen, seIsOpen] = useState(false);
+
+  const handlePageClick = (text) => {
+    if (text === DOTS) return;
+    if (text === SUFFIX) {
+      seIsOpen(!isOpen);
+      return;
+    }
+    dispatch(setAction({ key: 'currentPage', value: text }));
+  };
+
   const {
     onPageChange,
     totalCount,
@@ -11,6 +33,7 @@ export const Pagination = (props) => {
     currentPage,
     pageSize,
     className,
+    onClick,
   } = props;
 
   const paginationRange = usePagination({
@@ -18,6 +41,8 @@ export const Pagination = (props) => {
     totalCount,
     siblingCount,
     pageSize,
+    dots: DOTS,
+    suffix: SUFFIX,
   });
 
   if (currentPage === 0) {
@@ -25,28 +50,60 @@ export const Pagination = (props) => {
   }
 
   return (
-    <ul className={cn(styles.container, { [className]: className })}>
-      {paginationRange.map((pageNumber, index) => {
-        if (pageNumber === DOTS) {
-          return (
-            <li key={index} className={styles.dots}>
-              &#8230;
-            </li>
-          );
-        }
+    <div className={styles._}>
+      {paginationRange.map((text, index) => {
         return (
-          <li
-            key={index}
-            id={pageNumber}
-            className={cn(styles.item, {
-              [styles.selected]: pageNumber === currentPage,
-            })}
-            onClick={onPageChange}
-          >
-            {pageNumber}
-          </li>
+          <div className={styles._} key={index}>
+            {text === DOTS && <span className={styles.dots}>{text}</span>}
+            {text !== DOTS && (
+              <div className={styles.container}>
+                <Button
+                  className={cn(
+                    styles.button,
+                    currentPage === text ? styles.active : styles.nonactive
+                  )}
+                  onClick={() => handlePageClick(text)}
+                >
+                  {text}
+                </Button>
+                {text === SUFFIX && (
+                  <PageModal
+                    label='Номер страницы'
+                    isOpen={isOpen}
+                    totalPage={Math.ceil(totalCount / pageSize)}
+                  />
+                )}
+              </div>
+            )}
+          </div>
         );
       })}
-    </ul>
+    </div>
+    // <ul className={cn(styles.container, { [className]: className })}>
+    //   {paginationRange.map((pageNumber, index) => {
+    //     if (pageNumber === DOTS) {
+    //       return (
+    //         <li key={index} className={styles.dots}>
+    //           &#8230;
+    //         </li>
+    //       );
+    //     }
+    //     return (
+    //         <li
+    //         key={index}
+    //         id={pageNumber}
+    //         className={cn(styles.item, {
+    //           [styles.selected]: pageNumber === currentPage,
+    //         })}
+    //         onClick={onPageChange}
+    //       >
+    //         {pageNumber}
+    //       </li>
+
+    //     );
+    //   })}
+    //     <li className={styles.item} onClick={onClick}>#</li>
+
+    // </ul>
   );
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Table } from '../../shared/Table/Table';
 import {
@@ -14,9 +14,13 @@ import { OrderHeader } from './OrderHeader/OrderHeader';
 import styles from './TableView.module.css';
 
 export const TableView = () => {
-  const [filter, sortedLength] = useSelector(getClients);
-  //const orders = useSelector(getAllOrders);
   const currentPage = useSelector(getFilter).currentPage;
+  const [filter, sortedLength] = useSelector(getClients);
+  const [visibleModal, setVisibleModal] = useState(false);
+
+  const handleModal = () => {
+    setVisibleModal(!visibleModal);
+  };
 
   const dispatch = useDispatch();
 
@@ -34,6 +38,7 @@ export const TableView = () => {
         pageSize={PageSize}
         currentPage={currentPage}
         onPageChange={selectPage}
+        onClick={handleModal}
       />
     </Table>
   );

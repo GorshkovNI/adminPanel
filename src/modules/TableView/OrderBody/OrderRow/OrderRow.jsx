@@ -18,7 +18,7 @@ const getDate = (date) => {
 };
 
 const setSum = (number) => {
-  let value = number.replace(/[^0-9]/g, '');
+  let value = String(number).replace(/[^0-9]/g, '');
   value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
   return value + ' ₽';
 };

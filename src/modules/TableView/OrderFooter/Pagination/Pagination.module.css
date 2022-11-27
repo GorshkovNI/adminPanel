@@ -1,11 +1,13 @@
-.container{
+._{
     display: flex;
-    align-items: center;
-    gap: 0.25rem;
     background-color: inherit;
 }
 
-.item{
+.container{
+    background-color: inherit;
+}
+
+.button{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,22 +28,7 @@
     background-color: inherit;
 }
 
-
-.area{
-    display: flex;
-    align-items: center;
-    height: 1rem;
-    
-}
-
-.pages{
-    display: flex;
-    gap: 0.5rem;
-    background-color: var(--filter-color);
-}
-
-.selected{
-    border-radius: 0.25rem;
-    background-color: var(--color-blue);
+.active{
     color: var(--white);
+    background-color: var(--color-blue);
 }
