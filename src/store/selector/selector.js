@@ -5,6 +5,7 @@ import {
 } from '../../modules/TableView/OrderConstant/OrderConstant';
 
 export const getAllOrders = (state) => state.orders.orders;
+export const getIdOrders = (state) => state.orders.selectedId;
 export const getFilter = (state) => state.filter;
 export const getSelect = (state) => state.filter.select;
 export const getSort = (state) => state.filter.sort;

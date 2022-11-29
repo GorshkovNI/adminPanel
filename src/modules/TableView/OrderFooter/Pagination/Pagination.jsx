@@ -66,8 +66,10 @@ export const Pagination = (props) => {
                 >
                   {text}
                 </Button>
+
                 {text === SUFFIX && (
                   <PageModal
+                    className={styles.modal}
                     label='Номер страницы'
                     isOpen={isOpen}
                     totalPage={Math.ceil(totalCount / pageSize)}
@@ -79,31 +81,5 @@ export const Pagination = (props) => {
         );
       })}
     </div>
-    // <ul className={cn(styles.container, { [className]: className })}>
-    //   {paginationRange.map((pageNumber, index) => {
-    //     if (pageNumber === DOTS) {
-    //       return (
-    //         <li key={index} className={styles.dots}>
-    //           &#8230;
-    //         </li>
-    //       );
-    //     }
-    //     return (
-    //         <li
-    //         key={index}
-    //         id={pageNumber}
-    //         className={cn(styles.item, {
-    //           [styles.selected]: pageNumber === currentPage,
-    //         })}
-    //         onClick={onPageChange}
-    //       >
-    //         {pageNumber}
-    //       </li>
-
-    //     );
-    //   })}
-    //     <li className={styles.item} onClick={onClick}>#</li>
-
-    // </ul>
   );
 };

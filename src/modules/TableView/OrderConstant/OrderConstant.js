@@ -10,6 +10,15 @@ export const FILTER_TYPE = {
   canceled: 'Отменен',
 };
 
+export const STATUS_TYPE = {
+  new: 'Новый',
+  calculation: 'Рассчет',
+  confirmed: 'Подтвержден',
+  postponed: 'Отложен',
+  completed: 'Выполнен',
+  canceled: 'Отменен',
+};
+
 export const HEADER_CELL = {
   orderNumber: {
     label: '#',

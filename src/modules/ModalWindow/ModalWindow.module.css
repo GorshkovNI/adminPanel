@@ -1,0 +1,39 @@
+.modalOrder{
+    box-sizing: border-box;
+    margin: 0 5rem 0 5rem;
+    width: 30rem;
+}
+
+.modalHeader{
+    padding: 0 1rem 0 1rem;
+}
+
+.buttonAction {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0;
+    border: 0;
+    background-color: inherit;
+  }
+  
+  .actionIcon {
+    height: 1rem;
+    width: 1rem;
+    cursor: pointer;
+    margin-right: 0.25rem;
+    stroke: white;
+    background-color: inherit;
+  }
+
+.request{
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.625rem;
+    line-height: 2rem;
+    background-color: inherit;
+    color: #BAD8F5;
+}

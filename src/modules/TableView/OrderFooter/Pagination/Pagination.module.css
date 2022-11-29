@@ -1,9 +1,11 @@
 ._{
     display: flex;
+    position: relative;
     background-color: inherit;
 }
 
 .container{
+    position: relative;
     background-color: inherit;
 }
 

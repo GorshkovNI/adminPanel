@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import cn from 'classnames';
 import styles from './PageModal.module.css';
-import useDebounce from '../../../../Hooks/useDebounce';
 import { useDispatch } from 'react-redux';
 import { setAction } from '../../../../store/slice/filterSlice';
 
@@ -15,15 +14,30 @@ export const PageModal = ({
   const dispatch = useDispatch();
   const [page, setPage] = useState('');
   const handlePage = (e) => {
-    setPage(e.target.value);
+    if (isNaN(parseInt(e.target.value))) {
+      setPage('');
+      return;
+    }
+    setPage(parseInt(e.target.value));
+    if (isNumber(e.target.value)) return;
+    if (e.target.value > totalPage) return;
+    dispatch(
+      setAction({ key: 'currentPage', value: parseInt(e.target.value) })
+    );
   };
 
-  const debouncedValue = useDebounce(page, 300);
-  useEffect(() => {
-    if (!isFinite(debouncedValue)) return;
-    if (parseInt(debouncedValue) > totalPage) return;
-    dispatch(setAction({ key: 'sumTo', value: page }));
-  }, [debouncedValue]);
+  function isNumber(value) {
+    if (value instanceof Number) value = value.valueOf(); // Если это объект числа, то берём значение, которое и будет числом
+
+    return isFinite(value) && value === parseInt(value, 10);
+  }
+
+  // const debouncedValue = useDebounce(page, 300);
+  // useEffect(() => {
+  //   if (!isNumber(debouncedValue)) return;
+  //   if (debouncedValue > totalPage) return;
+  //   dispatch(setAction({ key: 'currentPage', value: page }))
+  // }, [debouncedValue]);
 
   return (
     isOpen && (

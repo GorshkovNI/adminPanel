@@ -23,11 +23,19 @@ const setSum = (number) => {
   return value + ' ₽';
 };
 
-export const OrderRow = ({ item }) => {
+export const OrderRow = ({ item, onSelectOrders, selectOrders }) => {
+  const getCheckbox = (e) => {
+    e.target.id ? onSelectOrders(e.target.id) : '';
+  };
+
   return (
     <TableRow key={item.id}>
       <TableCell className={styles.cell}>
-        <CheckBox id={item.id} />
+        <CheckBox
+          id={item.id}
+          onClick={getCheckbox}
+          checked={selectOrders.includes(item.id)}
+        />
       </TableCell>
       <TableCell className={styles.cell}>{item.orderNumber}</TableCell>
       <TableCell className={styles.cell}>{getDate(item.date)}</TableCell>
