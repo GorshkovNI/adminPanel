@@ -151,7 +151,7 @@ export const ModalWindow = ({ currentId, isActive, className, closeModal }) => {
               <Input
                 className={styles.input}
                 disabled={true}
-                value={'Новичек'}
+                value={'Новичок'}
               />
             </div>
             <div className={styles.container}>
