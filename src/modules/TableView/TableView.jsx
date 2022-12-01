@@ -13,6 +13,7 @@ import {
   cleanSelectedId,
   deleteOrders,
   setIdOrders,
+  setPageIdOrder,
 } from '../../store/slice/ordersSlice';
 import { OrderBody } from './OrderBody/OrderBody';
 import { PageSize } from './OrderConstant/OrderConstant';
@@ -39,9 +40,6 @@ export const TableView = ({ getId }) => {
 
   const setOrders = (id) => {
     dispatch(setIdOrders(id));
-    // setSelectedOrders(selectedOrders.includes(id)
-    // ? selectedOrders.filter((item) => item !== id)
-    // : [...selectedOrders, id])
   };
 
   const deleteOrder = () => {
@@ -60,9 +58,14 @@ export const TableView = ({ getId }) => {
     setDeleteModal(!isOpenDeleteModal);
   };
 
+  const handleAllId = (e) => {
+    console.log(e.currentTarget.id);
+    e.target.id ? dispatch(setPageIdOrder(filter.map((item) => item.id))) : '';
+  };
+
   return (
     <Table className={styles._}>
-      <OrderHeader />
+      <OrderHeader getAllId={handleAllId} id='1' />
       <OrderBody
         className={styles.body}
         date={filter}

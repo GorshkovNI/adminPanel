@@ -161,6 +161,7 @@ export const ModalWindow = ({ currentId, isActive, className, closeModal }) => {
                 className={styles.input}
                 onVisible={handleSetOpenStatusModal}
                 readOnly={true}
+                nameIcon='vArrow'
               />
               <RadioModal
                 className={styles.radioModal}

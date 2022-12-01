@@ -62,9 +62,6 @@ const selectedStatus = (arrayStatus) => {
 
 const filteredNameOrOrder = (nameOrOrder) => {
   return (order, name) => {
-    // if(Number.isFinite(Number(nameOrOrder))){
-    //   return order
-    // }
     const getValue = Number.isFinite(Number(nameOrOrder))
       ? order.startsWith(nameOrOrder)
       : name.toLowerCase().includes(nameOrOrder);
