@@ -10,13 +10,9 @@ export const RadioModal = ({
   onClick,
   name = 'dropdownStatus',
 }) => {
-  const classNames = classnames(
-    styles._,
-    {
-      [styles.disabled]: !isOpen,
-    },
-    className
-  );
+  const classNames = classnames(styles._, className, {
+    [styles.disabled]: !isOpen,
+  });
   return (
     <div className={classNames}>
       <ul className={styles.list}>

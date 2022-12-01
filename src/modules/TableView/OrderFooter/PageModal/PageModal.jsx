@@ -25,7 +25,7 @@ export const PageModal = ({
   };
 
   function isNumber(value) {
-    if (value instanceof Number) value = value.valueOf(); // Если это объект числа, то берём значение, которое и будет числом
+    if (value instanceof Number) value = value.valueOf();
 
     return isFinite(value) && value === parseInt(value, 10);
   }

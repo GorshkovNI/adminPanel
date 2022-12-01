@@ -26,6 +26,10 @@
     background-color: var(--white);
 }
 
+.label{
+  color: var(--black);
+}
+
 .input::placeholder {
     color: var(--color-light-blue);
     
