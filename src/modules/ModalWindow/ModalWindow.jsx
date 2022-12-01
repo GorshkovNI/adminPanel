@@ -74,6 +74,12 @@ export const ModalWindow = ({ currentId, isActive, className, closeModal }) => {
     dispatch(setNewName({ currentId, fioData, statusData }));
   };
 
+  const handleResetData = () => {
+    setFioData(orders.customer);
+    setStatusData(orders.status);
+    setModalClose(false);
+  };
+
   const containerClassName = cn(styles.wrapper, className, {
     [styles.hidden]: !isActive,
   });
@@ -105,11 +111,10 @@ export const ModalWindow = ({ currentId, isActive, className, closeModal }) => {
               isOpen={modalClose}
               className={styles.modalClose}
               label='Есть несохраненные изменения'
-              textButton1='Сохранить'
-              textButton2='Отмена'
-              onFirstAction={handleSaveButton}
+              textButton1='Сбросить'
+              textButton2='Остаться'
+              onFirstAction={handleResetData}
               onSecondAction={handleCloseModal}
-              disabled={!isCorrectCode || !isCorrectName}
             />
           </ModalHeader>
           <ModalBody className={styles.body}>

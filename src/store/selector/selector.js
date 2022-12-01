@@ -27,6 +27,11 @@ export const getClients = createSelector(
   }
 );
 
+export const getOrderById = (id) =>
+  createSelector([getAllOrders], (orders) => {
+    return orders.find((order) => order.id === id);
+  });
+
 const intervalSum = (min, max) => {
   return (value) => {
     const sumTo = min ? min : 0;
@@ -104,8 +109,3 @@ const currentTableData = (date, currentPage) => {
   const lastPageIndex = firstPageIndex + PageSize;
   return date.slice(firstPageIndex, lastPageIndex);
 };
-
-export const getOrderById = (id) =>
-  createSelector([getAllOrders], (orders) => {
-    return orders.find((order) => order.id === id);
-  });

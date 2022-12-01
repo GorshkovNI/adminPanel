@@ -11,7 +11,6 @@ export const Modal = ({
   onSecondAction,
   textButton1,
   textButton2,
-  disabled,
 }) => {
   return (
     isOpen && (
@@ -21,7 +20,6 @@ export const Modal = ({
           className={styles.button}
           mode='transparent'
           onClick={onFirstAction}
-          disabled={disabled}
         >
           {textButton1}
         </Button>
