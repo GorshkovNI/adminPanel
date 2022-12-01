@@ -5,8 +5,11 @@
 }
 
 .cell{
+    display: flex;
+    align-items: center;
     color: var(--black);
     margin-left: 0.5rem;
+    
 }
 
 .cell:nth-child(1) {

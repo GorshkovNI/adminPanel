@@ -19,6 +19,13 @@ export const STATUS_TYPE = {
   canceled: 'Отменен',
 };
 
+export const LOYALITY = {
+  newbie: 'Новичок',
+  amateur: 'Любитель',
+  professional: 'Профессионал',
+  legend: 'Легенда',
+};
+
 export const HEADER_CELL = {
   orderNumber: {
     label: '#',

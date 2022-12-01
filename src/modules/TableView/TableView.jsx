@@ -59,13 +59,16 @@ export const TableView = ({ getId }) => {
   };
 
   const handleAllId = (e) => {
-    console.log(e.currentTarget.id);
     e.target.id ? dispatch(setPageIdOrder(filter.map((item) => item.id))) : '';
   };
 
   return (
     <Table className={styles._}>
-      <OrderHeader getAllId={handleAllId} id='1' />
+      <OrderHeader
+        getAllId={handleAllId}
+        id='1'
+        checked={selectedIdOrders.length}
+      />
       <OrderBody
         className={styles.body}
         date={filter}

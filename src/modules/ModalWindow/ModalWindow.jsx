@@ -14,7 +14,10 @@ import { ModalWindowBody } from './ModalWindowBody/ModalWindowBody';
 import { ModalTableFooter } from './ModalTableFooter/ModalTableFooter';
 import { ModalFooter } from './ModalFooter/ModalFooter';
 import { useState } from 'react';
-import { STATUS_TYPE } from '../TableView/OrderConstant/OrderConstant';
+import {
+  LOYALITY,
+  STATUS_TYPE,
+} from '../TableView/OrderConstant/OrderConstant';
 import { RadioModal } from '../TableView/OrderFooter/RadioModal/RadioModal';
 import { setNewName } from '../../store/slice/ordersSlice';
 import { Modal } from '../../shared/Modal/Modal';
@@ -26,6 +29,7 @@ export const ModalWindow = ({ currentId, isActive, className, closeModal }) => {
 
   const ordersNumber = orders.orderNumber;
   const dateData = getDate(orders.date);
+  const loyality = orders.loyality;
   const sum = orders.order.reduce((acc, current) => acc + current.price, 0);
   const [fioData, setFioData] = useState(orders.customer);
   const [statusData, setStatusData] = useState(orders.status);
@@ -151,7 +155,7 @@ export const ModalWindow = ({ currentId, isActive, className, closeModal }) => {
               <Input
                 className={styles.input}
                 disabled={true}
-                value={'Новичок'}
+                value={LOYALITY[loyality]}
               />
             </div>
             <div className={styles.container}>

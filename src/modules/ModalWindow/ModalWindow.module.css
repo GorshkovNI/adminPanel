@@ -79,7 +79,7 @@
 
 .table{
   margin-left: 0.5rem;
-  height: 12rem;
+  height: 15rem;
 }
 
 .tableBody{
@@ -100,7 +100,7 @@
 
 .radioModal{
   position: absolute;
-  top: 23.5rem;
+  top: 26.5rem;
   left: 10rem;
 }
 

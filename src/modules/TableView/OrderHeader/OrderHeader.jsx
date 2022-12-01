@@ -9,7 +9,7 @@ import { getDirection, getSort } from '../../../store/selector/selector';
 import { setAction } from '../../../store/slice/filterSlice';
 import { useState } from 'react';
 
-export const OrderHeader = ({ getAllId, id }) => {
+export const OrderHeader = ({ getAllId, id, checked }) => {
   const sortCell = useSelector(getSort);
   const direction = useSelector(getDirection);
   const dispatch = useDispatch();
@@ -28,7 +28,12 @@ export const OrderHeader = ({ getAllId, id }) => {
 
   return (
     <TableHeader styles={styles._}>
-      <CheckBox className={styles.cell} onClick={getAllId} id={id} />
+      <CheckBox
+        className={styles.cell}
+        onClick={getAllId}
+        id={id}
+        checked={checked}
+      />
       {Object.entries(HEADER_CELL).map(([name, { label, isIcon, sort }]) => {
         return (
           <TableHeaderCell
