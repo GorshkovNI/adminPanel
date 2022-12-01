@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './ModalWindow.module.css';
 import cn from 'classnames';
-import { Icon } from '../../shared/Icons/Icon';
 import { ModalHeader } from '../../shared/ModalOrder/ModalHeader/ModalHeader';
 import { ModalOrder } from '../../shared/ModalOrder/ModalOrder';
 import { ModalBody } from '../../shared/ModalOrder/ModalBody/ModalBody';
@@ -22,6 +21,7 @@ import { RadioModal } from '../TableView/OrderFooter/RadioModal/RadioModal';
 import { setNewName } from '../../store/slice/ordersSlice';
 import { Modal } from '../../shared/Modal/Modal';
 import { getDate, setSum } from '../../shared/Function/Function';
+import { Button } from '../../shared/Button/Button';
 
 export const ModalWindow = ({ currentId, isActive, className, closeModal }) => {
   const orders = useSelector(getOrderById(currentId));
@@ -108,9 +108,11 @@ export const ModalWindow = ({ currentId, isActive, className, closeModal }) => {
         <ModalOrder className={cn(styles.modalOrder, className)}>
           <ModalHeader className={styles.modalHeader}>
             <span className={styles.request}>Заявка #{ordersNumber}</span>
-            <button className={styles.buttonAction} onClick={handleModalClose}>
-              <Icon name='xLarge' className={styles.actionIcon} />
-            </button>
+            <Button
+              className={styles.buttonAction}
+              onClick={handleModalClose}
+              icon='xLarge'
+            ></Button>
             <Modal
               isOpen={modalClose}
               className={styles.modalClose}
@@ -164,6 +166,7 @@ export const ModalWindow = ({ currentId, isActive, className, closeModal }) => {
                 value={STATUS_TYPE[statusData]}
                 className={styles.input}
                 onVisible={handleSetOpenStatusModal}
+                rotate={isOpenChandeStatusModal}
                 readOnly={true}
                 nameIcon='vArrow'
               />

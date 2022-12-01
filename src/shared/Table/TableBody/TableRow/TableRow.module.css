@@ -4,7 +4,8 @@
 
 .cells{
     display: flex;
-    height: 2.5rem;
+    height: 100%;
+    width: 100%;
     gap: 0.25rem;   
 }
 

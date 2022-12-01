@@ -11,6 +11,7 @@ export const getSelect = (state) => state.filter.select;
 export const getSort = (state) => state.filter.sort;
 export const getDirection = (state) => state.filter.direction;
 export const getCurrent = (state) => state.filter.currentPage;
+export const getStatusMainCheckbox = (state) => state.orders.mainCheckbox;
 
 export const getClients = createSelector(
   [getAllOrders, getFilter, getSelect, getSort, getDirection],
@@ -73,14 +74,14 @@ const filterOrders = (clients, filter) => {
   const sumFilter = intervalSum(filter.sumTo, filter.sumFrom);
   const dateFilter = intervalDate(filter.dateTo, filter.dateFrom);
   const selectedFilter = selectedStatus(filter.select);
-  const fno = filteredNameOrOrder(filter.search);
+  const nameAndOrderFilter = filteredNameOrOrder(filter.search);
 
   return clients?.filter(({ sum, date, status, customer, orderNumber }) => {
     return [
       sumFilter(parseFloat(sum)),
       dateFilter(date),
       selectedFilter(status),
-      fno(orderNumber, customer),
+      nameAndOrderFilter(orderNumber, customer),
     ].every(Boolean);
   });
 };

@@ -1,3 +1,7 @@
+.row{
+  cursor: pointer;
+}
+
 .cell {
     display: flex;
     align-items: center;

@@ -4,7 +4,7 @@ import { Button } from '../../../shared/Button/Button';
 import useDebounce from '../../../Hooks/useDebounce';
 import { Icon } from '../../../shared/Icons/Icon';
 import { Search } from '../../../shared/Search/Search';
-import { resetState, setAction } from '../../../store/slice/filterSlice';
+import { resetState, setData } from '../../../store/slice/filterSlice';
 import { FilterBlock } from '../FilterBlock/FilterBlock';
 import styles from './SearchBlock.module.css';
 
@@ -17,7 +17,7 @@ export const SearchBlock = () => {
 
   const debouncedValue = useDebounce(value, 500);
   useEffect(() => {
-    dispatch(setAction({ key: 'search', value: value.toLowerCase() }));
+    dispatch(setData({ key: 'search', value: value.toLowerCase() }));
   }, [debouncedValue]);
 
   const handleValue = ({ target: { value } }) => {
@@ -36,7 +36,7 @@ export const SearchBlock = () => {
 
   const handleReset = () => {
     setValue('');
-    dispatch(setAction({ key: 'search', value: '' }));
+    dispatch(setData({ key: 'search', value: '' }));
   };
 
   return (

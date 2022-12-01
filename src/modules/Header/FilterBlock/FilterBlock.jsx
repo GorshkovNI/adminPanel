@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Button } from '../../../shared/Button/Button';
-import { setAction, setSelected } from '../../../store/slice/filterSlice';
+import { setData, setSelected } from '../../../store/slice/filterSlice';
 import { cleanSelectedId } from '../../../store/slice/ordersSlice';
 import { FilterDate } from '../FilterDate/FilterDate';
 import { FilterDropdown } from '../FilterDropdown/FilterDropdown';
@@ -66,10 +66,10 @@ export const FilterBlock = ({ isFilterReset }) => {
   };
 
   const handleApply = () => {
-    dispatch(setAction({ key: 'sumTo', value: sumTo }));
-    dispatch(setAction({ key: 'sumFrom', value: sumFrom }));
-    dispatch(setAction({ key: 'dateTo', value: checkDate(dateTo) }));
-    dispatch(setAction({ key: 'dateFrom', value: checkDate(dateFrom) }));
+    dispatch(setData({ key: 'sumTo', value: sumTo }));
+    dispatch(setData({ key: 'sumFrom', value: sumFrom }));
+    dispatch(setData({ key: 'dateTo', value: checkDate(dateTo) }));
+    dispatch(setData({ key: 'dateFrom', value: checkDate(dateFrom) }));
     dispatch(setSelected(dropdownItem));
     dispatch(cleanSelectedId()); // Очистка выбраных записей
   };
@@ -81,12 +81,7 @@ export const FilterBlock = ({ isFilterReset }) => {
     const newItem = !dropdownItem.includes(value.target.id)
       ? [...dropdownItem, value.target.id]
       : dropdownItem.filter((item) => item !== value.target.id);
-    // setDropdownItem(
-    //   !dropdownItem.includes(value.target.id)
-    //     ? [...dropdownItem, value.target.id]
-    //     : dropdownItem.filter((item) => item !== value.target.id)
     setDropdownItem(newItem);
-    //dispatch(setSelected(newItem));
   };
 
   useEffect(() => {

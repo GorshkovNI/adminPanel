@@ -6,13 +6,15 @@ import {
   getClients,
   getFilter,
   getIdOrders,
+  getStatusMainCheckbox,
 } from '../../store/selector/selector';
-import { setAction } from '../../store/slice/filterSlice';
+import { setData } from '../../store/slice/filterSlice';
 import {
   changeStatus,
   cleanSelectedId,
   deleteOrders,
   setIdOrders,
+  setMainCheckbox,
   setPageIdOrder,
 } from '../../store/slice/ordersSlice';
 import { OrderBody } from './OrderBody/OrderBody';
@@ -27,6 +29,7 @@ export const TableView = ({ getId }) => {
 
   const [filter, sortedLength] = useSelector(getClients);
   const selectedIdOrders = useSelector(getIdOrders);
+  const isChecked = useSelector(getStatusMainCheckbox);
   const [visibleModal, setVisibleModal] = useState(false);
   const [isOpenDeleteModal, setDeleteModal] = useState(false);
 
@@ -35,7 +38,7 @@ export const TableView = ({ getId }) => {
   };
 
   const selectPage = (e) => {
-    dispatch(setAction({ key: 'currentPage', value: Number(e.target.id) }));
+    dispatch(setData({ key: 'currentPage', value: Number(e.target.id) }));
   };
 
   const setOrders = (id) => {
@@ -45,8 +48,8 @@ export const TableView = ({ getId }) => {
   const deleteOrder = () => {
     dispatch(deleteOrders(selectedIdOrders));
     dispatch(cleanSelectedId());
+    dispatch(setMainCheckbox());
     handleOpenDelete();
-    //setSelectedOrders([])
   };
 
   const handleRadioModal = (e) => {
@@ -59,16 +62,15 @@ export const TableView = ({ getId }) => {
   };
 
   const handleAllId = (e) => {
-    e.target.id ? dispatch(setPageIdOrder(filter.map((item) => item.id))) : '';
+    if (e.target.id) {
+      dispatch(setMainCheckbox());
+      dispatch(setPageIdOrder(filter.map((item) => item.id)));
+    }
   };
 
   return (
     <Table className={styles._}>
-      <OrderHeader
-        getAllId={handleAllId}
-        id='1'
-        checked={selectedIdOrders.length}
-      />
+      <OrderHeader getAllId={handleAllId} id='allCheck' checked={isChecked} />
       <OrderBody
         className={styles.body}
         date={filter}

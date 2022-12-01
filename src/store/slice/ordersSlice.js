@@ -4,6 +4,7 @@ import { CLIENTS } from '../../context/Clients';
 const initialState = {
   orders: CLIENTS,
   selectedId: [],
+  mainCheckbox: false,
 };
 
 const orderSlice = createSlice({
@@ -57,6 +58,15 @@ const orderSlice = createSlice({
         }
       });
     },
+
+    setMainCheckbox(state) {
+      if (!state.mainCheckbox && state.selectedId.length === 0) {
+        console.log(12);
+        state.mainCheckbox = false;
+      } else {
+        state.mainCheckbox = true;
+      }
+    },
   },
 });
 export const {
@@ -66,5 +76,6 @@ export const {
   cleanSelectedId,
   setNewName,
   setPageIdOrder,
+  setMainCheckbox,
 } = orderSlice.actions;
 export default orderSlice.reducer;

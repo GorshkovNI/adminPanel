@@ -22,6 +22,9 @@ export const Input = ({
     [styles.disabled]: disabled,
     [styles.incorrect]: !status && !disabled,
   });
+  const iconClassName = cn(styles.actionIcon, {
+    [styles.up]: props.rotate,
+  });
 
   return (
     <div className={containerClassname} onClick={props.onVisible}>
@@ -39,7 +42,7 @@ export const Input = ({
         />
         {!disabled && !!value && (
           <button className={styles.buttonAction} onClick={props.onReset}>
-            <Icon name={nameIcon} className={styles.actionIcon} />
+            <Icon name={nameIcon} className={iconClassName} />
           </button>
         )}
         {disabled && <Icon name='locked' className={styles.IconDisabled} />}

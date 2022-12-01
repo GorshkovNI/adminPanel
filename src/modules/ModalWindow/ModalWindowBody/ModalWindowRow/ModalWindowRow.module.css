@@ -1,6 +1,7 @@
 ._{
     display: flex;
     align-items: center;
+    box-sizing: border-box;
     width: 27.5rem;
 }
 
@@ -8,8 +9,6 @@
     display: flex;
     align-items: center;
     color: var(--black);
-    margin-left: 0.5rem;
-    
 }
 
 .cell:nth-child(1) {

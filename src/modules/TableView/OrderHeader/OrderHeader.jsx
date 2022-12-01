@@ -6,7 +6,7 @@ import { HEADER_CELL } from '../OrderConstant/OrderConstant';
 import { CheckBox } from '../../../shared/Checkbox/Checkbox';
 import { useDispatch, useSelector } from 'react-redux';
 import { getDirection, getSort } from '../../../store/selector/selector';
-import { setAction } from '../../../store/slice/filterSlice';
+import { setData } from '../../../store/slice/filterSlice';
 import { useState } from 'react';
 
 export const OrderHeader = ({ getAllId, id, checked }) => {
@@ -18,11 +18,11 @@ export const OrderHeader = ({ getAllId, id, checked }) => {
 
   const handleFiledSort = (e) => {
     if (e.currentTarget.id === filterField) {
-      dispatch(setAction({ key: 'direction', value: !direction }));
+      dispatch(setData({ key: 'direction', value: !direction }));
     } else {
       setFilterField(e.currentTarget.id);
-      dispatch(setAction({ key: 'sort', value: e.currentTarget.id }));
-      dispatch(setAction({ key: 'direction', value: !direction }));
+      dispatch(setData({ key: 'sort', value: e.currentTarget.id }));
+      dispatch(setData({ key: 'direction', value: !direction }));
     }
   };
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import cn from 'classnames';
 import styles from './PageModal.module.css';
 import { useDispatch } from 'react-redux';
-import { setAction } from '../../../../store/slice/filterSlice';
+import { setData } from '../../../../store/slice/filterSlice';
 
 export const PageModal = ({
   label,
@@ -21,9 +21,7 @@ export const PageModal = ({
     setPage(parseInt(e.target.value));
     if (isNumber(e.target.value)) return;
     if (e.target.value > totalPage) return;
-    dispatch(
-      setAction({ key: 'currentPage', value: parseInt(e.target.value) })
-    );
+    dispatch(setData({ key: 'currentPage', value: parseInt(e.target.value) }));
   };
 
   function isNumber(value) {

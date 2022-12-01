@@ -7,7 +7,7 @@ import { Button } from '../../../../shared/Button/Button';
 import { PageModal } from '../PageModal/PageModal';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { setAction } from '../../../../store/slice/filterSlice';
+import { setData } from '../../../../store/slice/filterSlice';
 
 const DOTS = '...';
 const SUFFIX = '#';
@@ -23,7 +23,7 @@ export const Pagination = (props) => {
       seIsOpen(!isOpen);
       return;
     }
-    dispatch(setAction({ key: 'currentPage', value: text }));
+    dispatch(setData({ key: 'currentPage', value: text }));
   };
 
   const {
