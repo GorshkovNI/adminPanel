@@ -34,13 +34,6 @@ export const SearchBlock = () => {
     dispatch(resetState());
   };
 
-  // const handleKeyPress = (e) => {
-  //   if (e.key === 'Enter') {
-  //     console.log('Нажат Enter');
-  //     dispatch(setAction({ key: 'search', value: value }));
-  //   }
-  // };
-
   const handleReset = () => {
     setValue('');
     dispatch(setAction({ key: 'search', value: '' }));
