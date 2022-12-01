@@ -19,7 +19,12 @@ export const OrderRow = ({ item, onSelectOrders, selectOrders, onClick }) => {
   };
 
   return (
-    <TableRow key={item.id} id={item.id} getIdRow={onClick}>
+    <TableRow
+      className={styles.row}
+      key={item.id}
+      id={item.id}
+      getIdRow={onClick}
+    >
       <TableCell className={styles.cell}>
         <CheckBox
           id={item.id}

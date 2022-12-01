@@ -24,7 +24,6 @@ const filterSlice = createSlice({
       state.select.length = 0;
       state.select = label.filter((item) => item);
     },
-
     resetState() {
       return initialState;
     },

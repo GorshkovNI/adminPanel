@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Table } from '../../shared/Table/Table';
 import {
-  //getAllOrders,
   getClients,
   getFilter,
   getIdOrders,
@@ -13,7 +12,6 @@ import {
   cleanSelectedId,
   deleteOrders,
   setIdOrders,
-  setPageIdOrder,
 } from '../../store/slice/ordersSlice';
 import { OrderBody } from './OrderBody/OrderBody';
 import { PageSize } from './OrderConstant/OrderConstant';
@@ -21,7 +19,7 @@ import { OrderFooter } from './OrderFooter/OrderFooter';
 import { OrderHeader } from './OrderHeader/OrderHeader';
 import styles from './TableView.module.css';
 
-export const TableView = ({ getId }) => {
+export const TableView = () => {
   const currentPage = useSelector(getFilter).currentPage;
   const dispatch = useDispatch();
 
@@ -29,14 +27,6 @@ export const TableView = ({ getId }) => {
   const selectedIdOrders = useSelector(getIdOrders);
   const [visibleModal, setVisibleModal] = useState(false);
   const [isOpenDeleteModal, setDeleteModal] = useState(false);
-
-  const handleModal = () => {
-    setVisibleModal(!visibleModal);
-  };
-
-  const selectPage = (e) => {
-    dispatch(setAction({ key: 'currentPage', value: Number(e.target.id) }));
-  };
 
   const setOrders = (id) => {
     dispatch(setIdOrders(id));
@@ -46,7 +36,14 @@ export const TableView = ({ getId }) => {
     dispatch(deleteOrders(selectedIdOrders));
     dispatch(cleanSelectedId());
     handleOpenDelete();
-    //setSelectedOrders([])
+  };
+
+  const handleModal = () => {
+    setVisibleModal(!visibleModal);
+  };
+
+  const selectPage = (e) => {
+    dispatch(setAction({ key: 'currentPage', value: Number(e.target.id) }));
   };
 
   const handleRadioModal = (e) => {
@@ -58,23 +55,14 @@ export const TableView = ({ getId }) => {
     setDeleteModal(!isOpenDeleteModal);
   };
 
-  const handleAllId = (e) => {
-    e.target.id ? dispatch(setPageIdOrder(filter.map((item) => item.id))) : '';
-  };
-
   return (
     <Table className={styles._}>
-      <OrderHeader
-        getAllId={handleAllId}
-        id='1'
-        checked={selectedIdOrders.length}
-      />
+      <OrderHeader />
       <OrderBody
         className={styles.body}
         date={filter}
-        onSelectOrders={setOrders}
         selectOrders={selectedIdOrders}
-        getId={getId}
+        onSelectOrders={setOrders}
       />
       <OrderFooter
         className={styles.footer}

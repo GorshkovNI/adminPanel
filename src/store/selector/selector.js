@@ -27,11 +27,6 @@ export const getClients = createSelector(
   }
 );
 
-export const getOrderById = (id) =>
-  createSelector([getAllOrders], (orders) => {
-    return orders.find((order) => order.id === id);
-  });
-
 const intervalSum = (min, max) => {
   return (value) => {
     const sumTo = min ? min : 0;
@@ -73,14 +68,14 @@ const filterOrders = (clients, filter) => {
   const sumFilter = intervalSum(filter.sumTo, filter.sumFrom);
   const dateFilter = intervalDate(filter.dateTo, filter.dateFrom);
   const selectedFilter = selectedStatus(filter.select);
-  const fno = filteredNameOrOrder(filter.search);
+  const nameAndOrderFilter = filteredNameOrOrder(filter.search);
 
   return clients?.filter(({ sum, date, status, customer, orderNumber }) => {
     return [
       sumFilter(parseFloat(sum)),
       dateFilter(date),
       selectedFilter(status),
-      fno(orderNumber, customer),
+      nameAndOrderFilter(orderNumber, customer),
     ].every(Boolean);
   });
 };

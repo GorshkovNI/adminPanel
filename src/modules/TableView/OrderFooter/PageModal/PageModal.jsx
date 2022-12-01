@@ -4,6 +4,11 @@ import styles from './PageModal.module.css';
 import { useDispatch } from 'react-redux';
 import { setAction } from '../../../../store/slice/filterSlice';
 
+function isNumber(value) {
+  if (value instanceof Number) value = value.valueOf();
+  return isFinite(value) && value === parseInt(value, 10);
+}
+
 export const PageModal = ({
   label,
   placeholder,
@@ -25,12 +30,6 @@ export const PageModal = ({
       setAction({ key: 'currentPage', value: parseInt(e.target.value) })
     );
   };
-
-  function isNumber(value) {
-    if (value instanceof Number) value = value.valueOf(); // Если это объект числа, то берём значение, которое и будет числом
-
-    return isFinite(value) && value === parseInt(value, 10);
-  }
 
   // const debouncedValue = useDebounce(page, 300);
   // useEffect(() => {

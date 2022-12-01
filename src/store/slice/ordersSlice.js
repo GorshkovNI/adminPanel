@@ -15,15 +15,6 @@ const orderSlice = createSlice({
       state.orders = state.orders.filter((order) => !id.includes(order.id));
     },
 
-    setPageIdOrder(state, action) {
-      const arrId = action.payload;
-      if (state.selectedId.toString() === arrId.toString()) {
-        state.selectedId.length = 0;
-      } else {
-        state.selectedId = [...arrId];
-      }
-    },
-
     setIdOrders(state, action) {
       const id = action.payload;
       state.selectedId = state.selectedId.includes(id)
@@ -44,27 +35,8 @@ const orderSlice = createSlice({
         }
       });
     },
-
-    setNewName(state, action) {
-      const id = action.payload.currentId;
-      const name = action.payload.fioData;
-      const status = action.payload.statusData;
-      state.orders.forEach((current) => {
-        if (current.id === id) {
-          current.customer = name;
-          current.status = status;
-          return;
-        }
-      });
-    },
   },
 });
-export const {
-  deleteOrders,
-  setIdOrders,
-  changeStatus,
-  cleanSelectedId,
-  setNewName,
-  setPageIdOrder,
-} = orderSlice.actions;
+export const { deleteOrders, changeStatus, setIdOrders, cleanSelectedId } =
+  orderSlice.actions;
 export default orderSlice.reducer;

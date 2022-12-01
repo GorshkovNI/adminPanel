@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Button } from '../../../shared/Button/Button';
 import { setAction, setSelected } from '../../../store/slice/filterSlice';
-import { cleanSelectedId } from '../../../store/slice/ordersSlice';
 import { FilterDate } from '../FilterDate/FilterDate';
 import { FilterDropdown } from '../FilterDropdown/FilterDropdown';
 import { FilterMoney } from '../FilterMoney/FilterMoney';
@@ -71,7 +70,6 @@ export const FilterBlock = ({ isFilterReset }) => {
     dispatch(setAction({ key: 'dateTo', value: checkDate(dateTo) }));
     dispatch(setAction({ key: 'dateFrom', value: checkDate(dateFrom) }));
     dispatch(setSelected(dropdownItem));
-    dispatch(cleanSelectedId()); // Очистка выбраных записей
   };
 
   //from select

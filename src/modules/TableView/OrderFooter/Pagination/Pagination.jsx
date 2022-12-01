@@ -73,6 +73,7 @@ export const Pagination = (props) => {
                     label='Номер страницы'
                     isOpen={isOpen}
                     totalPage={Math.ceil(totalCount / pageSize)}
+                    currentPage={currentPage}
                   />
                 )}
               </div>
