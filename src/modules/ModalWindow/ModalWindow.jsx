@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
 import styles from './ModalWindow.module.css';
 import cn from 'classnames';
@@ -10,15 +9,16 @@ import { Input } from '../../shared/Input/Input';
 import { Table } from '../../shared/Table/Table';
 import { ModalWindowHeader } from './ModalWindowHeader/ModalWindowHeader';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllOrders, getOrderById } from '../../store/selector/selector';
+import { getOrderById } from '../../store/selector/selector';
 import { ModalWindowBody } from './ModalWindowBody/ModalWindowBody';
 import { ModalTableFooter } from './ModalTableFooter/ModalTableFooter';
 import { ModalFooter } from './ModalFooter/ModalFooter';
 import { useState } from 'react';
 import { STATUS_TYPE } from '../TableView/OrderConstant/OrderConstant';
 import { RadioModal } from '../TableView/OrderFooter/RadioModal/RadioModal';
-import { changeStatus, setNewName } from '../../store/slice/ordersSlice';
+import { setNewName } from '../../store/slice/ordersSlice';
 import { Modal } from '../../shared/Modal/Modal';
+import { setSum } from '../../shared/Function/Function';
 
 const getDate = (date) => {
   const newDate = new Date(date);
@@ -42,12 +42,12 @@ export const ModalWindow = ({
   const orders = useSelector(getOrderById(currentId));
   const dispatch = useDispatch();
 
+  const dateData = getDate(orders.date);
+  const sum = orders.order.reduce((acc, current) => acc + current.price, 0);
   const [fioData, setFioData] = useState(orders.customer);
-  const [dateData, setDateData] = useState(getDate(orders.date));
   const [statusData, setStatusData] = useState(orders.status);
   const [code, setCode] = useState('');
   const [isOpenChandeStatusModal, setChangeModal] = useState(false);
-  const [statusOrder, setStatusOrder] = useState(orders.status);
   const [modalClose, setModalClose] = useState(false);
 
   const handleSetOpenStatusModal = () => {
@@ -55,7 +55,6 @@ export const ModalWindow = ({
   };
 
   const handleChangeStatus = (e) => {
-    setStatusOrder(e.target.value);
     setStatusData(e.target.value);
     setChangeModal(false);
   };
@@ -80,10 +79,6 @@ export const ModalWindow = ({
     setFioData('');
   };
 
-  const handleResetStatus = () => {
-    setStatusData('');
-  };
-
   const handleCode = (e) => {
     setCode(e.target.value);
   };
@@ -94,6 +89,7 @@ export const ModalWindow = ({
 
   const handleSaveButton = () => {
     dispatch(setNewName({ currentId, fioData, statusData }));
+    closeModal();
   };
 
   const containerClassName = cn(styles.wrapper, className, {
@@ -158,7 +154,9 @@ export const ModalWindow = ({
             <Table className={styles.table}>
               <ModalWindowHeader />
               <ModalWindowBody className={styles.tableBody} orders={orders} />
-              <ModalTableFooter>{'Итоговая сумма: 22  ₽'}</ModalTableFooter>
+              <ModalTableFooter>
+                {'Итоговая сумма: ' + setSum(sum)}
+              </ModalTableFooter>
             </Table>
 
             <div className={styles.container}>
