@@ -46,9 +46,9 @@ export const TableView = ({ getId }) => {
   };
 
   const deleteOrder = () => {
+    dispatch(setMainCheckbox());
     dispatch(deleteOrders(selectedIdOrders));
     dispatch(cleanSelectedId());
-    dispatch(setMainCheckbox());
     handleOpenDelete();
   };
 

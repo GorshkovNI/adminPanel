@@ -60,11 +60,11 @@ const orderSlice = createSlice({
     },
 
     setMainCheckbox(state) {
-      if (!state.mainCheckbox && state.selectedId.length === 0) {
+      if (!state.mainCheckbox && state.selectedId.length) {
         console.log(12);
         state.mainCheckbox = false;
       } else {
-        state.mainCheckbox = true;
+        state.mainCheckbox = state.mainCheckbox ? false : true;
       }
     },
   },
