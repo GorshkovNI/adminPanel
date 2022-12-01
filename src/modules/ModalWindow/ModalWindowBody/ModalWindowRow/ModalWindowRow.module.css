@@ -9,6 +9,7 @@
     display: flex;
     align-items: center;
     color: var(--black);
+    margin-left: 0.25rem;
 }
 
 .cell:nth-child(1) {

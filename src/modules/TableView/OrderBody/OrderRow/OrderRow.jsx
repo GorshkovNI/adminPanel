@@ -23,6 +23,7 @@ export const OrderRow = ({ item, onSelectOrders, selectOrders, onClick }) => {
       className={styles.row}
       key={item.id}
       id={item.id}
+      checked={selectOrders.includes(item.id)}
       getIdRow={onClick}
     >
       <TableCell className={styles.cell}>
