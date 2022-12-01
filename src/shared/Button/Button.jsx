@@ -18,6 +18,7 @@ export const Button = ({
   icon,
   children,
   onClick = noop,
+  disabled,
 }) => {
   const buttonClassName = cn(styles.button, className, {
     [styles.primary]: mode === buttonTypes.primary,
@@ -30,7 +31,7 @@ export const Button = ({
   });
 
   return (
-    <button className={buttonClassName} onClick={onClick}>
+    <button className={buttonClassName} onClick={onClick} disabled={disabled}>
       <Icon name={icon} className={styles.buttonIcon} />
       {children}
     </button>

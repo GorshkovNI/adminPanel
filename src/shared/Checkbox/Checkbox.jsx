@@ -16,7 +16,7 @@ export const CheckBox = ({
   const labelClassName = cn(styles.checkbox, className);
 
   return (
-    <label onClick={onClick}>
+    <label onClickCapture={onClick}>
       <div className={labelClassName}>
         <div className={styles.label}>
           <input

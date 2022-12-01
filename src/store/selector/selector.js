@@ -101,3 +101,8 @@ const currentTableData = (date, currentPage) => {
   const lastPageIndex = firstPageIndex + PageSize;
   return date.slice(firstPageIndex, lastPageIndex);
 };
+
+export const getOrderById = (id) =>
+  createSelector([getAllOrders], (orders) => {
+    return orders.find((order) => order.id === id);
+  });

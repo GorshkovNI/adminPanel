@@ -1,9 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
 import { Button } from '../../../shared/Button/Button';
+import { Modal } from '../../../shared/Modal/Modal';
 import { TableFooter } from '../../../shared/Table/TableFooter/TableFooter';
 import { Pagination } from '../OrderFooter/Pagination/Pagination';
-import { DeleteModal } from './DeleteModal/DeleteModal';
 import styles from './OrderFooter.module.css';
 import { RadioModal } from './RadioModal/RadioModal';
 
@@ -17,12 +17,10 @@ export const OrderFooter = ({
   selectOrders,
   deleteOrder,
   changeStatus,
+  handleOpenDelete,
+  isOpen,
 }) => {
-  const [isOpenDeleteModal, setDeleteModal] = useState(false);
   const [isOpenChandeStatusModal, setChangeModal] = useState(false);
-  const handleOpenDelete = () => {
-    setDeleteModal(!isOpenDeleteModal);
-  };
 
   const handleOpenChangeStatus = () => {
     setChangeModal(!isOpenChandeStatusModal);
@@ -51,11 +49,13 @@ export const OrderFooter = ({
           >
             Удалить
           </Button>
-          <DeleteModal
-            isOpenDelete={isOpenDeleteModal}
-            label={selectOrders}
-            onDelete={deleteOrder}
-            onClick={handleOpenDelete}
+          <Modal
+            isOpen={isOpen}
+            label={'Удалить ' + selectOrders + ' записей?'}
+            onFirstAction={deleteOrder}
+            onSecondAction={handleOpenDelete}
+            textButton1='Удалить'
+            textButton2='Отмена'
           />
         </div>
         <Pagination

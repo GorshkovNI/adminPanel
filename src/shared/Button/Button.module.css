@@ -14,6 +14,10 @@
     font-size: 13px;
     line-height: 16px;
   }
+
+  .button:disabled{
+    opacity: 0.4;
+  }
   
   .buttonIcon {
     box-sizing: border-box;

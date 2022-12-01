@@ -9,6 +9,7 @@ export const OrderBody = ({
   date,
   onSelectOrders,
   selectOrders,
+  getId,
 }) => {
   return (
     <TableBody className={cn(styles._, className)}>
@@ -19,6 +20,7 @@ export const OrderBody = ({
             item={item}
             selectOrders={selectOrders}
             onSelectOrders={onSelectOrders}
+            onClick={getId}
           />
         );
       })}

@@ -6,6 +6,10 @@
     font-weight: 400;
     background-color: inherit;
   }
+
+  .container .input:read-only{
+    cursor: pointer;
+  }
   
   .inputLabel {
     display: inline-block;

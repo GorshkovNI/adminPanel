@@ -3,6 +3,8 @@
 }
 
 .modal{
-    position: absolute;
-
+    top: -1rem;
+    right: 3rem;
+    position: absolute;   
+    z-index: 999;
 }

@@ -1,11 +1,28 @@
-.modalOrder{
-    box-sizing: border-box;
-    margin: 0 5rem 0 5rem;
-    width: 30rem;
+.wrapper{
+  position: fixed;
+  top: 8rem;
+  right: 2rem;
+  display: flex;
+  align-items: stretch;
+  justify-content: right;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(245, 238, 238, 0.1);
+  backdrop-filter: blur(0.0325rem);
+  overflow: hidden;
+  overflow-y: auto;
+  z-index: 999;
+}
+
+.modalOrder{ 
+  position: relative;
+  width: 30rem;
 }
 
 .modalHeader{
-    padding: 0 1rem 0 1rem;
+  position: relative;
+  box-sizing: border-box;
+  padding: 0 1rem 0 1rem;
 }
 
 .buttonAction {
@@ -36,4 +53,54 @@
     line-height: 2rem;
     background-color: inherit;
     color: #BAD8F5;
+}
+
+.container{
+  margin-top: 2rem; 
+}
+
+.input{
+  margin-top: 0.5rem;
+  width: 27.5rem;
+}
+
+.text{
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.table{
+  height: 12rem;
+}
+
+.tableBody{
+  height: 10rem;
+}
+
+.footer{
+  margin-top: 2rem;
+  padding: 0;
+  left: 0;
+  width: 100%;
+}
+
+.hidden {
+  display: none;
+}
+
+.radioModal{
+  position: absolute;
+  border: 1px solid black;
+  top: 23.5rem;
+  left: 10rem;
+}
+
+.modalClose{
+  z-index: 1000;
+  position: absolute;
+  top: 1rem;
+  left: 17rem;
 }

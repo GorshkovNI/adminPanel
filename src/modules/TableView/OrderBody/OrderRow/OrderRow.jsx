@@ -23,13 +23,14 @@ const setSum = (number) => {
   return value + ' ₽';
 };
 
-export const OrderRow = ({ item, onSelectOrders, selectOrders }) => {
+export const OrderRow = ({ item, onSelectOrders, selectOrders, onClick }) => {
   const getCheckbox = (e) => {
     e.target.id ? onSelectOrders(e.target.id) : '';
+    e.nativeEvent.stopPropagation();
   };
 
   return (
-    <TableRow key={item.id}>
+    <TableRow key={item.id} id={item.id} getIdRow={onClick}>
       <TableCell className={styles.cell}>
         <CheckBox
           id={item.id}

@@ -3,9 +3,9 @@ import styles from './Input.module.css';
 import cn from 'classnames';
 import { Icon } from '../Icons/Icon';
 
-const statusTypes = {
-  incorrect: 'incorrect',
-};
+// const statusTypes = {
+//   incorrect: 'incorrect',
+// };
 
 const noop = () => {};
 
@@ -13,17 +13,18 @@ export const Input = ({
   placeholder,
   prefix,
   className,
-  status = 'primary',
+  status = true,
   disabled,
   value,
   nameIcon,
   onChange = noop,
   mode,
+  readOnly = false,
   ...props
 }) => {
   const containerClassname = cn(styles.container, className, {
-    [styles.incorrect]: statusTypes.incorrect === status,
     [styles.disabled]: disabled,
+    [styles.incorrect]: !status && !disabled,
   });
 
   return (
@@ -38,6 +39,7 @@ export const Input = ({
           value={mode ? mode(value) : value}
           maxLength={props.maxlength}
           onChange={onChange}
+          readOnly={readOnly}
         />
         {!disabled && !!value && (
           <button className={styles.buttonAction} onClick={props.onReset}>

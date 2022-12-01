@@ -20,13 +20,14 @@ import { OrderFooter } from './OrderFooter/OrderFooter';
 import { OrderHeader } from './OrderHeader/OrderHeader';
 import styles from './TableView.module.css';
 
-export const TableView = () => {
+export const TableView = ({ getId }) => {
   const currentPage = useSelector(getFilter).currentPage;
   const dispatch = useDispatch();
 
   const [filter, sortedLength] = useSelector(getClients);
   const selectedIdOrders = useSelector(getIdOrders);
   const [visibleModal, setVisibleModal] = useState(false);
+  const [isOpenDeleteModal, setDeleteModal] = useState(false);
 
   const handleModal = () => {
     setVisibleModal(!visibleModal);
@@ -46,12 +47,17 @@ export const TableView = () => {
   const deleteOrder = () => {
     dispatch(deleteOrders(selectedIdOrders));
     dispatch(cleanSelectedId());
+    handleOpenDelete();
     //setSelectedOrders([])
   };
 
   const handleRadioModal = (e) => {
     const status = e.target.value;
     dispatch(changeStatus({ status }));
+  };
+
+  const handleOpenDelete = () => {
+    setDeleteModal(!isOpenDeleteModal);
   };
 
   return (
@@ -62,6 +68,7 @@ export const TableView = () => {
         date={filter}
         onSelectOrders={setOrders}
         selectOrders={selectedIdOrders}
+        getId={getId}
       />
       <OrderFooter
         className={styles.footer}
@@ -73,6 +80,8 @@ export const TableView = () => {
         selectOrders={selectedIdOrders.length}
         deleteOrder={deleteOrder}
         changeStatus={handleRadioModal}
+        isOpen={isOpenDeleteModal}
+        handleOpenDelete={handleOpenDelete}
       />
     </Table>
   );

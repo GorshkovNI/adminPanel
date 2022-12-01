@@ -1,6 +1,8 @@
 ._{
     display: flex;
     flex-direction: column;
+    position: relative;
     height: calc(100vh - 2rem);
     padding: 2rem 3rem 0 3rem;
 }
+
