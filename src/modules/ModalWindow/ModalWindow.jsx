@@ -18,19 +18,7 @@ import { STATUS_TYPE } from '../TableView/OrderConstant/OrderConstant';
 import { RadioModal } from '../TableView/OrderFooter/RadioModal/RadioModal';
 import { setNewName } from '../../store/slice/ordersSlice';
 import { Modal } from '../../shared/Modal/Modal';
-import { setSum } from '../../shared/Function/Function';
-
-const getDate = (date) => {
-  const newDate = new Date(date);
-  const day =
-    newDate.getDate() < 10 ? `0${newDate.getDate()}` : newDate.getDate();
-  const month =
-    newDate.getMonth() < 9
-      ? `0${newDate.getMonth() + 1}`
-      : newDate.getMonth() + 1;
-  const year = newDate.getFullYear();
-  return `${day}.${month}.${year}`;
-};
+import { getDate, setSum } from '../../shared/Function/Function';
 
 export const ModalWindow = ({ currentId, isActive, className, closeModal }) => {
   const orders = useSelector(getOrderById(currentId));
@@ -84,7 +72,6 @@ export const ModalWindow = ({ currentId, isActive, className, closeModal }) => {
 
   const handleSaveButton = () => {
     dispatch(setNewName({ currentId, fioData, statusData }));
-    closeModal();
   };
 
   const containerClassName = cn(styles.wrapper, className, {

@@ -4,18 +4,7 @@ import { CheckBox } from '../../../../shared/Checkbox/Checkbox';
 import { StatusCell } from '../../../../shared/Table/TableBody/StatusCell/StatusCell';
 import { TableCell } from '../../../../shared/Table/TableBody/TableCell/TableCell';
 import { TableRow } from '../../../../shared/Table/TableBody/TableRow/TableRow';
-
-const getDate = (date) => {
-  const newDate = new Date(date);
-  const day =
-    newDate.getDate() < 10 ? `0${newDate.getDate()}` : newDate.getDate();
-  const month =
-    newDate.getMonth() < 9
-      ? `0${newDate.getMonth() + 1}`
-      : newDate.getMonth() + 1;
-  const year = newDate.getFullYear();
-  return `${day}.${month}.${year}`;
-};
+import { getDate } from '../../../../shared/Function/Function';
 
 const setSum = (number) => {
   let value = String(number).replace(/[^0-9]/g, '');
