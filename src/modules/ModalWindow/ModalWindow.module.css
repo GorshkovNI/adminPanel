@@ -1,13 +1,13 @@
 .wrapper{
-  position: fixed;
-  top: 8rem;
-  right: 2rem;
+  position: absolute;
+  top: 0rem;
+  right: 0rem;
   display: flex;
   align-items: stretch;
   justify-content: right;
   height: 100%;
   width: 100%;
-  background-color: rgba(245, 238, 238, 0.1);
+  background-color: rgba(238, 229, 229, 0.13);
   backdrop-filter: blur(0.0325rem);
   overflow: hidden;
   overflow-y: auto;
@@ -15,8 +15,12 @@
 }
 
 .modalOrder{ 
-  position: relative;
+  position: absolute;
+  top: 8.5rem;
+  right: 2rem;
   width: 30rem;
+  min-height: 44rem;
+  height: 100%;
 }
 
 .modalHeader{
@@ -70,6 +74,7 @@
   font-weight: 400;
   font-size: 13px;
   line-height: 16px;
+  color: var(--black);
 }
 
 .table{
@@ -85,6 +90,7 @@
   padding: 0;
   left: 0;
   width: 100%;
+  
 }
 
 .hidden {

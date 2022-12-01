@@ -3,12 +3,14 @@ import styles from './InputDropdown.module.css';
 import cn from 'classnames';
 import { Icon } from '../../../../shared/Icons/Icon';
 
+const noop = () => {};
+
 export const InputDropdown = ({
   placeholder,
   prefix,
   className,
   value,
-  onChange,
+  onChange = noop,
   mode,
   ...props
 }) => {

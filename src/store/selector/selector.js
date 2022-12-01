@@ -56,7 +56,7 @@ const selectedStatus = (arrayStatus) => {
 };
 
 const filteredNameOrOrder = (nameOrOrder) => {
-  return (name, order) => {
+  return (order, name) => {
     const getValue = Number.isFinite(Number(nameOrOrder))
       ? order.includes(nameOrOrder)
       : name.toLowerCase().includes(nameOrOrder);
@@ -75,7 +75,7 @@ const filterOrders = (clients, filter) => {
       sumFilter(parseFloat(sum)),
       dateFilter(date),
       selectedFilter(status),
-      fno(customer, orderNumber),
+      fno(orderNumber, customer),
     ].every(Boolean);
   });
 };

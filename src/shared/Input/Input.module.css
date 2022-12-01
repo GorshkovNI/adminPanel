@@ -22,7 +22,6 @@
     align-items: center;
     box-sizing: border-box;
     position: relative;
-    /* width: 16rem; */
     height: 2rem;
     border: 1px solid var(--color-blue);
     border-radius: 0.25rem;
@@ -47,7 +46,7 @@
   }
   
   .input::placeholder {
-    color: var(--color-light-blue);
+    color: var(--color-light-blue-disabled);
   }
   
   .input:focus {
@@ -92,13 +91,15 @@
   
   .input:disabled {
     width: calc(100% - 1.9rem);
-    background-color: inherit;
+    background-color: var(--color-light-blue);
+    color: black;
   }
-  
+
   .input:disabled::placeholder {
-    color: var(--black);
+    color: var(--white);
+    background-color: inherit; 
   }
-  
+
   .IconDisabled {
     height: 1rem;
     width: 1rem;
@@ -106,6 +107,7 @@
     margin-right: 0.25rem;
     fill: var(--black);
     background-color: inherit;
+    
   }
 
   .IconNormal{

@@ -32,16 +32,11 @@ const getDate = (date) => {
   return `${day}.${month}.${year}`;
 };
 
-export const ModalWindow = ({
-  currentId,
-  isActive,
-  className,
-  ordersNumber = 534563,
-  closeModal,
-}) => {
+export const ModalWindow = ({ currentId, isActive, className, closeModal }) => {
   const orders = useSelector(getOrderById(currentId));
   const dispatch = useDispatch();
 
+  const ordersNumber = orders.orderNumber;
   const dateData = getDate(orders.date);
   const sum = orders.order.reduce((acc, current) => acc + current.price, 0);
   const [fioData, setFioData] = useState(orders.customer);

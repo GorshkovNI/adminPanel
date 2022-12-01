@@ -40,7 +40,6 @@ const orderSlice = createSlice({
       const id = action.payload.currentId;
       const name = action.payload.fioData;
       const status = action.payload.statusData;
-      console.log(id, name, status);
       state.orders.forEach((current) => {
         if (current.id === id) {
           console.log(current);
