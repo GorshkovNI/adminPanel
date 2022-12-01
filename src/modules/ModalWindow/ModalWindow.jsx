@@ -91,7 +91,7 @@ export const ModalWindow = ({ currentId, isActive, className, closeModal }) => {
 
   let messageError = '';
   if (!isCorrectName && !isCorrectCode && !isEmptyCode) {
-    messageError = 'Неверное имя или код!"';
+    messageError = 'Неверное имя или код!';
   } else if (!isCorrectName) {
     messageError = 'Неверное имя!';
   } else if (!isCorrectCode && !isEmptyCode) {
