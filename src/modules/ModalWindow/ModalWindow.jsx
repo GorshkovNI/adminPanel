@@ -127,7 +127,7 @@ export const ModalWindow = ({ currentId, className, closeModal }) => {
             <Input
               value={fioData}
               className={styles.input}
-              status={isCorrectName}
+              incorrect={isCorrectName}
               onChange={handlerFIO}
               nameIcon='xMedium'
               onReset={handleResetFio}
