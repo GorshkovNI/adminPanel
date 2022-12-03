@@ -1,0 +1,7 @@
+.cells{
+    display: flex;
+    gap: 0.25rem;
+    background-color: var(--color-blue);
+}
+
+

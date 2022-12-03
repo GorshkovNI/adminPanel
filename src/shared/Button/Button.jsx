@@ -8,6 +8,7 @@ const noop = () => {};
 const buttonTypes = {
   primary: 'primary',
   transparent: 'transparent',
+  delete: 'delete',
 };
 
 export const Button = ({
@@ -21,6 +22,7 @@ export const Button = ({
   const buttonClassName = cn(styles.button, className, {
     [styles.primary]: mode === buttonTypes.primary,
     [styles.transparent]: mode === buttonTypes.transparent,
+    [styles.delete]: mode === buttonTypes.delete,
     [styles.onlyIcon]: !children && icon,
 
     [styles.medium]: size === 'medium',

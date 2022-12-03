@@ -1,0 +1,51 @@
+
+.area{
+    display: flex;
+    align-items: center;
+    background-color: inherit;
+    height: 2.5rem;
+    box-sizing: border-box;
+    padding: 0.75rem 0.5rem;
+    background-color: inherit;
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+}
+
+.icon{
+    width: 1rem;
+    height: 1rem;
+    background-color: inherit;
+}
+
+.text{
+    margin-left: 0.5rem;
+    color: var(--black);
+    background-color: inherit;
+}
+
+.iconNew, .iconPostponed{
+    fill: orange;
+}
+
+.iconCompleted{
+    fill: rgba(15, 184, 100, 0.6);
+    
+}
+
+.iconCompleted + .text{
+    color: rgba(15, 184, 100, 0.6);;
+}
+
+.iconCalc{
+    fill: #459df5;
+}
+
+.iconCanceled{
+    stroke: rgb(107, 106, 109, 0.6);
+}
+.iconCanceled + .text{
+   color: rgba(0, 0, 0, 0.5);
+}

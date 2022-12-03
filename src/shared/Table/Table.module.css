@@ -1,0 +1,38 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+}
+
+.headerCell:nth-child(1){
+    box-sizing: border-box;
+    width: 8rem;
+    /* width: 12%; */
+}
+.headerCell:nth-child(2){
+    box-sizing: border-box;
+    width: 11rem;
+    /* width: 12%; */
+}
+
+.headerCell:nth-child(3){
+    box-sizing: border-box;
+    width: 11rem;
+}
+
+.headerCell:nth-child(4){
+    box-sizing: border-box;
+    width: 6rem;
+}
+
+.headerCell:nth-child(5){
+    box-sizing: border-box;
+    width: 8rem;
+}
+
+.headerCell:last-child{
+    box-sizing: border-box;
+    width: 48.25rem;
+}
+
