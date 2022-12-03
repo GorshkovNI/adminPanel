@@ -1,7 +1,7 @@
 import { createSelector } from '@reduxjs/toolkit';
 import {
   FILTER_TYPE,
-  PageSize,
+  PAGE_SIZE,
 } from '../../modules/TableView/OrderConstant/OrderConstant';
 
 export const getAllOrders = (state) => state.orders.orders;
@@ -82,7 +82,7 @@ const filterOrders = (clients, filter) => {
 
 const sortedOrders = (orders, sort, direction) => {
   return orders.sort((a, b) => {
-    if (!direction) {
+    if (direction === 1) {
       if (isFinite(a[sort])) {
         return a[sort] - b[sort];
       }
@@ -97,7 +97,7 @@ const sortedOrders = (orders, sort, direction) => {
 };
 
 const currentTableData = (date, currentPage) => {
-  const firstPageIndex = (currentPage - 1) * PageSize;
-  const lastPageIndex = firstPageIndex + PageSize;
+  const firstPageIndex = (currentPage - 1) * PAGE_SIZE;
+  const lastPageIndex = firstPageIndex + PAGE_SIZE;
   return date.slice(firstPageIndex, lastPageIndex);
 };

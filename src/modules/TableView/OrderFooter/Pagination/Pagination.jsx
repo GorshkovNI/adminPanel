@@ -74,6 +74,7 @@ export const Pagination = (props) => {
                     isOpen={isOpen}
                     totalPage={Math.ceil(totalCount / pageSize)}
                     currentPage={currentPage}
+                    placeholder='Введите номер'
                   />
                 )}
               </div>

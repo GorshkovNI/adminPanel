@@ -4,13 +4,8 @@ import { CheckBox } from '../../../../shared/Checkbox/Checkbox';
 import { StatusCell } from '../../../../shared/Table/TableBody/StatusCell/StatusCell';
 import { TableCell } from '../../../../shared/Table/TableBody/TableCell/TableCell';
 import { TableRow } from '../../../../shared/Table/TableBody/TableRow/TableRow';
-import { getDate } from '../../../../shared/Function/Function';
-
-const setSum = (number) => {
-  let value = String(number).replace(/[^0-9]/g, '');
-  value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
-  return value + ' ₽';
-};
+import { formatMoney } from '../../../../utils/formatMoney';
+import { parseDate } from '../../../../utils/parseDate';
 
 export const OrderRow = ({ item, onSelectOrders, selectOrders, onClick }) => {
   const getCheckbox = (e) => {
@@ -25,18 +20,20 @@ export const OrderRow = ({ item, onSelectOrders, selectOrders, onClick }) => {
       id={item.id}
       getIdRow={onClick}
     >
-      <TableCell className={styles.cell}>
-        <CheckBox
-          id={item.id}
-          onClick={getCheckbox}
-          checked={selectOrders.includes(item.id)}
-        />
-      </TableCell>
+      <label>
+        <TableCell className={styles.cell} onClick={onClick} id={item.id}>
+          <CheckBox
+            id={item.id}
+            onClick={getCheckbox}
+            checked={selectOrders.includes(item.id)}
+          />
+        </TableCell>
+      </label>
       <TableCell className={styles.cell}>{item.orderNumber}</TableCell>
-      <TableCell className={styles.cell}>{getDate(item.date)}</TableCell>
+      <TableCell className={styles.cell}>{parseDate(item.date)}</TableCell>
       <StatusCell classNames={styles.cell} status={item.status} />
       <TableCell className={styles.cell}>{item.amount}</TableCell>
-      <TableCell className={styles.cell}>{setSum(item.sum)}</TableCell>
+      <TableCell className={styles.cell}>{formatMoney(item.sum)}</TableCell>
       <TableCell className={styles.cell}>{item.customer}</TableCell>
     </TableRow>
   );

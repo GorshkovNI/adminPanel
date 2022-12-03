@@ -17,7 +17,7 @@ export const TableHeaderCell = ({
   });
 
   const iconRotate = cn(styles.icon, {
-    [styles.up]: direction,
+    [styles.up]: direction === 1,
   });
 
   return (

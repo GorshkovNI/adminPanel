@@ -14,7 +14,7 @@ import {
   setIdOrders,
 } from '../../store/slice/ordersSlice';
 import { OrderBody } from './OrderBody/OrderBody';
-import { PageSize } from './OrderConstant/OrderConstant';
+import { PAGE_SIZE } from './OrderConstant/OrderConstant';
 import { OrderFooter } from './OrderFooter/OrderFooter';
 import { OrderHeader } from './OrderHeader/OrderHeader';
 import styles from './TableView.module.css';
@@ -67,7 +67,7 @@ export const TableView = () => {
       <OrderFooter
         className={styles.footer}
         totalCount={sortedLength}
-        pageSize={PageSize}
+        pageSize={PAGE_SIZE}
         currentPage={currentPage}
         onPageChange={selectPage}
         onClick={handleModal}
