@@ -7,14 +7,9 @@ import { ModalWindow } from '../ModalWindow/ModalWindow';
 import { useState } from 'react';
 
 export const MainPage = () => {
-  const [isActive, setIsAcive] = useState(false);
   const [currentId, setCurrentId] = useState('');
 
   const handleClick = (e) => {
-    if (!isActive) {
-      setIsAcive(!isActive);
-    }
-
     if (e.currentTarget.id === currentId) {
       return;
     }
@@ -22,7 +17,7 @@ export const MainPage = () => {
   };
 
   const handleClose = () => {
-    setIsAcive(false);
+    setCurrentId('');
   };
 
   return (
@@ -30,10 +25,9 @@ export const MainPage = () => {
       <Header />
       <SearchBlock />
       <TableView getId={handleClick} />
-      {isActive && (
+      {currentId && (
         <ModalWindow
           currentId={currentId}
-          isActive={isActive}
           className={styles.modal}
           closeModal={handleClose}
         />

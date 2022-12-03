@@ -18,11 +18,13 @@ export const OrderHeader = ({ getAllId, id, checked }) => {
 
   const handleFiledSort = (e) => {
     if (e.currentTarget.id === filterField) {
-      dispatch(setData({ key: 'direction', value: !direction }));
+      direction === -1
+        ? dispatch(setData({ key: 'direction', value: 1 }))
+        : dispatch(setData({ key: 'direction', value: -1 }));
     } else {
       setFilterField(e.currentTarget.id);
       dispatch(setData({ key: 'sort', value: e.currentTarget.id }));
-      dispatch(setData({ key: 'direction', value: !direction }));
+      dispatch(setData({ key: 'direction', value: -1 }));
     }
   };
 

@@ -31,12 +31,12 @@
 }
 
 .iconCompleted{
-    fill: rgba(15, 184, 100, 0.6);
+    fill: rgba(15, 184, 100, 0.7);
     
 }
 
 .iconCompleted + .text{
-    color: rgba(15, 184, 100, 0.6);
+    color: rgba(15, 184, 100, 0.7);
 }
 
 .iconCalc{
@@ -47,7 +47,7 @@
    stroke: rgb(107, 106, 109);
 }
 .iconCanceled + .text{
-   color: rgba(188, 196, 204, 0.7);
+    color: rgba(0, 0, 0, 0.6);
 }
 
 .other{

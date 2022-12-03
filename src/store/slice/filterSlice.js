@@ -8,7 +8,7 @@ const initialState = {
   select: [],
   search: '',
   sort: 'date',
-  direction: false,
+  direction: -1,
   currentPage: 1,
 };
 

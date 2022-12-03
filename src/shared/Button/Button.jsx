@@ -20,15 +20,19 @@ export const Button = ({
   onClick = noop,
   disabled,
 }) => {
-  const buttonClassName = cn(styles.button, className, {
-    [styles.primary]: mode === buttonTypes.primary,
-    [styles.transparent]: mode === buttonTypes.transparent,
-    [styles.delete]: mode === buttonTypes.delete,
-    [styles.onlyIcon]: !children && icon,
+  const buttonClassName = cn(
+    styles.button,
+    {
+      [styles.primary]: mode === buttonTypes.primary,
+      [styles.transparent]: mode === buttonTypes.transparent,
+      [styles.delete]: mode === buttonTypes.delete,
+      [styles.onlyIcon]: !children && icon,
 
-    [styles.medium]: size === 'medium',
-    [styles.big]: size === 'big',
-  });
+      [styles.medium]: size === 'medium',
+      [styles.big]: size === 'big',
+    },
+    className
+  );
 
   return (
     <button className={buttonClassName} onClick={onClick} disabled={disabled}>

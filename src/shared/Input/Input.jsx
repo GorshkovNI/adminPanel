@@ -9,7 +9,7 @@ export const Input = ({
   placeholder,
   prefix,
   className,
-  status = true,
+  incorrect = true,
   disabled,
   value,
   nameIcon,
@@ -20,7 +20,7 @@ export const Input = ({
 }) => {
   const containerClassname = cn(styles.container, className, {
     [styles.disabled]: disabled,
-    [styles.incorrect]: !status && !disabled,
+    [styles.incorrect]: !incorrect && !disabled,
   });
   const iconClassName = cn(styles.actionIcon, {
     [styles.up]: props.rotate,

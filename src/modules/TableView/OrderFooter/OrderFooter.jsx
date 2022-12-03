@@ -1,11 +1,13 @@
 import React from 'react';
-import { useState } from 'react';
+import cn from 'classnames';
 import { Button } from '../../../shared/Button/Button';
 import { Modal } from '../../../shared/Modal/Modal';
 import { TableFooter } from '../../../shared/Table/TableFooter/TableFooter';
 import { Pagination } from '../OrderFooter/Pagination/Pagination';
 import styles from './OrderFooter.module.css';
 import { RadioModal } from './RadioModal/RadioModal';
+import { useSelector } from 'react-redux';
+import { getLengthSelectedIds } from '../../../store/selector/selector';
 
 export const OrderFooter = ({
   className,
@@ -19,24 +21,25 @@ export const OrderFooter = ({
   changeStatus,
   handleOpenDelete,
   isOpen,
+  isOpenChandeStatusModal,
+  setChangeModal,
 }) => {
-  const [isOpenChandeStatusModal, setChangeModal] = useState(false);
-
-  const handleOpenChangeStatus = () => {
-    setChangeModal(!isOpenChandeStatusModal);
-  };
+  const selectedIds = useSelector(getLengthSelectedIds);
+  const editClassName = cn(styles.edit, {
+    [styles.visible]: selectedIds,
+  });
 
   return (
     <TableFooter className={className}>
       <div className={styles.area}>
-        <div className={styles.edit}>
+        <div className={editClassName}>
           <span className={styles.records}>
             Выбрано записей: {selectOrders}
           </span>
           <Button
             className={styles.buttonStatus}
             icon='pencil'
-            onClick={handleOpenChangeStatus}
+            onClick={setChangeModal}
           >
             Изменить статус
           </Button>

@@ -3,8 +3,7 @@ import { CLIENTS } from '../../context/Clients';
 
 const initialState = {
   orders: CLIENTS,
-  selectedId: [],
-  mainCheckbox: false,
+  selectedIds: [],
 };
 
 const orderSlice = createSlice({
@@ -18,28 +17,28 @@ const orderSlice = createSlice({
 
     setPageIdOrder(state, action) {
       const arrId = action.payload;
-      if (state.selectedId.toString() === arrId.toString()) {
-        state.selectedId.length = 0;
+      if (state.selectedIds.toString() === arrId.toString()) {
+        state.selectedIds.length = 0;
       } else {
-        state.selectedId = [...arrId];
+        state.selectedIds = [...arrId];
       }
     },
 
     setIdOrders(state, action) {
       const id = action.payload;
-      state.selectedId = state.selectedId.includes(id)
-        ? state.selectedId.filter((item) => item !== id)
-        : [...state.selectedId, id];
+      state.selectedIds = state.selectedIds.includes(id)
+        ? state.selectedIds.filter((item) => item !== id)
+        : [...state.selectedIds, id];
     },
 
     cleanSelectedId(state) {
-      state.selectedId.length = 0;
+      state.selectedIds.length = 0;
     },
 
     changeStatus(state, { payload: { status } }) {
-      if (state.selectedId.length === 0) return;
+      if (state.selectedIds.length === 0) return;
       state.orders.forEach((current) => {
-        if (state.selectedId.includes(current.id)) {
+        if (state.selectedIds.includes(current.id)) {
           current.status = status;
           return;
         }
@@ -58,15 +57,6 @@ const orderSlice = createSlice({
         }
       });
     },
-
-    setMainCheckbox(state) {
-      if (!state.mainCheckbox && state.selectedId.length) {
-        console.log(12);
-        state.mainCheckbox = false;
-      } else {
-        state.mainCheckbox = state.mainCheckbox ? false : true;
-      }
-    },
   },
 });
 export const {
@@ -76,6 +66,6 @@ export const {
   cleanSelectedId,
   setNewName,
   setPageIdOrder,
-  setMainCheckbox,
+  setAllPostOnPageSelected,
 } = orderSlice.actions;
 export default orderSlice.reducer;

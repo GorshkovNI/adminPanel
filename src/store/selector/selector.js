@@ -1,20 +1,29 @@
 import { createSelector } from '@reduxjs/toolkit';
 import {
   FILTER_TYPE,
-  PageSize,
+  PAGE_SIZE,
 } from '../../modules/TableView/OrderConstant/OrderConstant';
 
 export const getAllOrders = (state) => state.orders.orders;
-export const getIdOrders = (state) => state.orders.selectedId;
+export const getIdOrders = (state) => state.orders.selectedIds;
+export const getLengthSelectedIds = (state) => state.orders.selectedIds.length;
 export const getFilter = (state) => state.filter;
 export const getSelect = (state) => state.filter.select;
 export const getSort = (state) => state.filter.sort;
 export const getDirection = (state) => state.filter.direction;
 export const getCurrent = (state) => state.filter.currentPage;
-export const getStatusMainCheckbox = (state) => state.orders.mainCheckbox;
+export const getStatusMainCheckbox = (state) =>
+  state.orders.orders.map((item) => item.id);
 
 export const getClients = createSelector(
-  [getAllOrders, getFilter, getSelect, getSort, getDirection],
+  [
+    getAllOrders,
+    getFilter,
+    getSelect,
+    getSort,
+    getDirection,
+    getLengthSelectedIds,
+  ],
 
   (orders, filters) => {
     const filteredClients = filterOrders(orders, filters);
@@ -30,7 +39,9 @@ export const getClients = createSelector(
 
 export const getOrderById = (id) =>
   createSelector([getAllOrders], (orders) => {
-    return orders.find((order) => order.id === id);
+    const order = orders.find((order) => order.id === id);
+    const sum = order.order.reduce((acc, current) => acc + current.price, 0);
+    return [order, sum];
   });
 
 const intervalSum = (min, max) => {
@@ -88,7 +99,7 @@ const filterOrders = (clients, filter) => {
 
 const sortedOrders = (orders, sort, direction) => {
   return orders.sort((a, b) => {
-    if (!direction) {
+    if (direction === 1) {
       if (isFinite(a[sort])) {
         return a[sort] - b[sort];
       }
@@ -103,7 +114,7 @@ const sortedOrders = (orders, sort, direction) => {
 };
 
 const currentTableData = (date, currentPage) => {
-  const firstPageIndex = (currentPage - 1) * PageSize;
-  const lastPageIndex = firstPageIndex + PageSize;
+  const firstPageIndex = (currentPage - 1) * PAGE_SIZE;
+  const lastPageIndex = firstPageIndex + PAGE_SIZE;
   return date.slice(firstPageIndex, lastPageIndex);
 };

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import cn from 'classnames';
+import { useDispatch, useSelector } from 'react-redux';
 import { Button } from '../../../shared/Button/Button';
 import useDebounce from '../../../Hooks/useDebounce';
 import { Icon } from '../../../shared/Icons/Icon';
@@ -7,11 +8,25 @@ import { Search } from '../../../shared/Search/Search';
 import { resetState, setData } from '../../../store/slice/filterSlice';
 import { FilterBlock } from '../FilterBlock/FilterBlock';
 import styles from './SearchBlock.module.css';
+import { getFilter } from '../../../store/selector/selector';
 
 export const SearchBlock = () => {
   const [value, setValue] = useState('');
   const [isActive, setIsActive] = useState(false);
   const [isFilterReset, setIsFilterReset] = useState(false);
+  const { sumTo, sumFrom, dateTo, dateFrom, search, select } =
+    useSelector(getFilter);
+
+  const checkFilter = () => {
+    return (
+      !sumTo.length &&
+      !sumFrom.length &&
+      !dateTo.toString().length &&
+      !dateFrom.toString().length &&
+      !search.length &&
+      !select.length
+    );
+  };
 
   const dispatch = useDispatch();
 
@@ -39,6 +54,10 @@ export const SearchBlock = () => {
     dispatch(setData({ key: 'search', value: '' }));
   };
 
+  const resetButtonClassName = cn({
+    [styles.visible]: checkFilter(),
+  });
+
   return (
     <div>
       <div className={styles.wrapper}>
@@ -58,7 +77,11 @@ export const SearchBlock = () => {
           >
             Фильтры
           </Button>
-          <Button mode='transparent' onClick={handleFilterReset}>
+          <Button
+            className={resetButtonClassName}
+            mode='transparent'
+            onClick={handleFilterReset}
+          >
             Сбросить фильтры
           </Button>
         </div>
