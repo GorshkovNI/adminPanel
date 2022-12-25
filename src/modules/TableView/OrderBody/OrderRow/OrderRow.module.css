@@ -1,33 +1,71 @@
+.row{
+  cursor: pointer;
+}
+
 .cell {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    
     padding: 0.75rem 0.5rem;
     box-sizing: border-box;
     color: var(--black);
   }
   
-  .cell:nth-child(2) {
-    width: 7.2%;
+  .groupCell{
+    display: flex;
+    align-items: center;
+    height: 2.5rem;
+    width: 100%;
+    border-bottom: 1px solid var(--color-sensitive);
+    cursor: pointer;
+    gap: 0.2rem;
   }
-  
-  .cell:nth-child(3) {
-    width: 11.7%;
+
+ 
+  .cellOrder{
+    display: flex;
+    align-items: center;
+    width: 6.75rem;
+    height: 2.5rem;
+    padding: 0.75rem 0.5rem;
   }
-  
-  .cell:nth-child(4) {
-    width: 11.7%;
+
+  .cellDate{
+    display: flex;
+    align-items: center;
+    width: 11rem;
+    height: 2.5rem;
+    padding: 0.75rem 0.5rem;
   }
-  
-  .cell:nth-child(5) {
-    width: 6.4%;
+
+  .cellStatus{
+    display: flex;
+    align-items: center;
+    width: 9rem;
+    height: 2.5rem;
+    padding: 0.75rem 0.5rem;
   }
-  
-  .cell:nth-child(6) {
-    width: 8.5%;
+
+  .cellAmount{
+    display: flex;
+    align-items: center;
+    width: 8rem;
+    height: 2.5rem;
+    padding: 0.75rem 0.5rem;
   }
-  
-  .cell:nth-child(7) {
-    width: 52.4%;
+
+  .cellSum{
+    display: flex;
+    align-items: center;
+    width: 8rem;
+    height: 2.5rem;
+    padding: 0.75rem 0.5rem;
   }
-  
+
+  .cellCustomer{
+    display: flex;
+    align-items: center;
+    width: 20rem;
+    height: 2.5rem;
+    padding: 0.75rem 0.5rem;
+  }

@@ -2,6 +2,7 @@
 
 :root[data-theme="light"]{
   --color-blue: #459df5;
+  --color-light-blue-disabled: #bad8f5;
   --color-red: #f53152;
   --color-light-blue: #bad8f5;
   --black: #000000;
@@ -13,6 +14,7 @@
 
 :root[data-theme="dark"]{
   --color-blue: #459df5;
+  --color-light-blue-disabled: #bad9f550;
   --color-red: #f53152;
   --color-light-blue: #bad8f5;
   --black: #BCC4CC;

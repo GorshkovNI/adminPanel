@@ -1,10 +1,17 @@
 .wrapper{
     border-bottom: 1px solid var(--filter-color);
+    
+}
+
+.active{
+    background-color: var(--filter-color);
+    border-bottom: 1px solid var(--filter-color);
 }
 
 .cells{
     display: flex;
-    height: 2.5rem;
+    height: 100%;
+    width: 100%;
     gap: 0.25rem;   
 }
 

@@ -26,18 +26,19 @@
     width: 1rem;
     height: 1rem;
     stroke: var(--color-blue);
-    animation: spin 2s linear 0s infinite;
+    /* animation: spin 2s linear 0s infinite; */
 }
 
 .text{
     color: var(--color-blue);
 }
 
-@keyframes spin {
-    from {transform:rotate(0deg);}
-    to {transform:rotate(360deg);}
+.visible{
+    visibility: hidden;
 }
 
-/* .button{
-    padding: 0.5rem 1rem;
+/* @keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
 } */
+

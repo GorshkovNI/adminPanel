@@ -1,0 +1,10 @@
+._{
+    position: relative;
+}
+
+.modal{
+    top: -1rem;
+    right: 3rem;
+    position: absolute;   
+    z-index: 999;
+}

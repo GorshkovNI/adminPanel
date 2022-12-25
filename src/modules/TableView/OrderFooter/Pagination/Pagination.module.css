@@ -1,0 +1,36 @@
+._{
+    display: flex;
+    position: relative;
+    background-color: inherit;
+}
+
+.container{
+    position: relative;
+    background-color: inherit;
+}
+
+.button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: inherit;
+    color: var(--color-blue);
+    cursor: pointer;
+}
+
+.dots{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    color: var(--color-blue);
+    background-color: inherit;
+}
+
+.active{
+    color: var(--white);
+    background-color: var(--color-blue);
+}

@@ -9,15 +9,19 @@ const inputSize = {
   lsmall: styles.lsmall,
 };
 
+const onlyDigit = (number) => {
+  let value = number.replace(/[^0-9]/g, '');
+  value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+  return value;
+};
+
 export const FilterMoney = ({
-  filterData: {
-    valueTo,
-    valueFrom,
-    onChangeTo,
-    onChangeFrom,
-    onResetTo,
-    onResetFrom,
-  },
+  onChangeTo,
+  onChangeFrom,
+  sumTo,
+  sumFrom,
+  onResetTo,
+  onResetFrom,
 }) => {
   return (
     <div className={styles.infoBlock}>
@@ -25,21 +29,23 @@ export const FilterMoney = ({
       <div className={styles.dateInput}>
         <Input
           className={inputSize.small}
-          value={valueTo}
+          value={sumTo}
           onChange={onChangeTo}
           onReset={onResetTo}
           prefix='от'
           placeholder='₽'
           nameIcon='xMedium'
+          mode={onlyDigit}
         />
         <Input
           className={inputSize.small}
-          value={valueFrom}
+          value={sumFrom}
           onChange={onChangeFrom}
           onReset={onResetFrom}
           prefix='до'
           placeholder='₽'
           nameIcon='xMedium'
+          mode={onlyDigit}
         />
       </div>
     </div>

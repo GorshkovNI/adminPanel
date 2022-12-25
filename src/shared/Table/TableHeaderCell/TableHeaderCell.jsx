@@ -3,13 +3,29 @@ import styles from './TableHeaderCell.module.css';
 import cn from 'classnames';
 import { Icon } from '../../Icons/Icon';
 
-export const TableHeaderCell = ({ className, onSort, children }) => {
+export const TableHeaderCell = ({
+  className,
+  id,
+  isIcon,
+  isActive,
+  children,
+  onClick,
+  direction,
+}) => {
+  const cellClassName = cn(styles.area, className, {
+    [styles.active]: isActive,
+  });
+
+  const iconRotate = cn(styles.icon, {
+    [styles.up]: direction === 1,
+  });
+
   return (
-    <div className={cn(styles.area, className)}>
+    <div className={cellClassName} onClick={onClick} id={id}>
       {children}
-      {onSort && (
-        <div className={styles.iconArea} onClick={onSort}>
-          <Icon name='vArrow' className={styles.icon} />
+      {isIcon && (
+        <div className={styles.iconArea}>
+          <Icon name='vArrow' className={iconRotate} />
         </div>
       )}
     </div>

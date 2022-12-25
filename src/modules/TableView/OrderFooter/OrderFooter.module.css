@@ -1,4 +1,13 @@
+.container{
+    position: relative;
+}
+
+.modal{
+    position: absolute;
+}
+
 .area{
+    position: relative;
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -9,10 +18,16 @@
 }
 
 .edit{
+    position: relative;
     display: flex;
     align-items: center;
     gap: 1rem;
     background-color: var(--filter-color);
+    visibility: hidden;
+}
+
+.visible{
+    visibility: visible ;
 }
 
 .records{

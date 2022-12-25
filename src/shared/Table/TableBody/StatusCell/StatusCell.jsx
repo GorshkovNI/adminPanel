@@ -47,7 +47,7 @@ export const StatusCell = ({ classNames, status }) => {
     <div className={cellClassName}>
       <Icon
         name={STATUS_ICON[status] || STATUS_ICON.other}
-        className={cn(styles.icon, STYLES_ICON[status])}
+        className={cn(styles.icon, STYLES_ICON[status] || styles.other)}
       />
       <span className={styles.text}>{STATUS_FILTERS[status]}</span>
     </div>

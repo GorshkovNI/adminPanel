@@ -1,0 +1,34 @@
+.control {
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    display: flex;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    margin: 0;
+    width: 100%;
+    background-color: var(--white);
+  }
+  
+  .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1rem;
+    font-size: 0.8125rem;
+    color: var(--black);
+  }
+  
+  .radio:checked + .title {
+    color: var(--color-blue);
+  }
+  
+  .radio:checked + .title {
+    color: var(--color-blue);
+  }
+  
+  .radio {
+    display: none;
+  }
